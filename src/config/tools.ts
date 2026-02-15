@@ -66,7 +66,7 @@ export const sections: Section[] = [
         description: "Compress, repair, and enhance your documents",
         tools: [
             { name: "Compress PDF", href: "/compress-pdf", icon: FileArchive, description: "Reduce file size while maintaining quality.", popular: true },
-            { name: "OCR PDF", href: "/ocr-pdf", icon: FileSearch, description: "Make scanned PDFs searchable and selectable." },
+            { name: "OCR PDF", href: "/ocr-pdf", icon: FileSearch, description: "Make scanned PDFs searchable and selectable.", disabled: true },
             { name: "Repair PDF", href: "/repair-pdf", icon: Wrench, description: "Recover data from corrupted or damaged PDFs." },
         ]
     },

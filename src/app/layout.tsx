@@ -8,6 +8,7 @@ import { DownloadQueueProvider } from "@/components/DownloadQueue";
 import { FileProvider } from "@/context/FileContext";
 import { DragDropOverlay } from "@/components/DragDropOverlay";
 import JsonLd from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/react";
 
 
 export const dynamic = 'force-dynamic';
@@ -100,6 +101,8 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -122,6 +125,7 @@ export default function RootLayout({
             </div>
             <DragDropOverlay />
             <JsonLd />
+            <Analytics />
           </FileProvider>
         </DownloadQueueProvider>
       </body>

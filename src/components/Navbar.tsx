@@ -33,7 +33,6 @@ const navItems = [
         tools: [
             { name: "Compress PDF", href: "/compress-pdf", icon: FileArchive, desc: "Reduce file size" },
             { name: "Repair PDF", href: "/repair-pdf", icon: Wrench, desc: "Fix corrupted files" },
-            { name: "OCR PDF", href: "/ocr-pdf", icon: FileSearch, desc: "Make text searchable" },
         ]
     },
     {
@@ -53,7 +52,6 @@ const navItems = [
         hoverColor: "#8B5CF6",
         tools: [
             { name: "Rotate PDF", href: "/rotate-pdf", icon: RotateCcw, desc: "Rotate pages" },
-            { name: "Edit PDF", href: "/edit-pdf", icon: PenTool, desc: "Add text & shapes" },
             { name: "Page Numbers", href: "/page-numbers", icon: Hash, desc: "Add numbering" },
             { name: "Watermark PDF", href: "/watermark-pdf", icon: Stamp, desc: "Add watermarks" },
             { name: "Grayscale PDF", href: "/grayscale-pdf", icon: Palette, desc: "Convert to B&W" },

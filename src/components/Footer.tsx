@@ -36,9 +36,7 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-3 font-medium">
                             <li><Link href="/chat" className="hover:text-[#22D3EE] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />AI Chat</Link></li>
-                            <li><Link href="/edit-pdf" className="hover:text-[#22D3EE] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />Edit PDF</Link></li>
                             <li><Link href="/sign-pdf" className="hover:text-[#22D3EE] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />Sign PDF</Link></li>
-                            <li><Link href="/ocr-pdf" className="hover:text-[#22D3EE] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />OCR PDF</Link></li>
                         </ul>
                     </div>
 
