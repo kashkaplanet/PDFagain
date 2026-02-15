@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Sign PDF - Add Digital Signature to PDF Online | PDFagian',
+  title: 'Sign PDF - Add Digital Signature to PDF Online | PDFagain',
   description: 'Sign PDF documents online for free. Draw your signature or upload an image. Secure and local processing.',
   keywords: ['sign pdf', 'esign pdf', 'digital signature', 'add signature to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sign PDF - Add Digital Signature to PDF Online',
     description: 'Sign PDF documents online for free. Draw your signature or upload an image. Secure and local processing.',
-    url: 'https://pdfagian.com/sign-pdf',
+    url: 'https://pdfagain.com/sign-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function SignPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/sign-pdf",
+    "url": "https://pdfagain.com/sign-pdf",
   };
 
   return (

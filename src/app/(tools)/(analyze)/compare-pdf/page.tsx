@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Compare PDF | PDFagian',
+  title: 'Compare PDF | PDFagain',
   description: 'Free online Compare PDF tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const ComparePdfClient = dynamic(() => import('@/components/tools/ComparePdfClie
 
 
 export default function ComparePdfPage() {
-    return <ComparePdfClient />;
+  return <ComparePdfClient />;
 }

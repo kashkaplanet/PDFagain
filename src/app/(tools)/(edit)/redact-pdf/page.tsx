@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Redact PDF - Black Out Text in PDF Online | PDFagian',
+  title: 'Redact PDF - Black Out Text in PDF Online | PDFagain',
   description: 'Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free and local processing.',
   keywords: ['redact pdf', 'black out pdf', 'remove text from pdf', 'sanitize pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Redact PDF - Black Out Text in PDF Online',
     description: 'Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free and local processing.',
-    url: 'https://pdfagian.com/redact-pdf',
+    url: 'https://pdfagain.com/redact-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function RedactPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/redact-pdf",
+    "url": "https://pdfagain.com/redact-pdf",
   };
 
   return (

@@ -22,7 +22,7 @@ const prohibitedItems = [
     "Processing illegal content or promoting violence/exploitation.",
     "Attempting to reverse engineer proprietary application logic.",
     "Disrupting service availability (e.g., DDoS attacks).",
-    "Misrepresenting affiliation with PDFagian.",
+    "Misrepresenting affiliation with PDFagain.",
 ];
 
 export default function TermsPage() {
@@ -112,7 +112,7 @@ export default function TermsPage() {
                                 Agreement
                             </h2>
                             <p className="font-medium text-gray-700 leading-relaxed mb-6 pl-4">
-                                These Terms constitute a legally binding agreement between you (&quot;User&quot;) and PDFagian. By accessing or using the PDFagian website, you agree to these Terms.
+                                These Terms constitute a legally binding agreement between you (&quot;User&quot;) and PDFagain. By accessing or using the PDFagain website, you agree to these Terms.
                             </p>
                             <div className="p-5 border-2 border-black bg-[#FBBF24]/20 flex items-center gap-4 ml-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <AlertOctagon className="w-6 h-6 shrink-0 text-black" />
@@ -187,7 +187,7 @@ export default function TermsPage() {
                                         <h3 className="font-bold font-display uppercase tracking-wide text-sm">Our Content</h3>
                                     </div>
                                     <p className="text-xs text-gray-600 font-medium leading-relaxed">
-                                        Visual interfaces and branding are property of PDFagian. Code is under MIT License.
+                                        Visual interfaces and branding are property of PDFagain. Code is under MIT License.
                                     </p>
                                 </div>
                             </div>

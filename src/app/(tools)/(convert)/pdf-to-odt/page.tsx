@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF To ODT | PDFagian',
+  title: 'PDF To ODT | PDFagain',
   description: 'Free online PDF To ODT tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const PdfToOdtClient = dynamic(() => import('@/components/tools/PdfToOdtClient')
 
 
 export default function PdfToOdtPage() {
-    return <PdfToOdtClient />;
+  return <PdfToOdtClient />;
 }

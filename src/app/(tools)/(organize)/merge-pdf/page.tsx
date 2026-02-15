@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Merge PDF - Combine PDF Files Online for Free | PDFagian',
+  title: 'Merge PDF - Combine PDF Files Online for Free | PDFagain',
   description: 'Merge multiple PDF files into one document instantly. 100% free, secure, and processing happens locally in your browser. No upload limits.',
   keywords: ['merge pdf', 'combine pdf', 'join pdf', 'pdf merger', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Merge PDF - Combine PDF Files Online for Free',
     description: 'Merge multiple PDF files into one document instantly. 100% free, secure, and processing happens locally.',
-    url: 'https://pdfagian.com/merge-pdf',
+    url: 'https://pdfagain.com/merge-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function MergePdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/merge-pdf",
+    "url": "https://pdfagain.com/merge-pdf",
   };
 
   return (

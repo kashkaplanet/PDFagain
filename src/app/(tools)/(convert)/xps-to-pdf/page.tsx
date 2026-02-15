@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'XPS To PDF | PDFagian',
+  title: 'XPS To PDF | PDFagain',
   description: 'Free online XPS To PDF tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const XpsToPdfClient = dynamic(() => import('@/components/tools/XpsToPdfClient')
 
 
 export default function XpsToPdfPage() {
-    return <XpsToPdfClient />;
+  return <XpsToPdfClient />;
 }

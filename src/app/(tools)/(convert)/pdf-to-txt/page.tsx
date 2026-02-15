@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF To TXT | PDFagian',
+  title: 'PDF To TXT | PDFagain',
   description: 'Free online PDF To TXT tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const PdfToTxtClient = dynamic(() => import('@/components/tools/PdfToTxtClient')
 
 
 export default function PdfToTxtPage() {
-    return <PdfToTxtClient />;
+  return <PdfToTxtClient />;
 }

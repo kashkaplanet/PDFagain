@@ -34,17 +34,17 @@ const futura = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "PDFagian - 100% Free PDF Tools",
-    template: "%s | PDFagian",
+    default: "PDFagain - 100% Free PDF Tools",
+    template: "%s | PDFagain",
   },
   description: "Chat with PDF, edit, convert, and organize. 100% free and local processing. No file uploads - secure and private PDF tools.",
-  applicationName: "PDFagian",
-  authors: [{ name: "PDFagian" }],
+  applicationName: "PDFagain",
+  authors: [{ name: "PDFagain" }],
   generator: "Next.js",
   keywords: ["pdf tools", "convert pdf", "edit pdf", "merge pdf", "split pdf", "compress pdf", "free pdf tools", "offline pdf tools", "local pdf processing", "chat with pdf", "ocr pdf"],
   referrer: "origin-when-cross-origin",
-  creator: "PDFagian",
-  publisher: "PDFagian",
+  creator: "PDFagain",
+  publisher: "PDFagain",
   formatDetection: {
     email: false,
     address: false,
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "PDFagian - 100% Free PDF Tools",
+    title: "PDFagain - 100% Free PDF Tools",
     description: "Chat with PDF, edit, convert, and organize. 100% free and local processing. No file uploads - secure and private PDF tools.",
     url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-    siteName: "PDFagian",
+    siteName: "PDFagain",
     locale: "en_US",
     type: "website",
     images: [
@@ -66,15 +66,15 @@ export const metadata: Metadata = {
         url: "/og-image.png", // We should probably create this or use a default one - I'll assume one exists or will be created, or user can provide
         width: 1200,
         height: 630,
-        alt: "PDFagian - Free PDF Tools",
+        alt: "PDFagain - Free PDF Tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PDFagian - 100% Free PDF Tools",
+    title: "PDFagain - 100% Free PDF Tools",
     description: "Chat with PDF, edit, convert, and organize. 100% free and local processing.",
-    creator: "@pdfagian", // Placeholder
+    creator: "@pdfagain", // Placeholder
     images: ["/og-image.png"],
   },
   icons: {

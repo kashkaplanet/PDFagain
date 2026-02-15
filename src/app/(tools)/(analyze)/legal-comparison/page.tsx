@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Legal Comparison | PDFagian',
+  title: 'Legal Comparison | PDFagain',
   description: 'Free online Legal Comparison tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const LegalComparisonClient = dynamic(() => import('@/components/tools/LegalComp
 
 
 export default function LegalComparisonPage() {
-    return <LegalComparisonClient />;
+  return <LegalComparisonClient />;
 }

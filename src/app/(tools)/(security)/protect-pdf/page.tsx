@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Protect PDF - Encrypt PDF with Password | PDFagian',
+  title: 'Protect PDF - Encrypt PDF with Password | PDFagain',
   description: 'Protect your PDF files with a password. Encrypt PDF documents securely. 100% free and local processing.',
   keywords: ['protect pdf', 'encrypt pdf', 'password protect pdf', 'pdf security', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Protect PDF - Encrypt PDF with Password',
     description: 'Protect your PDF files with a password. Encrypt PDF documents securely. 100% free and local processing.',
-    url: 'https://pdfagian.com/protect-pdf',
+    url: 'https://pdfagain.com/protect-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function ProtectPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/protect-pdf",
+    "url": "https://pdfagain.com/protect-pdf",
   };
 
   return (

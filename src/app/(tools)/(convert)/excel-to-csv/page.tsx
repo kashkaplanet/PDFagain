@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Excel To CSV | PDFagian',
+  title: 'Excel To CSV | PDFagain',
   description: 'Free online Excel To CSV tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const ExcelToCsvClient = dynamic(() => import('@/components/tools/ExcelToCsvClie
 
 
 export default function ExcelToCsvPage() {
-    return <ExcelToCsvClient />;
+  return <ExcelToCsvClient />;
 }

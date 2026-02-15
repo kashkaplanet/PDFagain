@@ -67,10 +67,10 @@ export default function Footer() {
 
                 <div className="pt-8 border-t-2 border-dashed border-gray-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-medium text-gray-500">
                     <div>
-                        © {new Date().getFullYear()} PDFagian.
+                        © {new Date().getFullYear()} PDFagain.
                     </div>
                     <div className="flex items-center gap-1">
-                        Made with <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" /> by PDFagian Team
+                        Made with <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" /> by PDFagain Team
                     </div>
                 </div>
             </div>

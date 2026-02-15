@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Extract Pages - Save Specific PDF Pages Online | PDFagian',
+  title: 'Extract Pages - Save Specific PDF Pages Online | PDFagain',
   description: 'Extract specific pages from your PDF file and save them as a new document. 100% free, secure, and local processing.',
   keywords: ['extract pdf pages', 'save pdf pages', 'split pdf pages', 'pdf extractor', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Extract Pages - Save Specific PDF Pages Online',
     description: 'Extract specific pages from your PDF file and save them as a new document. 100% free, secure, and local processing.',
-    url: 'https://pdfagian.com/extract-pages',
+    url: 'https://pdfagain.com/extract-pages',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function ExtractPagesPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/extract-pages",
+    "url": "https://pdfagain.com/extract-pages",
   };
 
   return (

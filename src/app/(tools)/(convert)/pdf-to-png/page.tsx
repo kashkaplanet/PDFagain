@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF To PNG | PDFagian',
-  description: 'Free online PDF To PNG tool. Fast, secure, and private. No installation required.',
+    title: 'PDF To PNG | PDFagain',
+    description: 'Free online PDF To PNG tool. Fast, secure, and private. No installation required.',
 };
 
 import dynamic from 'next/dynamic';

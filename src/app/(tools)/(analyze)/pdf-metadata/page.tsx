@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF Metadata | PDFagian',
+  title: 'PDF Metadata | PDFagain',
   description: 'Free online PDF Metadata tool. Fast, secure, and private. No installation required.',
 };
 

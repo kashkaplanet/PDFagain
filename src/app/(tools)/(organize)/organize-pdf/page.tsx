@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Organize PDF | PDFagian',
+  title: 'Organize PDF | PDFagain',
   description: 'Free online Organize PDF tool. Fast, secure, and private. No installation required.',
 };
 
@@ -17,5 +17,5 @@ const OrganizePdfClient = dynamic(() => import('@/components/tools/OrganizePdfCl
 
 
 export default function OrganizePdfPage() {
-    return <OrganizePdfClient />;
+  return <OrganizePdfClient />;
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF To Binary | PDFagian',
+  title: 'PDF To Binary | PDFagain',
   description: 'Free online PDF To Binary tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const PdfToBinaryClient = dynamic(() => import('@/components/tools/PdfToBinaryCl
 
 
 export default function PdfToBinaryPage() {
-    return <PdfToBinaryClient />;
+  return <PdfToBinaryClient />;
 }

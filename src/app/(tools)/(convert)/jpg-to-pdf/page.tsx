@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'JPG to PDF - Convert Images to PDF Online for Free | PDFagian',
+  title: 'JPG to PDF - Convert Images to PDF Online for Free | PDFagain',
   description: 'Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and processing happens locally in your browser.',
   keywords: ['jpg to pdf', 'image to pdf', 'convert jpg to pdf', 'png to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'JPG to PDF - Convert Images to PDF Online for Free',
     description: 'Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and processing happens locally.',
-    url: 'https://pdfagian.com/jpg-to-pdf',
+    url: 'https://pdfagain.com/jpg-to-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function JpgToPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/jpg-to-pdf",
+    "url": "https://pdfagain.com/jpg-to-pdf",
   };
 
   return (

@@ -9,8 +9,8 @@ import { SearchBar } from "@/components/home/SearchBar";
 import { ToolGrid } from "@/components/home/ToolGrid";
 
 // LocalStorage keys
-const RECENT_KEY = "pdfagian_recent_tools";
-const FAVORITES_KEY = "pdfagian_favorite_tools";
+const RECENT_KEY = "pdfagain_recent_tools";
+const FAVORITES_KEY = "pdfagain_favorite_tools";
 const MAX_RECENT = 5;
 const PLACEHOLDERS = [
     "Search tools...",

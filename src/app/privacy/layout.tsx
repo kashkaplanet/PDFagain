@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | PDFagian",
-    description: "PDFagian Privacy Policy: Comprehensive details on our zero-data-collection approach.",
+    title: "Privacy Policy | PDFagain",
+    description: "PDFagain Privacy Policy: Comprehensive details on our zero-data-collection approach.",
 };
 
 export default function PrivacyLayout({ children }: { children: React.ReactNode }) {

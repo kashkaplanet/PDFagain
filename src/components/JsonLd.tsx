@@ -6,7 +6,7 @@ export default function JsonLd({ data }: JsonLdProps) {
     const defaultData = {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "PDFagian",
+        "name": "PDFagain",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Any",
         "offers": {

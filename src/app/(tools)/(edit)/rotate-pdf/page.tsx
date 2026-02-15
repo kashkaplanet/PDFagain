@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Rotate PDF - Rotate PDF Pages Online for Free | PDFagian',
+  title: 'Rotate PDF - Rotate PDF Pages Online for Free | PDFagain',
   description: 'Rotate PDF pages permanently. Rotate individual pages or all pages. 100% free, secure, and local processing.',
   keywords: ['rotate pdf', 'rotate pdf pages', 'turn pdf pages', 'pdf rotator', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rotate PDF - Rotate PDF Pages Online for Free',
     description: 'Rotate PDF pages permanently. Rotate individual pages or all pages. 100% free, secure, and local processing.',
-    url: 'https://pdfagian.com/rotate-pdf',
+    url: 'https://pdfagain.com/rotate-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function RotatePdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/rotate-pdf",
+    "url": "https://pdfagain.com/rotate-pdf",
   };
 
   return (

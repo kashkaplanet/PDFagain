@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Binary To JPG | PDFagian',
+  title: 'Binary To JPG | PDFagain',
   description: 'Free online Binary To JPG tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const BinaryToJpgClient = dynamic(() => import('@/components/tools/BinaryToJpgCl
 
 
 export default function BinaryToJpgPage() {
-    return <BinaryToJpgClient />;
+  return <BinaryToJpgClient />;
 }

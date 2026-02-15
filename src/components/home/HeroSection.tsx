@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap justify-center gap-6">
-                <RetroButton label="Try PDFagian" variant="pink" href="#organize-pdf" className="text-xl px-8 py-4" />
+                <RetroButton label="Try PDFagain" variant="pink" href="#organize-pdf" className="text-xl px-8 py-4" />
                 <RetroButton
                     label="Chat with PDF"
                     variant="cyan"

@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Mail, MessageSquare, HelpCircle, Bug, Github, AlertTriangle, ArrowLeft, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "Contact Us | PDFagian",
-    description: "Get in touch with the PDFagian team. We're here to help with your questions, feedback, and bug reports.",
+    title: "Contact Us | PDFagain",
+    description: "Get in touch with the PDFagain team. We're here to help with your questions, feedback, and bug reports.",
 };
 
 const sections = [
@@ -104,15 +104,15 @@ export default function ContactPage() {
                     <div className="space-y-4">
                         {[
                             {
-                                q: "Is PDFagian really free?",
-                                a: "Yes! All tools on PDFagian are 100% free to use. There are no limits on file size or number of files."
+                                q: "Is PDFagain really free?",
+                                a: "Yes! All tools on PDFagain are 100% free to use. There are no limits on file size or number of files."
                             },
                             {
                                 q: "Are my files safe?",
                                 a: "Absolutely. We use client-side processing, which means your files never leave your computer. Check our Security page for more details."
                             },
                             {
-                                q: "Can I use PDFagian offline?",
+                                q: "Can I use PDFagain offline?",
                                 a: "Yes. Once the website is loaded, you can disconnect from the internet and still use most of the tools."
                             },
                             {

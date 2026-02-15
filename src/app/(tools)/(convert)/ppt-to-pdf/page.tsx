@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'PPT to PDF - Convert PowerPoint to PDF Online for Free | PDFagian',
+  title: 'PPT to PDF - Convert PowerPoint to PDF Online for Free | PDFagain',
   description: 'Convert PowerPoint presentations (PPTX) to PDF documents instantly. 100% free, secure, and processing happens locally in your browser.',
   keywords: ['ppt to pdf', 'pptx to pdf', 'convert powerpoint to pdf', 'powerpoint to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PPT to PDF - Convert PowerPoint to PDF Online for Free',
     description: 'Convert PowerPoint presentations to PDF documents instantly. 100% free, secure, and processing happens locally.',
-    url: 'https://pdfagian.com/ppt-to-pdf',
+    url: 'https://pdfagain.com/ppt-to-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function PptToPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/ppt-to-pdf",
+    "url": "https://pdfagain.com/ppt-to-pdf",
   };
 
   return (

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-    title: 'Edit PDF - Free Online PDF Editor | PDFagian',
+    title: 'Edit PDF - Free Online PDF Editor | PDFagain',
     description: 'Edit PDF files online for free. Add text, images, and shapes to your PDF documents. Secure and local processing.',
     keywords: ['edit pdf', 'pdf editor', 'free pdf editor', 'add text to pdf', 'online pdf editor', 'local pdf processing'],
     alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Edit PDF - Free Online PDF Editor',
         description: 'Edit PDF files online for free. Add text, images, and shapes to your PDF documents. Secure and local processing.',
-        url: 'https://pdfagian.com/edit-pdf',
+        url: 'https://pdfagain.com/edit-pdf',
         type: 'website',
     },
 };
@@ -32,7 +32,7 @@ export default function EditPdfPage() {
             "price": "0",
             "priceCurrency": "USD"
         },
-        "url": "https://pdfagian.com/edit-pdf",
+        "url": "https://pdfagain.com/edit-pdf",
     };
 
     return (

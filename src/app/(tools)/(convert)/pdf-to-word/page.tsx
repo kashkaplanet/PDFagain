@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'PDF to Word - Convert PDF to DOCX Online for Free | PDFagian',
+  title: 'PDF to Word - Convert PDF to DOCX Online for Free | PDFagain',
   description: 'Convert PDF files to editable Word (DOCX) documents. 100% free, secure, and processing happens locally in your browser.',
   keywords: ['pdf to word', 'convert pdf to docx', 'pdf converter', 'editable word', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PDF to Word - Convert PDF to DOCX Online for Free',
     description: 'Convert PDF files to editable Word documents. 100% free, secure, and processing happens locally.',
-    url: 'https://pdfagian.com/pdf-to-word',
+    url: 'https://pdfagain.com/pdf-to-word',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function PdfToWordPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/pdf-to-word",
+    "url": "https://pdfagain.com/pdf-to-word",
   };
 
   return (

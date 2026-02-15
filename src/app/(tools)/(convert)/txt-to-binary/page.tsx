@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'TXT To Binary | PDFagian',
+  title: 'TXT To Binary | PDFagain',
   description: 'Free online TXT To Binary tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const TxtToBinaryClient = dynamic(() => import('@/components/tools/TxtToBinaryCl
 
 
 export default function TxtToBinaryPage() {
-    return <TxtToBinaryClient />;
+  return <TxtToBinaryClient />;
 }

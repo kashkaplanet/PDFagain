@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bank Statement Converter | PDFagian',
+  title: 'Bank Statement Converter | PDFagain',
   description: 'Free online Bank Statement Converter tool. Fast, secure, and private. No installation required.',
 };
 

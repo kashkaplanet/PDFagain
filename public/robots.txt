@@ -4,4 +4,4 @@ Allow: /
 
 Disallow: /api/
 
-Sitemap: https://pdfagian.com/sitemap.xml
+Sitemap: https://pdfagain.com/sitemap.xml

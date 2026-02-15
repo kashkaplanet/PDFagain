@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Unlock PDF - Remove Password from PDF | PDFagian',
+  title: 'Unlock PDF - Remove Password from PDF | PDFagain',
   description: 'Remove password protection from PDF files. Unlock PDF documents instantly. 100% free, secure, and local processing.',
   keywords: ['unlock pdf', 'remove pdf password', 'decrypt pdf', 'pdf password remover', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Unlock PDF - Remove Password from PDF',
     description: 'Remove password protection from PDF files. Unlock PDF documents instantly. 100% free and local processing.',
-    url: 'https://pdfagian.com/unlock-pdf',
+    url: 'https://pdfagain.com/unlock-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function UnlockPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/unlock-pdf",
+    "url": "https://pdfagain.com/unlock-pdf",
   };
 
   return (

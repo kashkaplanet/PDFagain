@@ -105,12 +105,12 @@ export default function PrivacyPage() {
                                 Our Promise
                             </h2>
                             <p className="font-medium text-gray-700 leading-relaxed mb-6 pl-4">
-                                At PDFagian, we have fundamentally architected our service to avoid knowing anything about you or your files. We do not want your data. We do not sell your data. We do not store your data.
+                                At PDFagain, we have fundamentally architected our service to avoid knowing anything about you or your files. We do not want your data. We do not sell your data. We do not store your data.
                             </p>
                             <div className="bg-[#FFFBE6] border-2 border-black p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative ml-4">
                                 <div className="absolute -top-3 -left-3 bg-black text-white px-3 py-1 text-[10px] font-display uppercase tracking-widest">No-Server Rule</div>
                                 <p className="text-sm font-medium text-gray-700 mt-2 leading-relaxed">
-                                    When you &quot;upload&quot; a file to PDFagian, you are actually just loading it into your own browser&apos;s memory. It never travels over the internet to our servers. Therefore, we literally <strong>cannot</strong> have a privacy breach regarding your files, because we never possess them.
+                                    When you &quot;upload&quot; a file to PDFagain, you are actually just loading it into your own browser&apos;s memory. It never travels over the internet to our servers. Therefore, we literally <strong>cannot</strong> have a privacy breach regarding your files, because we never possess them.
                                 </p>
                             </div>
                         </section>

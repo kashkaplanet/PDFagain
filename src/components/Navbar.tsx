@@ -86,7 +86,7 @@ export default function Navbar() {
                         </div>
                     </div>
                     <span className="text-2xl font-display font-black tracking-tight text-black group-hover:translate-x-[2px] transition-transform">
-                        PDFagian
+                        PDFagain
                     </span>
                 </Link>
 

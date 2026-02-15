@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Excel to PDF - Convert XLSX to PDF Online for Free | PDFagian',
+  title: 'Excel to PDF - Convert XLSX to PDF Online for Free | PDFagain',
   description: 'Convert Excel spreadsheets (XLSX) to PDF documents instantly. 100% free, secure, and processing happens locally in your browser.',
   keywords: ['excel to pdf', 'xlsx to pdf', 'convert excel to pdf', 'xls to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Excel to PDF - Convert XLSX to PDF Online for Free',
     description: 'Convert Excel spreadsheets to PDF documents instantly. 100% free, secure, and processing happens locally.',
-    url: 'https://pdfagian.com/excel-to-pdf',
+    url: 'https://pdfagain.com/excel-to-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function ExcelToPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/excel-to-pdf",
+    "url": "https://pdfagain.com/excel-to-pdf",
   };
 
   return (

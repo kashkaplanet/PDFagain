@@ -21,7 +21,7 @@ const techItems = [
 const privacyItems = [
     { title: "GDPR & CCPA Compliant", desc: "Since no personal data or files are collected, we automatically meet strict data sovereignty requirements." },
     { title: 'No "Big Brother"', desc: "No user accounts, no login tracking, and no way to tie specific file activity to an individual." },
-    { title: "Corporate Safe", desc: "Employees can safely use PDFagian for internal documents because files never cross the firewall." },
+    { title: "Corporate Safe", desc: "Employees can safely use PDFagain for internal documents because files never cross the firewall." },
 ];
 
 const trustBadges = [
@@ -97,7 +97,7 @@ export default function SecurityPage() {
                             </div>
 
                             <p className="text-lg font-medium text-gray-600 max-w-xl leading-relaxed">
-                                How PDFagian protects your data through complete isolation and client-side processing.
+                                How PDFagain protects your data through complete isolation and client-side processing.
                             </p>
                         </div>
 
@@ -119,7 +119,7 @@ export default function SecurityPage() {
                                 <div className="absolute -top-3 -left-3 bg-black text-white px-3 py-1 text-[10px] font-display uppercase tracking-widest">Key Promise</div>
                                 <p className="text-xl font-display uppercase tracking-tight mb-4 mt-2">&quot;Your Data Never Leaves Your Device&quot;</p>
                                 <p className="font-medium text-gray-700 leading-relaxed text-sm md:text-base">
-                                    Unlike traditional PDF services that require uploading files to a remote server for processing, PDFagian operates <strong>entirely within your web browser</strong>. The PDF manipulation code downloads once to your device and runs locally. This means there is no &quot;cloud&quot; component that sees your files at all.
+                                    Unlike traditional PDF services that require uploading files to a remote server for processing, PDFagain operates <strong>entirely within your web browser</strong>. The PDF manipulation code downloads once to your device and runs locally. This means there is no &quot;cloud&quot; component that sees your files at all.
                                 </p>
                             </div>
                         </section>

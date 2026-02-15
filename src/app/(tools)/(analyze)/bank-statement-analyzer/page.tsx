@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bank Statement Analyzer | PDFagian',
+  title: 'Bank Statement Analyzer | PDFagain',
   description: 'Free online Bank Statement Analyzer tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const BankStatementAnalyzerClient = dynamic(() => import('@/components/tools/Ban
 
 
 export default function BankStatementAnalyzerPage() {
-    return <BankStatementAnalyzerClient />;
+  return <BankStatementAnalyzerClient />;
 }

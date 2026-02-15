@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Page Numbers - Add Page Numbers to PDF Online | PDFagian',
+  title: 'Page Numbers - Add Page Numbers to PDF Online | PDFagain',
   description: 'Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and local processing.',
   keywords: ['page numbers', 'add page numbers to pdf', 'number pdf pages', 'paginate pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Page Numbers - Add Page Numbers to PDF Online',
     description: 'Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and local processing.',
-    url: 'https://pdfagian.com/page-numbers',
+    url: 'https://pdfagain.com/page-numbers',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function PageNumbersPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/page-numbers",
+    "url": "https://pdfagain.com/page-numbers",
   };
 
   return (

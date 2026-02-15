@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Webp To PDF | PDFagian',
-  description: 'Free online Webp To PDF tool. Fast, secure, and private. No installation required.',
+    title: 'Webp To PDF | PDFagain',
+    description: 'Free online Webp To PDF tool. Fast, secure, and private. No installation required.',
 };
 
 import dynamic from 'next/dynamic';

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Repair PDF - Fix Corrupted PDF Files | PDFagian',
+  title: 'Repair PDF - Fix Corrupted PDF Files | PDFagain',
   description: 'Repair corrupted or damaged PDF files. Recover data from unreadable PDFs. 100% free, secure, and local processing.',
   keywords: ['repair pdf', 'fix pdf', 'recover pdf', 'corrupt pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Repair PDF - Fix Corrupted PDF Files',
     description: 'Repair corrupted or damaged PDF files. Recover data from unreadable PDFs. 100% free and local processing.',
-    url: 'https://pdfagian.com/repair-pdf',
+    url: 'https://pdfagain.com/repair-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function RepairPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/repair-pdf",
+    "url": "https://pdfagain.com/repair-pdf",
   };
 
   return (

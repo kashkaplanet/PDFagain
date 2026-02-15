@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Remove Pages | PDFagian',
+  title: 'Remove Pages | PDFagain',
   description: 'Free online Remove Pages tool. Fast, secure, and private. No installation required.',
 };
 
@@ -17,5 +17,5 @@ const RemovePagesPdfClient = dynamic(() => import('@/components/tools/RemovePage
 
 
 export default function RemovePagesPdfPage() {
-    return <RemovePagesPdfClient />;
+  return <RemovePagesPdfClient />;
 }

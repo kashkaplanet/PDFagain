@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Compress PDF - Reduce PDF File Size Online for Free | PDFagian',
+  title: 'Compress PDF - Reduce PDF File Size Online for Free | PDFagain',
   description: 'Compress PDF files to reduce size while maintaining quality. 100% free, secure, and processing happens locally in your browser.',
   keywords: ['compress pdf', 'reduce pdf size', 'optimize pdf', 'pdf compressor', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Compress PDF - Reduce PDF File Size Online for Free',
     description: 'Compress PDF files to reduce size while maintaining quality. 100% free, secure, and processing happens locally.',
-    url: 'https://pdfagian.com/compress-pdf',
+    url: 'https://pdfagain.com/compress-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function CompressPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/compress-pdf",
+    "url": "https://pdfagain.com/compress-pdf",
   };
 
   return (

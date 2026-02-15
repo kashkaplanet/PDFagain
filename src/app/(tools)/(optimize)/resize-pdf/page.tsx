@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Resize PDF - Change PDF Page Size | PDFagian',
+  title: 'Resize PDF - Change PDF Page Size | PDFagain',
   description: 'Change the page size of your PDF document. Scale pages to A4, Letter, and more. 100% free and local processing.',
   keywords: ['resize pdf', 'change pdf size', 'scale pdf', 'pdf page size', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Resize PDF - Change PDF Page Size',
     description: 'Change the page size of your PDF document. Scale pages to A4, Letter, and more. 100% free and local processing.',
-    url: 'https://pdfagian.com/resize-pdf',
+    url: 'https://pdfagain.com/resize-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function ResizePdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/resize-pdf",
+    "url": "https://pdfagain.com/resize-pdf",
   };
 
   return (

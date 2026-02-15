@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'OCR PDF | PDFagian',
+  title: 'OCR PDF | PDFagain',
   description: 'Free online OCR PDF tool. Fast, secure, and private. No installation required.',
 };
 

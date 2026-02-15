@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Split PDF - Separate PDF Pages Online for Free | PDFagian',
+  title: 'Split PDF - Separate PDF Pages Online for Free | PDFagain',
   description: 'Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and local processing.',
   keywords: ['split pdf', 'extract pdf pages', 'separate pdf', 'pdf splitter', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Split PDF - Separate PDF Pages Online for Free',
     description: 'Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and local processing.',
-    url: 'https://pdfagian.com/split-pdf',
+    url: 'https://pdfagain.com/split-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function SplitPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/split-pdf",
+    "url": "https://pdfagain.com/split-pdf",
   };
 
   return (

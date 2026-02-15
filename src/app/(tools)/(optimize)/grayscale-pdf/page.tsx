@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Grayscale PDF - Convert PDF to Black and White | PDFagian',
+  title: 'Grayscale PDF - Convert PDF to Black and White | PDFagain',
   description: 'Convert PDF documents to grayscale (black and white). Reduce printing costs and file size. 100% free and local processing.',
   keywords: ['grayscale pdf', 'convert pdf to black and white', 'remove color from pdf', 'pdf grayscale', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Grayscale PDF - Convert PDF to Black and White',
     description: 'Convert PDF documents to grayscale (black and white). Reduce printing costs and file size. 100% free and local processing.',
-    url: 'https://pdfagian.com/grayscale-pdf',
+    url: 'https://pdfagain.com/grayscale-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function GrayscalePdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/grayscale-pdf",
+    "url": "https://pdfagain.com/grayscale-pdf",
   };
 
   return (

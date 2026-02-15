@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Flatten PDF - Make PDF Read-Only Online | PDFagian',
+  title: 'Flatten PDF - Make PDF Read-Only Online | PDFagain',
   description: 'Flatten PDF forms and annotations to make them uneditable. Merge layers into a single layer. 100% free and local processing.',
   keywords: ['flatten pdf', 'make pdf read only', 'merge pdf layers', 'pdf flattener', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Flatten PDF - Make PDF Read-Only Online',
     description: 'Flatten PDF forms and annotations to make them uneditable. Merge layers into a single layer. 100% free and local processing.',
-    url: 'https://pdfagian.com/flatten-pdf',
+    url: 'https://pdfagain.com/flatten-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function FlattenPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/flatten-pdf",
+    "url": "https://pdfagain.com/flatten-pdf",
   };
 
   return (

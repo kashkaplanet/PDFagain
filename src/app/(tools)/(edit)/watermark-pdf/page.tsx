@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Watermark PDF - Add Watermark to PDF Online | PDFagian',
+  title: 'Watermark PDF - Add Watermark to PDF Online | PDFagain',
   description: 'Add text or image watermarks to your PDF documents. Customize position, opacity, and style. Secure and local processing.',
   keywords: ['watermark pdf', 'add watermark', 'pdf watermark', 'stamp pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Watermark PDF - Add Watermark to PDF Online',
     description: 'Add text or image watermarks to your PDF documents. Customize position, opacity, and style. Secure and local processing.',
-    url: 'https://pdfagian.com/watermark-pdf',
+    url: 'https://pdfagain.com/watermark-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function WatermarkPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/watermark-pdf",
+    "url": "https://pdfagain.com/watermark-pdf",
   };
 
   return (

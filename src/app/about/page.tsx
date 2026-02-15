@@ -3,13 +3,13 @@ import Link from "next/link";
 import { Users, Heart, Zap, Shield, Globe, ArrowLeft, Github, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "About Us | PDFagian",
-    description: "Learn about the mission and values behind PDFagian - the privacy-first, client-side PDF tool suite.",
+    title: "About Us | PDFagain",
+    description: "Learn about the mission and values behind PDFagain - the privacy-first, client-side PDF tool suite.",
 };
 
 const sections = [
     { id: "mission", title: "Our Mission", icon: Heart },
-    { id: "why", title: "Why PDFagian?", icon: Zap },
+    { id: "why", title: "Why PDFagain?", icon: Zap },
     { id: "privacy-first", title: "Privacy First", icon: Shield },
     { id: "team", title: "The Team", icon: Users },
 ];
@@ -27,7 +27,7 @@ export default function AboutPage() {
                     <Users className="w-10 h-10 text-black" />
                 </div>
                 <h1 className="text-5xl md:text-6xl font-display font-black tracking-tight mb-4">
-                    About PDFagian
+                    About PDFagain
                 </h1>
                 <p className="text-lg font-medium text-gray-600 max-w-2xl mx-auto">
                     We&apos;re building the web&apos;s most private, fast, and easy-to-use PDF tools.
@@ -72,7 +72,7 @@ export default function AboutPage() {
                             The internet is full of &quot;free&quot; PDF tools that come with a hidden cost: your privacy. Most online PDF converters upload your files to remote servers, often storing them for hours or days. We believe there&apos;s a better way.
                         </p>
                         <p className="leading-relaxed">
-                            <strong>PDFagian&apos;s mission is simple:</strong> to provide powerful, professional-grade PDF tools that run 100% in your browser. No uploads, no waiting, and absolutely no privacy compromises.
+                            <strong>PDFagain&apos;s mission is simple:</strong> to provide powerful, professional-grade PDF tools that run 100% in your browser. No uploads, no waiting, and absolutely no privacy compromises.
                         </p>
                     </div>
                 </section>
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <section id="why" className="scroll-mt-24">
                     <div className="flex items-center gap-3 mb-6">
                         <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-sm font-black">2</span>
-                        <h2 className="text-2xl md:text-3xl font-display font-black">Why PDFagian?</h2>
+                        <h2 className="text-2xl md:text-3xl font-display font-black">Why PDFagain?</h2>
                     </div>
                     <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -98,7 +98,7 @@ export default function AboutPage() {
                             <div className="bg-[#FFFBE6] border-2 border-black p-4">
                                 <Globe className="w-8 h-8 text-[#A3E635] mb-3" />
                                 <h3 className="font-bold text-lg mb-2">Works Offline</h3>
-                                <p className="text-sm text-gray-700">PDFagian works without an internet connection. Once the page is loaded, you&apos;re good to go.</p>
+                                <p className="text-sm text-gray-700">PDFagain works without an internet connection. Once the page is loaded, you&apos;re good to go.</p>
                             </div>
                             <div className="bg-[#FFFBE6] border-2 border-black p-4">
                                 <Heart className="w-8 h-8 text-[#F472B6] mb-3" />
@@ -133,7 +133,7 @@ export default function AboutPage() {
                     </div>
                     <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
                         <p className="leading-relaxed">
-                            PDFagian is maintained by a small team of developers passionate about privacy and web performance. We are constantly working to add new tools and improve existing ones.
+                            PDFagain is maintained by a small team of developers passionate about privacy and web performance. We are constantly working to add new tools and improve existing ones.
                         </p>
                     </div>
                 </section>

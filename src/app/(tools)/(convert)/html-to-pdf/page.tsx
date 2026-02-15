@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'HTML to PDF - Convert Web Pages to PDF | PDFagian',
+  title: 'HTML to PDF - Convert Web Pages to PDF | PDFagain',
   description: 'Convert HTML files and web pages to PDF documents. Save websites as PDF. 100% free and local processing.',
   keywords: ['html to pdf', 'convert web to pdf', 'save website as pdf', 'url to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'HTML to PDF - Convert Web Pages to PDF',
     description: 'Convert HTML files and web pages to PDF documents. Save websites as PDF. 100% free and local processing.',
-    url: 'https://pdfagian.com/html-to-pdf',
+    url: 'https://pdfagain.com/html-to-pdf',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default function HtmlToPdfPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "url": "https://pdfagian.com/html-to-pdf",
+    "url": "https://pdfagain.com/html-to-pdf",
   };
 
   return (

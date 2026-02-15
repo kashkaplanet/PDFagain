@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF To RTF | PDFagian',
+  title: 'PDF To RTF | PDFagain',
   description: 'Free online PDF To RTF tool. Fast, secure, and private. No installation required.',
 };
 
@@ -15,5 +15,5 @@ const PdfToRtfClient = dynamic(() => import('@/components/tools/PdfToRtfClient')
 
 
 export default function PdfToRtfPage() {
-    return <PdfToRtfClient />;
+  return <PdfToRtfClient />;
 }
