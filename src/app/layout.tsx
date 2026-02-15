@@ -9,7 +9,7 @@ import { FileProvider } from "@/context/FileContext";
 import { DragDropOverlay } from "@/components/DragDropOverlay";
 import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script";
+
 
 
 export const dynamic = 'force-dynamic';
@@ -111,12 +111,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${futura.variable} font-sans antialiased bg-[#FFFBE6] text-black text-lg`} suppressHydrationWarning>
-        <Script
+      <head>
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1595077575947362"
           crossOrigin="anonymous"
-        />
+        ></script>
+      </head>
+      <body className={`${inter.variable} ${futura.variable} font-sans antialiased bg-[#FFFBE6] text-black text-lg`} suppressHydrationWarning>
         <DownloadQueueProvider>
           <FileProvider>
             <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:font-display focus:text-sm focus:border-2 focus:border-white">
