@@ -1,0 +1,37 @@
+name: Frontend Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - '**'
+      - '!.github/**'
+  pull_request:
+    branches: [ "main", "master" ]
+    paths:
+      - '**'
+      - '!.github/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # No default working directory needed for root structure
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+      env:
+        CI: true

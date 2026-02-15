@@ -1,0 +1,54 @@
+{
+    "name": "PDF Tools",
+    "short_name": "PDF Tools",
+    "description": "28+ free PDF tools: merge, split, compress, convert, rotate, unlock, watermark PDFs. 100% client-side.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ef4444",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/icons/icon-192.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-512.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ],
+    "categories": [
+        "productivity",
+        "utilities"
+    ],
+    "shortcuts": [
+        {
+            "name": "Merge PDF",
+            "short_name": "Merge",
+            "url": "/merge-pdf",
+            "description": "Combine multiple PDFs into one"
+        },
+        {
+            "name": "Split PDF",
+            "short_name": "Split",
+            "url": "/split-pdf",
+            "description": "Separate PDF into multiple files"
+        },
+        {
+            "name": "Compress PDF",
+            "short_name": "Compress",
+            "url": "/compress-pdf",
+            "description": "Reduce PDF file size"
+        },
+        {
+            "name": "Convert PDF",
+            "short_name": "Convert",
+            "url": "/pdf-to-word",
+            "description": "Convert PDF to Word"
+        }
+    ]
+}
