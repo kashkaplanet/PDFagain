@@ -2,16 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
 
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   // serverExternalPackages: ['pdfjs-dist'], // Try adding this if it fails again
   serverExternalPackages: ['puppeteer-core', '@sparticuz/chromium', 'canvas', 'tesseract.js'],
   // swcMinify is enabled by default in Next.js 15+
 
   // Disable transpilation for now to see if it fixes the worker error
   // Disable transpilation for now to see if it fixes the worker error
-  transpilePackages: ['pdfjs-dist'],
+  // transpilePackages: ['pdfjs-dist'],
 
   webpack: (config, { isServer }) => {
     // Handle node: protocol imports used by pptxgenjs and other packages
@@ -84,7 +81,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const withPWA = require("next-pwa")({
+const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   disable: process.env.NODE_ENV === "development" || process.env.DISABLE_PWA === "true",
   register: true,
