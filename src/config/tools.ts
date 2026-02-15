@@ -90,7 +90,6 @@ export const sections: Section[] = [
             { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format." },
             { name: "HTML to PDF", href: "/html-to-pdf", icon: Globe, description: "Save web pages as PDF documents." },
             { name: "JPG to PDF", href: "/jpg-to-pdf", icon: FileImage, description: "Convert images to high-quality PDF documents.", popular: true },
-            { name: "ODT to PDF", href: "/odt-to-pdf", icon: FileText, description: "Convert OpenDocument Text files to PDF." },
             { name: "PNG to PDF", href: "/png-to-pdf", icon: FileImage, description: "Convert PNG images to PDF documents." },
             { name: "PPT to PDF", href: "/ppt-to-pdf", icon: Presentation, description: "Convert PowerPoint presentations to PDF." },
             { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF." },

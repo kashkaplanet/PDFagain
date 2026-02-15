@@ -33,10 +33,19 @@ export async function POST(req: NextRequest) {
         let outputFilename = "";
 
         if (format === "docx") {
+            // Serverless: Use internal library
             outputFilename = file.name.replace(/\.[^/.]+$/, "") + ".docx";
             outputPath = join(tempDir, outputFilename);
-            command = `python "${scriptPath}" "${inputPath}" "${outputPath}"`;
+
+            // Import dynamically or assume it's available. 
+            // Since we are in an async function in a route, we can use the library.
+            const { convertPdfToDocx } = await import("@/lib/pdf-to-docx");
+            const docxBuffer = await convertPdfToDocx(buffer);
+            await writeFile(outputPath, docxBuffer);
+
             outputMimeType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+            // No command to execute
+            command = "";
         } else if (format === "txt") {
             outputFilename = file.name.replace(/\.[^/.]+$/, "") + ".txt";
             outputPath = join(tempDir, outputFilename);
@@ -57,10 +66,12 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: "Invalid format" }, { status: 400 });
         }
 
-        console.log("Executing:", command);
-        const { stdout, stderr } = await execAsync(command);
-        console.log("Stdout:", stdout);
-        if (stderr) console.error("Stderr:", stderr);
+        if (command) {
+            console.log("Executing:", command);
+            const { stdout, stderr } = await execAsync(command);
+            console.log("Stdout:", stdout);
+            if (stderr) console.error("Stderr:", stderr);
+        }
 
         let outputBuffer: Buffer;
 
@@ -97,6 +108,6 @@ export async function POST(req: NextRequest) {
 
     } catch (error) {
         console.error("Conversion error:", error);
-        return NextResponse.json({ error: "Conversion failed. Ensure dependencies (poppler, pdf2docx) are installed on the server." }, { status: 500 });
+        return NextResponse.json({ error: `Conversion failed: ${error instanceof Error ? error.message : String(error)}` }, { status: 500 });
     }
 }

@@ -39,7 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'html-to-pdf',
         'jpg-to-binary',
         'jpg-to-pdf',
-        'odt-to-pdf',
         'pdf-to-binary',
         'pdf-to-excel',
         'pdf-to-jpg',

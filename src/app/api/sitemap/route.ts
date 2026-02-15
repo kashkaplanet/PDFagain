@@ -17,7 +17,7 @@ const TOOL_URLS: { href: string; popular?: boolean }[] = [
     // SECURITY
     { href: "/protect-pdf" }, { href: "/unlock-pdf", popular: true },
     // CONVERT TO PDF
-    { href: "/html-to-pdf" }, { href: "/jpg-to-pdf", popular: true }, { href: "/odt-to-pdf" },
+    { href: "/html-to-pdf" }, { href: "/jpg-to-pdf", popular: true },
     { href: "/png-to-pdf" }, { href: "/ppt-to-pdf" }, { href: "/rtf-to-pdf" },
     { href: "/txt-to-pdf" }, { href: "/webp-to-pdf" }, { href: "/word-to-pdf" }, { href: "/xps-to-pdf" },
     // CONVERT FROM PDF

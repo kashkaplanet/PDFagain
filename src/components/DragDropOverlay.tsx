@@ -103,9 +103,6 @@ export const DragDropOverlay = () => {
             } else if (fileName.endsWith(".rtf")) {
                 // typeGroup = "rtf";
                 targetRoute = "/rtf-to-pdf";
-            } else if (fileName.endsWith(".odt")) {
-                // typeGroup = "odt";
-                targetRoute = "/odt-to-pdf";
             } else if (fileName.endsWith(".html") || fileName.endsWith(".htm")) {
                 // typeGroup = "html";
                 targetRoute = "/html-to-pdf";
