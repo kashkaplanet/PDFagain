@@ -4,6 +4,7 @@
             "maxDuration": 60
         }
     },
+    "buildCommand": "npm run build",
     "headers": [
         {
             "source": "/api/(.*)",
