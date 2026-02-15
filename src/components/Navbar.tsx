@@ -43,8 +43,6 @@ const navItems = [
         hoverColor: "#06B6D4",
         tools: [
             { name: "JPG to PDF", href: "/jpg-to-pdf", icon: FileImage, desc: "Images to PDF" },
-            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, desc: "Documents to PDF" },
-            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, desc: "Spreadsheets to PDF" },
             { name: "HTML to PDF", href: "/html-to-pdf", icon: Globe, desc: "Web pages to PDF" },
         ]
     },

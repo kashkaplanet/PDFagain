@@ -87,15 +87,15 @@ export const sections: Section[] = [
         icon: FileType,
         description: "Transform any document into PDF format",
         tools: [
-            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format." },
+            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format.", disabled: true },
             { name: "HTML to PDF", href: "/html-to-pdf", icon: Globe, description: "Save web pages as PDF documents." },
             { name: "JPG to PDF", href: "/jpg-to-pdf", icon: FileImage, description: "Convert images to high-quality PDF documents.", popular: true },
             { name: "PNG to PDF", href: "/png-to-pdf", icon: FileImage, description: "Convert PNG images to PDF documents." },
-            { name: "PPT to PDF", href: "/ppt-to-pdf", icon: Presentation, description: "Convert PowerPoint presentations to PDF." },
-            { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF." },
+            { name: "PPT to PDF", href: "/ppt-to-pdf", icon: Presentation, description: "Convert PowerPoint presentations to PDF.", disabled: true },
+            { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF.", disabled: true },
             { name: "TXT to PDF", href: "/txt-to-pdf", icon: FileText, description: "Convert plain text files to PDF documents." },
             { name: "WEBP to PDF", href: "/webp-to-pdf", icon: FileImage, description: "Convert WEBP images to PDF documents." },
-            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF." },
+            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF.", popular: true, disabled: true },
         ]
     },
     {
@@ -104,15 +104,15 @@ export const sections: Section[] = [
         icon: ArrowDownUp,
         description: "Convert PDFs to other formats",
         tools: [
-            { name: "PDF to Excel", href: "/pdf-to-excel", icon: Table, description: "Convert PDF tables and data to Excel spreadsheets." },
+            { name: "PDF to Excel", href: "/pdf-to-excel", icon: Table, description: "Convert PDF tables and data to Excel spreadsheets.", disabled: true },
             { name: "PDF to JPG", href: "/pdf-to-jpg", icon: FileImage, description: "Convert PDF pages to high-quality images." },
-            { name: "PDF to ODT", href: "/pdf-to-odt", icon: FileText, description: "Convert PDF documents to OpenDocument Text format." },
+            { name: "PDF to ODT", href: "/pdf-to-odt", icon: FileText, description: "Convert PDF documents to OpenDocument Text format.", disabled: true },
             { name: "PDF to PNG", href: "/pdf-to-png", icon: FileImage, description: "Convert PDF pages to high-quality PNG images." },
-            { name: "PDF to PPT", href: "/pdf-to-ppt", icon: Presentation, description: "Convert PDF pages to PowerPoint slides (images)." },
-            { name: "PDF to RTF", href: "/pdf-to-rtf", icon: FileText, description: "Convert PDF documents to Rich Text Format." },
+            { name: "PDF to PPT", href: "/pdf-to-ppt", icon: Presentation, description: "Convert PDF pages to PowerPoint slides (images).", disabled: true },
+            { name: "PDF to RTF", href: "/pdf-to-rtf", icon: FileText, description: "Convert PDF documents to Rich Text Format.", disabled: true },
             { name: "PDF to TXT", href: "/pdf-to-txt", icon: FileText, description: "Extract text content from PDF documents." },
-            { name: "PDF to WebP", href: "/pdf-to-webp", icon: FileImage, description: "Convert PDF pages to modern WebP images." },
-            { name: "PDF to Word", href: "/pdf-to-word", icon: FileText, description: "Convert PDF documents to editable Word files.", popular: true },
+            { name: "PDF to WebP", href: "/pdf-to-webp", icon: FileImage, description: "Convert PDF pages to modern WebP images.", disabled: true },
+            { name: "PDF to Word", href: "/pdf-to-word", icon: FileText, description: "Convert PDF documents to editable Word files.", popular: true, disabled: true },
         ]
     },
     {
@@ -121,8 +121,8 @@ export const sections: Section[] = [
         icon: Table,
         description: "Convert between spreadsheet, data, and financial formats",
         tools: [
-            { name: "CSV to Excel", href: "/csv-to-excel", icon: Table, description: "Convert CSV files to Excel spreadsheets." },
-            { name: "Excel to CSV", href: "/excel-to-csv", icon: Table, description: "Convert Excel spreadsheets to CSV format." },
+            { name: "CSV to Excel", href: "/csv-to-excel", icon: Table, description: "Convert CSV files to Excel spreadsheets.", disabled: true },
+            { name: "Excel to CSV", href: "/excel-to-csv", icon: Table, description: "Convert Excel spreadsheets to CSV format.", disabled: true },
             { name: "Invoice Extractor", href: "/invoice-extractor", icon: Receipt, description: "Automatically extract data from invoices.", disabled: true },
             { name: "Bank Statement Analyzer", href: "/bank-statement-analyzer", icon: Landmark, description: "AI-powered analysis of bank statement PDFs.", disabled: true },
             { name: "Bank Statement Converter", href: "/bank-statement-converter", icon: Landmark, description: "Convert bank statements between PDF, CSV, and Excel formats.", disabled: true },
@@ -157,13 +157,15 @@ export const sections: Section[] = [
 
 // All tools flattened for search
 export const allTools = sections.flatMap(section =>
-    section.tools.map(tool => ({ ...tool, sectionColor: section.color, sectionTitle: section.title }))
+    section.tools
+        .filter(tool => !tool.disabled)
+        .map(tool => ({ ...tool, sectionColor: section.color, sectionTitle: section.title }))
 );
 
 // Popular tools pulled from all sections
 export const popularTools = sections.flatMap(section =>
     section.tools
-        .filter(tool => tool.popular)
+        .filter(tool => tool.popular && !tool.disabled)
         .map(tool => ({ ...tool, sectionColor: section.color, sectionTitle: section.title }))
 );
 

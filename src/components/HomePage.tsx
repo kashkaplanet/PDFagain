@@ -107,10 +107,15 @@ export default function HomePage() {
         router.replace(params.toString() ? `?${params.toString()}` : "/", { scroll: false });
     }, [router]);
 
+    const activeSections = useMemo(() => sections.map(section => ({
+        ...section,
+        tools: section.tools.filter(tool => !tool.disabled)
+    })).filter(section => section.tools.length > 0), []);
+
     const filteredSections = useMemo(() => {
-        if (!searchQuery.trim()) return sections;
+        if (!searchQuery.trim()) return activeSections;
         const q = searchQuery.toLowerCase();
-        return sections
+        return activeSections
             .map(section => ({
                 ...section,
                 tools: section.tools.filter(
@@ -118,12 +123,12 @@ export default function HomePage() {
                 )
             }))
             .filter(section => section.tools.length > 0);
-    }, [searchQuery]);
+    }, [searchQuery, activeSections]);
 
     const totalResults = filteredSections.reduce((sum, s) => sum + s.tools.length, 0);
 
     // Resolve hrefs to tool objects
-    const allToolsFlat = useMemo(() => sections.flatMap(s => s.tools.map(t => ({ ...t, sectionColor: s.color }))), []);
+    const allToolsFlat = useMemo(() => activeSections.flatMap(s => s.tools.map(t => ({ ...t, sectionColor: s.color }))), [activeSections]);
     const recentTools = useMemo(() => recentHrefs.map(h => allToolsFlat.find(t => t.href === h)).filter(Boolean) as typeof allToolsFlat, [recentHrefs, allToolsFlat]);
     const favoriteTools = useMemo(() => favoriteHrefs.map(h => allToolsFlat.find(t => t.href === h)).filter(Boolean) as typeof allToolsFlat, [favoriteHrefs, allToolsFlat]);
 
