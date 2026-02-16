@@ -10,6 +10,11 @@ import {
 
 import type { LucideIcon } from "lucide-react";
 
+export interface TutorialStep {
+    title: string;
+    description: string;
+}
+
 export interface Tool {
     name: string;
     href: string;
@@ -17,6 +22,7 @@ export interface Tool {
     description: string;
     disabled?: boolean;
     popular?: boolean;
+    tutorialSteps?: TutorialStep[];
 }
 
 export interface Section {
@@ -35,12 +41,79 @@ export const sections: Section[] = [
         icon: Layers,
         description: "Merge, split, and arrange your PDF pages with ease",
         tools: [
-            { name: "Extract Pages", href: "/extract-pages", icon: FileOutput, description: "Select and save specific pages as a new PDF." },
-            { name: "Merge PDF", href: "/merge-pdf", icon: Combine, description: "Combine multiple PDFs into one unified document.", popular: true },
-            { name: "Organize PDF", href: "/organize-pdf", icon: FileSearch, description: "Rearrange, rotate, or delete pages easily." },
-            { name: "Remove Pages", href: "/remove-pages", icon: Trash2, description: "Delete unwanted pages from your document." },
-            { name: "Reverse PDF", href: "/reverse-pdf", icon: ArrowDownUp, description: "Reverse the order of pages in your PDF." },
-            { name: "Split PDF", href: "/split-pdf", icon: Scissors, description: "Separate pages or split a PDF into smaller files.", popular: true },
+            {
+                name: "Extract Pages",
+                href: "/extract-pages",
+                icon: FileOutput,
+                description: "Select and save specific pages as a new PDF.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF file you want to extract pages from." },
+                    { title: "Select Pages", description: "Click on the pages you want to keep. You can also type page ranges (e.g., 1-5, 8)." },
+                    { title: "Extract", description: "Click the 'Extract PDF' button to create a new document with only the selected pages." },
+                    { title: "Download", description: "Save your new PDF file instantly." }
+                ]
+            },
+            {
+                name: "Merge PDF",
+                href: "/merge-pdf",
+                icon: Combine,
+                description: "Combine multiple PDFs into one unified document.",
+                popular: true,
+                tutorialSteps: [
+                    { title: "Upload Files", description: "Select multiple PDF files from your device. You can drag and drop them to rearrange the order." },
+                    { title: "Arrange", description: "Drag the files to sort them in the desired order for the final document." },
+                    { title: "Merge", description: "Click 'Merge PDF' to combine them into a single file." },
+                    { title: "Download", description: "Download your unified PDF document." }
+                ]
+            },
+            {
+                name: "Organize PDF",
+                href: "/organize-pdf",
+                icon: FileSearch,
+                description: "Rearrange, rotate, or delete pages easily.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Upload the PDF you want to organize." },
+                    { title: "Edit Pages", description: "Drag and drop pages to reorder them. Hover over a page to rotate or delete unique pages." },
+                    { title: "Save Changes", description: "Click 'Organize' to apply your changes." },
+                    { title: "Download", description: "Get your newly organized PDF file." }
+                ]
+            },
+            {
+                name: "Remove Pages",
+                href: "/remove-pages",
+                icon: Trash2,
+                description: "Delete unwanted pages from your document.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the file containing pages you want to remove." },
+                    { title: "Select Pages", description: "Click on the pages you want to delete to mark them for removal." },
+                    { title: "Remove", description: "Click the button to delete the selected pages." },
+                    { title: "Download", description: "Download the cleaned PDF." }
+                ]
+            },
+            {
+                name: "Reverse PDF",
+                href: "/reverse-pdf",
+                icon: ArrowDownUp,
+                description: "Reverse the order of pages in your PDF.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Choose the PDF file you want to reverse." },
+                    { title: "Process", description: "The tool automatically reverses the page order." },
+                    { title: "Download", description: "Save the PDF with pages in reverse order." }
+                ]
+            },
+            {
+                name: "Split PDF",
+                href: "/split-pdf",
+                icon: Scissors,
+                description: "Separate pages or split a PDF into smaller files.",
+                popular: true,
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Upload the PDF you want to split." },
+                    { title: "Choose Method", description: "Select 'Split by ranges' or 'Extract all pages'." },
+                    { title: "Set Ranges", description: "If splitting by range, define the page numbers (e.g., 1-5)." },
+                    { title: "Split & Download", description: "Click 'Split PDF' to download a ZIP file containing your separated PDFs." }
+                ]
+            },
         ]
     },
     {
@@ -49,14 +122,100 @@ export const sections: Section[] = [
         icon: PenTool,
         description: "Modify, annotate, and customize your PDFs",
         tools: [
-            { name: "Flatten PDF", href: "/flatten-pdf", icon: Layers, description: "Merge layers and lock annotations permanently." },
-            { name: "Grayscale PDF", href: "/grayscale-pdf", icon: Palette, description: "Convert colored PDFs to black and white." },
-            { name: "Page Numbers", href: "/page-numbers", icon: Hash, description: "Add page numbers to your document headers/footers." },
-            { name: "PDF Metadata", href: "/pdf-metadata", icon: Info, description: "View and edit PDF properties and metadata." },
-            { name: "Redact PDF", href: "/redact-pdf", icon: EyeOff, description: "Permanently remove sensitive information." },
-            { name: "Resize PDF", href: "/resize-pdf", icon: Maximize2, description: "Change PDF page size and margins." },
-            { name: "Rotate PDF", href: "/rotate-pdf", icon: RotateCcw, description: "Rotate pages 90, 180, or 270 degrees." },
-            { name: "Watermark PDF", href: "/watermark-pdf", icon: Stamp, description: "Add text or image watermarks for security." },
+            {
+                name: "Flatten PDF",
+                href: "/flatten-pdf",
+                icon: Layers,
+                description: "Merge layers and lock annotations permanently.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF with interactive forms or annotations." },
+                    { title: "Flatten", description: "Click the button to merge all layers into a single background layer." },
+                    { title: "Download", description: "Save the flattened PDF. Contents can no longer be edited." }
+                ]
+            },
+            {
+                name: "Grayscale PDF",
+                href: "/grayscale-pdf",
+                icon: Palette,
+                description: "Convert colored PDFs to black and white.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Upload your colored PDF document." },
+                    { title: "Convert", description: "The tool processes the file to remove color information." },
+                    { title: "Download", description: "Download the high-quality black and white PDF." }
+                ]
+            },
+            {
+                name: "Page Numbers",
+                href: "/page-numbers",
+                icon: Hash,
+                description: "Add page numbers to your document headers/footers.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF requiring page numbers." },
+                    { title: "Configure", description: "Choose the position, format, and typography for the numbers." },
+                    { title: "Add Numbers", description: "Click to apply page numbering." },
+                    { title: "Download", description: "Save your paginated document." }
+                ]
+            },
+            {
+                name: "PDF Metadata",
+                href: "/pdf-metadata",
+                icon: Info,
+                description: "View and edit PDF properties and metadata.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Upload the PDF to view its metadata." },
+                    { title: "Edit Fields", description: "Modify Title, Author, Subject, Keywords, and other properties." },
+                    { title: "Update", description: "Click 'Update Metadata' to save your changes." },
+                    { title: "Download", description: "Get the updated PDF file." }
+                ]
+            },
+            {
+                name: "Redact PDF",
+                href: "/redact-pdf",
+                icon: EyeOff,
+                description: "Permanently remove sensitive information.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Open the PDF containing sensitive info." },
+                    { title: "Mark for Redaction", description: "Select text or areas to black out." },
+                    { title: "Redact", description: "Confirm redaction to permanently remove the content." },
+                    { title: "Download", description: "Save the secure PDF." }
+                ]
+            },
+            {
+                name: "Resize PDF",
+                href: "/resize-pdf",
+                icon: Maximize2,
+                description: "Change PDF page size and margins.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Choose the file you want to resize." },
+                    { title: "Select Size", description: "Choose a standard page size (A4, Letter) or set custom dimensions." },
+                    { title: "Resize", description: "The tool scales your pages to the new size." },
+                    { title: "Download", description: "Download your resized document." }
+                ]
+            },
+            {
+                name: "Rotate PDF",
+                href: "/rotate-pdf",
+                icon: RotateCcw,
+                description: "Rotate pages 90, 180, or 270 degrees.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF to rotate." },
+                    { title: "Rotate Pages", description: "Rotate individual pages or all pages at once using the buttons." },
+                    { title: "Apply", description: "Click 'Apply' to save the new orientation." },
+                    { title: "Download", description: "Download your correctly oriented PDF." }
+                ]
+            },
+            {
+                name: "Watermark PDF",
+                href: "/watermark-pdf",
+                icon: Stamp,
+                description: "Add text or image watermarks for security.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Upload the document you want to watermark." },
+                    { title: "Customize", description: "Enter text or upload an image. Adjust opacity, position, and rotation." },
+                    { title: "Stamp", description: "Apply the watermark to all pages." },
+                    { title: "Download", description: "Save your watermarked PDF." }
+                ]
+            },
         ]
     },
     {
@@ -65,9 +224,37 @@ export const sections: Section[] = [
         icon: Zap,
         description: "Compress, repair, and enhance your documents",
         tools: [
-            { name: "Compress PDF", href: "/compress-pdf", icon: FileArchive, description: "Reduce file size while maintaining quality.", popular: true },
-            { name: "OCR PDF", href: "/ocr-pdf", icon: FileSearch, description: "Make scanned PDFs searchable and selectable.", disabled: true },
-            { name: "Repair PDF", href: "/repair-pdf", icon: Wrench, description: "Recover data from corrupted or damaged PDFs." },
+            {
+                name: "Compress PDF",
+                href: "/compress-pdf",
+                icon: FileArchive,
+                description: "Reduce file size while maintaining quality.",
+                popular: true,
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select your large PDF file." },
+                    { title: "Select Quality", description: "Choose between 'Extreme', 'Recommended', or 'Less' compression levels." },
+                    { title: "Compress", description: "Click to start the compression engine." },
+                    { title: "Download", description: "Download your smaller, optimized PDF." }
+                ]
+            },
+            {
+                name: "OCR PDF",
+                href: "/ocr-pdf",
+                icon: FileSearch,
+                description: "Make scanned PDFs searchable and selectable.",
+                disabled: true
+            },
+            {
+                name: "Repair PDF",
+                href: "/repair-pdf",
+                icon: Wrench,
+                description: "Recover data from corrupted or damaged PDFs.",
+                tutorialSteps: [
+                    { title: "Upload File", description: "Upload the corrupt PDF file." },
+                    { title: "Repair", description: "Our tool analyzes and attempts to fix the file structure." },
+                    { title: "Download", description: "Save the repaired PDF to your device." }
+                ]
+            },
         ]
     },
     {
@@ -76,9 +263,42 @@ export const sections: Section[] = [
         icon: Shield,
         description: "Protect, encrypt, and sign your documents",
         tools: [
-            { name: "Protect PDF", href: "/protect-pdf", icon: Lock, description: "Encrypt your PDF with a strong password." },
-            { name: "Sign PDF", href: "/sign-pdf", icon: PenTool, description: "Add your digital signature to documents." },
-            { name: "Unlock PDF", href: "/unlock-pdf", icon: Unlock, description: "Remove passwords and security restrictions.", popular: true },
+            {
+                name: "Protect PDF",
+                href: "/protect-pdf",
+                icon: Lock,
+                description: "Encrypt your PDF with a strong password.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Choose the PDF you want to secure." },
+                    { title: "Set Password", description: "Enter a strong password to encrypt the file." },
+                    { title: "Protect", description: "Click 'Protect PDF' to apply encryption." },
+                    { title: "Download", description: "Download your password-protected file." }
+                ]
+            },
+            {
+                name: "Sign PDF",
+                href: "/sign-pdf",
+                icon: PenTool,
+                description: "Add your digital signature to documents.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the document you need to sign." },
+                    { title: "Create Signature", description: "Draw, type, or upload your signature image." },
+                    { title: "Place Signature", description: "Drag and drop the signature onto the correct page and position." },
+                    { title: "Download", description: "Save the signed document." }
+                ]
+            },
+            {
+                name: "Unlock PDF",
+                href: "/unlock-pdf",
+                icon: Unlock,
+                description: "Remove passwords and security restrictions.",
+                popular: true,
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the password-protected (encrypted) PDF." },
+                    { title: "Unlock", description: "If you know the password, enter it. If user permissions are restricted, the tool removes them." },
+                    { title: "Download", description: "Download the unlocked, unrestricted PDF." }
+                ]
+            },
         ]
     },
     {
@@ -88,13 +308,66 @@ export const sections: Section[] = [
         description: "Transform any document into PDF format",
         tools: [
             { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format.", disabled: true },
-            { name: "HTML to PDF", href: "/html-to-pdf", icon: Globe, description: "Save web pages as PDF documents." },
-            { name: "JPG to PDF", href: "/jpg-to-pdf", icon: FileImage, description: "Convert images to high-quality PDF documents.", popular: true },
-            { name: "PNG to PDF", href: "/png-to-pdf", icon: FileImage, description: "Convert PNG images to PDF documents." },
+            {
+                name: "HTML to PDF",
+                href: "/html-to-pdf",
+                icon: Globe,
+                description: "Save web pages as PDF documents.",
+                tutorialSteps: [
+                    { title: "Enter URL", description: "Paste the web address (URL) of the page you want to convert." },
+                    { title: "Convert", description: "Click 'Convert' to capture the webpage." },
+                    { title: "Download", description: "Save the webpage as a PDF document." }
+                ]
+            },
+            {
+                name: "JPG to PDF",
+                href: "/jpg-to-pdf",
+                icon: FileImage,
+                description: "Convert images to high-quality PDF documents.",
+                popular: true,
+                tutorialSteps: [
+                    { title: "Upload Images", description: "Select JPG images from your device." },
+                    { title: "Adjust", description: "Reorder images or adjust margin and orientation settings." },
+                    { title: "Convert", description: "Click to generate the PDF." },
+                    { title: "Download", description: "Save your new PDF photo album." }
+                ]
+            },
+            {
+                name: "PNG to PDF",
+                href: "/png-to-pdf",
+                icon: FileImage,
+                description: "Convert PNG images to PDF documents.",
+                tutorialSteps: [
+                    { title: "Upload PNGs", description: "Select PNG images using the file picker." },
+                    { title: "Adjust", description: "Reorder images or adjust settings as needed." },
+                    { title: "Convert", description: "Click to generate the PDF." },
+                    { title: "Download", description: "Save your new PDF." }
+                ]
+            },
             { name: "PPT to PDF", href: "/ppt-to-pdf", icon: Presentation, description: "Convert PowerPoint presentations to PDF.", disabled: true },
             { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF.", disabled: true },
-            { name: "TXT to PDF", href: "/txt-to-pdf", icon: FileText, description: "Convert plain text files to PDF documents." },
-            { name: "WEBP to PDF", href: "/webp-to-pdf", icon: FileImage, description: "Convert WEBP images to PDF documents." },
+            {
+                name: "TXT to PDF",
+                href: "/txt-to-pdf",
+                icon: FileText,
+                description: "Convert plain text files to PDF documents.",
+                tutorialSteps: [
+                    { title: "Upload TXT", description: "Select your plain text file." },
+                    { title: "Convert", description: "The tool converts the text into a clean PDF document." },
+                    { title: "Download", description: "Save your new PDF." }
+                ]
+            },
+            {
+                name: "WEBP to PDF",
+                href: "/webp-to-pdf",
+                icon: FileImage,
+                description: "Convert WEBP images to PDF documents.",
+                tutorialSteps: [
+                    { title: "Upload WEBP", description: "Select WebP images." },
+                    { title: "Convert", description: "Click to turn them into a PDF." },
+                    { title: "Download", description: "Save the result." }
+                ]
+            },
             { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF.", popular: true, disabled: true },
         ]
     },

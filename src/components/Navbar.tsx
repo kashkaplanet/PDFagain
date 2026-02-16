@@ -7,7 +7,7 @@ import {
     Combine, Scissors, Trash2, FileOutput, FileSearch, ArrowDownUp,
     FileArchive, Wrench, FileImage, Table, Globe,
     RotateCcw, PenTool, Hash, Stamp, Palette, Maximize2, Layers, EyeOff, Info,
-    Menu, X
+    Menu, X, BookOpen
 } from "lucide-react";
 
 const navItems = [
@@ -184,6 +184,15 @@ export default function Navbar() {
                     ))}
                 </div>
 
+                {/* Tutorials Link (Desktop) */}
+                <Link
+                    href="/tools-tutorial"
+                    className="hidden md:flex font-display font-bold uppercase tracking-wide text-sm items-center gap-1.5 px-5 py-2.5 transition-all duration-200 border-2 border-black bg-white text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+                >
+                    <span>Tutorials</span>
+                    <BookOpen className="w-4 h-4 stroke-[2.5px]" />
+                </Link>
+
                 {/* Mobile Menu Toggle */}
                 <button
                     className="md:hidden p-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all bg-white"
@@ -255,6 +264,16 @@ export default function Navbar() {
                                     )}
                                 </div>
                             ))}
+
+                            {/* Mobile Tutorials Link */}
+                            <Link
+                                href="/tools-tutorial"
+                                className="flex items-center justify-between p-4 font-display font-bold uppercase tracking-wide text-lg border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <span>Tutorials</span>
+                                <BookOpen className="w-5 h-5" />
+                            </Link>
                         </div>
                     </div>
                 )}
