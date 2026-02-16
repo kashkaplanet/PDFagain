@@ -33,7 +33,7 @@ body {
 
 /* Hard reset for retro feel - remove smooth scrolling for snappiness? keeping it for now */
 html {
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
