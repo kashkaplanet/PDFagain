@@ -99,6 +99,46 @@ export default function HomePage() {
         return () => document.removeEventListener("keydown", handler);
     }, [isSearchSticky]);
 
+    // Handle hash scrolling on load
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            const id = hash.substring(1);
+
+            // Wait for layout stability
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const startPosition = window.scrollY;
+                    const offsetPosition = elementPosition + startPosition - headerOffset;
+                    const distance = offsetPosition - startPosition;
+                    const duration = 1000; // ms
+
+                    // Easing function: easeInOutCubic
+                    const ease = (t: number) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+
+                    let start: number | null = null;
+                    const animation = (currentTime: number) => {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const progress = Math.min(timeElapsed / duration, 1);
+                        const easeProgress = ease(progress);
+
+                        window.scrollTo(0, startPosition + distance * easeProgress);
+
+                        if (timeElapsed < duration) {
+                            requestAnimationFrame(animation);
+                        }
+                    };
+
+                    requestAnimationFrame(animation);
+                }
+            }, 100);
+        }
+    }, []);
+
     // URL sync
     const updateSearch = useCallback((value: string) => {
         setSearchQuery(value);

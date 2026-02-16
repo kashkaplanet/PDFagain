@@ -1,5 +1,6 @@
 
 import React, { memo, useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import { Heart, Star, Clock } from "lucide-react";
 import { RETRO_COLORS } from "@/config/design";
 import { type Tool } from "@/config/tools";
@@ -20,9 +21,10 @@ export interface ToolCardProps {
     gridTools?: Tool[];
     gridIndex?: number;
     sectionColor?: string;
+    id?: string;
 }
 
-export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKeyDown, gridTools, gridIndex, variant = "default", tabIndex, sectionColor }: ToolCardProps) => {
+export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKeyDown, gridTools, gridIndex, variant = "default", tabIndex, sectionColor, id }: ToolCardProps) => {
     const ToolIcon = tool.icon;
     // Fallback to tool.sectionColor if prop is not provided
     const colorKey = (sectionColor || (tool as any).sectionColor) as keyof typeof RETRO_COLORS;
@@ -96,14 +98,14 @@ export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKey
     }
 
     return (
-        <div className="h-full relative hover:z-10 isolate">
+        <div id={id} className="h-full relative hover:z-10 isolate">
             <div
                 className={`group flex flex-col gap-3 p-6 bg-white border-2 border-black h-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
                            hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-[box-shadow,translate,opacity] duration-200 cursor-pointer text-left
                            ${isVisible ? "animate-card-enter opacity-100" : "opacity-0 translate-y-4"}`}
             >
                 {/* Main Link Overlay */}
-                <a
+                <Link
                     ref={cardRef}
                     href={tool.href}
                     onClick={() => {
@@ -116,7 +118,7 @@ export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKey
                     aria-label={tool.name}
                 >
                     <span className="sr-only">Go to {tool.name}</span>
-                </a>
+                </Link>
 
                 {/* Content - pointer-events-none to let clicks pass to the link */}
                 <div className="flex items-center gap-3 relative z-10 pointer-events-none">

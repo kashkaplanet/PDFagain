@@ -67,6 +67,7 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
                                 {section.tools.map((tool) => (
                                     <ToolCard
                                         key={tool.href}
+                                        id={tool.href.replace(/^\//, "")}
                                         tool={tool}
                                         isFav={favoriteHrefs.includes(tool.href)}
                                         onToggleFav={handleToggleFav}

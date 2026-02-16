@@ -9,6 +9,8 @@ import { FileProvider } from "@/context/FileContext";
 import { DragDropOverlay } from "@/components/DragDropOverlay";
 import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/react";
+import ScrollToTop from "@/components/ScrollToTop";
+import { RouteDebugger } from "@/components/RouteDebugger";
 
 
 
@@ -124,6 +126,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${futura.variable} font-sans antialiased bg-[#FFFBE6] text-black text-lg`} suppressHydrationWarning>
         <DownloadQueueProvider>
           <FileProvider>
+            <ScrollToTop />
             <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:font-display focus:text-sm focus:border-2 focus:border-white">
               Skip to content
             </a>
@@ -135,6 +138,7 @@ export default function RootLayout({
               <Footer />
             </div>
             <DragDropOverlay />
+            <RouteDebugger />
             <JsonLd />
             <Analytics />
           </FileProvider>

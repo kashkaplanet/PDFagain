@@ -36,7 +36,7 @@ export function ToolPageWrapper({ title, description, icon: Icon, color, childre
                         <>
                             <ChevronRight className="w-3 h-3 text-gray-400 shrink-0" />
                             <Link
-                                href={`/#${sectionInfo.section.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                                href={`/#${pathname.replace(/^\//, '')}`}
                                 className="text-gray-500 hover:text-black transition-colors"
                             >
                                 {sectionInfo.section.title}
@@ -77,7 +77,7 @@ export function ToolPageWrapper({ title, description, icon: Icon, color, childre
                             const ToolIcon = tool.icon;
                             const toolColors = RETRO_COLORS[tool.sectionColor as keyof typeof RETRO_COLORS] || RETRO_COLORS.default;
                             return (
-                                <a
+                                <Link
                                     key={tool.name}
                                     href={tool.href}
                                     className="group flex items-center gap-3 p-3 bg-white border-2 border-black
@@ -97,7 +97,7 @@ export function ToolPageWrapper({ title, description, icon: Icon, color, childre
                                             {tool.description}
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             );
                         })}
                     </div>

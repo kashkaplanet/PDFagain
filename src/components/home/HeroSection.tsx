@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { MessageSquare, History } from "lucide-react";
 import { RetroButton } from "@/components/RetroButton";
 import { features, sections, Tool } from "@/config/tools";
@@ -85,12 +86,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         {recentTools.map((tool) => {
                             const colors = RETRO_COLORS[tool.sectionColor as keyof typeof RETRO_COLORS] || RETRO_COLORS.default;
                             return (
-                                <a key={tool.href} href={tool.href} onClick={() => handleToolClick(tool.href)}
+                                <Link key={tool.href} href={tool.href} onClick={() => handleToolClick(tool.href)}
                                     className={`px-3 py-1 text-xs font-display border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
                                                hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px]
                                                transition-all duration-150 ${colors.bg}`}>
                                     {tool.name}
-                                </a>
+                                </Link>
                             );
                         })}
                     </div>
@@ -104,14 +105,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         {sections.map((section) => {
                             const activeCount = section.tools.filter(t => !t.disabled).length;
                             return (
-                                <a key={section.title} href={`#${section.title.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
+                                <Link key={section.title} href={`#${section.title.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
                                     className="px-4 py-2 bg-white border-2 border-black font-display text-sm tracking-wide 
                                                shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
                                                hover:-translate-y-1 transition-all cursor-pointer flex items-center gap-2 duration-200">
                                     <section.icon className="w-4 h-4" />
                                     {section.title}
                                     <span className="text-xs bg-gray-100 border border-black px-1.5 py-0.5 font-mono">{activeCount}</span>
-                                </a>
+                                </Link>
                             );
                         })}
                     </nav>
