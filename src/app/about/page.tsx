@@ -17,13 +17,17 @@ const sections = [
 export default function AboutPage() {
     return (
         <div className="max-w-4xl mx-auto py-8">
-            <Link href="/" className="inline-flex items-center gap-2 mb-8 text-sm font-bold uppercase tracking-wider group hover:text-[#A78BFA] transition-colors">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
-            </Link>
+            <nav className="flex items-center gap-2 mb-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <Link href="/" className="hover:text-black transition-colors flex items-center gap-1 group">
+                    <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" /> Home
+                </Link>
+                <ChevronRight className="w-3 h-3" />
+                <span className="text-black">About Us</span>
+            </nav>
 
             {/* Hero */}
             <div className="text-center mb-16">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#A78BFA] border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-6">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#A78BFA] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
                     <Users className="w-10 h-10 text-black" />
                 </div>
                 <h1 className="text-5xl md:text-6xl font-display font-black tracking-tight mb-4">
@@ -35,7 +39,7 @@ export default function AboutPage() {
             </div>
 
             {/* Table of Contents */}
-            <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-16 p-6">
+            <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-16 p-6">
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-4 border-2 border-black inline-block px-3 py-1 bg-[#A78BFA] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     Table of Contents
                 </h2>
@@ -46,7 +50,7 @@ export default function AboutPage() {
                             <a
                                 key={section.id}
                                 href={`#${section.id}`}
-                                className="flex items-center gap-3 px-4 py-3 border-2 border-black bg-[#FFFBE6] hover:bg-[#A78BFA] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all duration-200 group font-medium"
+                                className="flex items-center gap-3 px-4 py-3 border-2 border-black bg-[#FFFBE6] hover:bg-[#A78BFA] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all duration-200 group font-medium"
                             >
                                 <span className="flex items-center justify-center w-7 h-7 bg-black text-white text-xs font-bold flex-shrink-0">
                                     {i + 1}
@@ -64,10 +68,10 @@ export default function AboutPage() {
                 {/* 1. Our Mission */}
                 <section id="mission" className="scroll-mt-24">
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-sm font-black">1</span>
+                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">1</span>
                         <h2 className="text-2xl md:text-3xl font-display font-black">Our Mission</h2>
                     </div>
-                    <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
+                    <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
                         <p className="leading-relaxed">
                             The internet is full of &quot;free&quot; PDF tools that come with a hidden cost: your privacy. Most online PDF converters upload your files to remote servers, often storing them for hours or days. We believe there&apos;s a better way.
                         </p>
@@ -80,10 +84,10 @@ export default function AboutPage() {
                 {/* 2. Why PDFagian? */}
                 <section id="why" className="scroll-mt-24">
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-sm font-black">2</span>
+                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">2</span>
                         <h2 className="text-2xl md:text-3xl font-display font-black">Why PDFagain?</h2>
                     </div>
-                    <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
+                    <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="bg-[#FFFBE6] border-2 border-black p-4">
                                 <Zap className="w-8 h-8 text-[#FB923C] mb-3" />
@@ -112,10 +116,10 @@ export default function AboutPage() {
                 {/* 3. Privacy First */}
                 <section id="privacy-first" className="scroll-mt-24">
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-sm font-black">3</span>
+                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">3</span>
                         <h2 className="text-2xl md:text-3xl font-display font-black">Privacy First</h2>
                     </div>
-                    <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
+                    <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
                         <p className="leading-relaxed">
                             We don&apos;t just say we care about privacy; we built our entire architecture around it. By leveraging modern browser capabilities like WebAssembly and Service Workers, we&apos;ve eliminated the need for server-side processing.
                         </p>
@@ -128,10 +132,10 @@ export default function AboutPage() {
                 {/* 5. The Team -> 4. The Team */}
                 <section id="team" className="scroll-mt-24">
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-sm font-black">4</span>
+                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">4</span>
                         <h2 className="text-2xl md:text-3xl font-display font-black">The Team</h2>
                     </div>
-                    <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
+                    <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
                         <p className="leading-relaxed">
                             PDFagain is maintained by a small team of developers passionate about privacy and web performance. We are constantly working to add new tools and improve existing ones.
                         </p>
@@ -140,12 +144,12 @@ export default function AboutPage() {
             </div>
 
             {/* Cross-links */}
-            <div className="mt-16 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
+            <div className="mt-16 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6">
                 <h3 className="text-sm font-bold uppercase tracking-wider mb-4 border-2 border-black inline-block px-3 py-1 bg-[#A78BFA] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     Get in Touch
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
-                    <Link href="/contact" className="flex items-center justify-between px-6 py-4 border-2 border-black bg-[#FFFBE6] hover:bg-[#F472B6] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all duration-200 font-bold text-lg group">
+                    <Link href="/contact" className="flex items-center justify-between px-6 py-4 border-2 border-black bg-[#FFFBE6] hover:bg-[#F472B6] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all duration-200 font-bold text-lg group">
                         <span>Contact Us</span>
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </Link>

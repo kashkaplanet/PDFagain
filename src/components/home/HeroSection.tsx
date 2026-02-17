@@ -38,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Feature Badges */}
             <div className="flex flex-wrap justify-center gap-5 max-w-4xl mx-auto">
                 {features.map((feature) => (
-                    <div key={feature.text} className={`${feature.color} px-4 py-2 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2 font-display text-sm hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform duration-200 cursor-default`}>
+                    <div key={feature.text} className={`${feature.color} px-4 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2 font-display text-sm hover:-translate-y-1 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform duration-200 cursor-default`}>
                         <feature.icon className="w-4 h-4" />
                         {feature.text}
                     </div>
@@ -107,7 +107,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                             return (
                                 <Link key={section.title} href={`#${section.title.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
                                     className="px-4 py-2 bg-white border-2 border-black font-display text-sm tracking-wide 
-                                               shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                                               shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]
                                                hover:-translate-y-1 transition-all cursor-pointer flex items-center gap-2 duration-200">
                                     <section.icon className="w-4 h-4" />
                                     {section.title}

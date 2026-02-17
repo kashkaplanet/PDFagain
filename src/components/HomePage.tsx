@@ -237,7 +237,7 @@ export default function HomePage() {
                 !searchQuery && favoriteTools.length > 0 && (
                     <section className="w-full space-y-8" aria-label="Favorite tools">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-[#F472B6] hover:rotate-6 hover:scale-110 transition-transform duration-300">
+                            <div className="p-3 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-[#F472B6] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                 <Heart className="w-6 h-6" />
                             </div>
                             <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide">MY FAVORITES</h2>
@@ -267,7 +267,7 @@ export default function HomePage() {
                 !searchQuery && (
                     <section className="w-full space-y-8" aria-label="Most popular tools">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-[#FBBF24] hover:rotate-6 hover:scale-110 transition-transform duration-300">
+                            <div className="p-3 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-[#FBBF24] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                 <Star className="w-6 h-6" />
                             </div>
                             <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide">MOST POPULAR</h2>
@@ -304,8 +304,8 @@ export default function HomePage() {
                             No results for &ldquo;<span className="font-bold text-black">{searchQuery}</span>&rdquo;
                         </p>
                         <button onClick={() => updateSearch("")}
-                            className="mt-2 px-4 py-2 bg-white border-2 border-black font-display text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]
-                                   hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all">
+                            className="mt-2 px-4 py-2 bg-white border-2 border-black font-display text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                                   hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all">
                             Clear Search
                         </button>
                     </div>

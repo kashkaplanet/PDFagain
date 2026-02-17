@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { FaqItem } from "@/components/FaqItem";
 import { RetroButton } from "@/components/RetroButton";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, ArrowLeft, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "FAQ - PDFagain",
@@ -40,10 +40,17 @@ export default function FaqPage() {
     return (
         <div className="min-h-screen w-full bg-[#FFFBE6] text-black">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20 space-y-12">
+                <nav className="flex items-center gap-2 mb-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                    <Link href="/" className="hover:text-black transition-colors flex items-center gap-1 group">
+                        <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" /> Home
+                    </Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-black">FAQ</span>
+                </nav>
 
                 {/* Header */}
                 <div className="text-center space-y-6">
-                    <div className="inline-flex items-center justify-center p-4 bg-[#22D3EE] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-4">
+                    <div className="inline-flex items-center justify-center p-4 bg-[#22D3EE] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
                         <HelpCircle className="w-12 h-12" />
                     </div>
                     <h1 className="text-4xl sm:text-6xl font-display font-black uppercase tracking-wider text-shadow-hard">
@@ -63,7 +70,7 @@ export default function FaqPage() {
 
                 {/* Contact CTA */}
                 <div className="mt-16 text-center">
-                    <div className="inline-block p-8 border-2 border-black bg-[#A3E635] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="inline-block p-8 border-2 border-black bg-[#A3E635] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <h3 className="font-display text-2xl font-bold mb-2">STILL HAVE QUESTIONS?</h3>
                         <p className="font-sans mb-4">We're here to help.</p>
                         <RetroButton

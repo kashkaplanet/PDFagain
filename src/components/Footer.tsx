@@ -46,10 +46,10 @@ export default function Footer() {
                             Company
                         </h3>
                         <ul className="space-y-3 font-medium">
-                            <li><Link href="/blog" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group">Blog</Link></li>
-                            <li><Link href="/faq" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group">FAQ</Link></li>
-                            <li><Link href="/about" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group">About Us</Link></li>
-                            <li><Link href="/contact" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group">Contact</Link></li>
+                            <li><Link href="/blog" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />Blog</Link></li>
+                            <li><Link href="/faq" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />FAQ</Link></li>
+                            <li><Link href="/about" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />About Us</Link></li>
+                            <li><Link href="/contact" className="hover:text-[#A78BFA] transition-colors flex items-center gap-1 group"><span className="w-1 h-1 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />Contact</Link></li>
                         </ul>
                     </div>
 

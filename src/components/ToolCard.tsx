@@ -95,8 +95,8 @@ export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKey
     return (
         <div id={id} className="h-full relative hover:z-10 isolate">
             <div
-                className={`group flex flex-col gap-3 p-6 bg-white border-2 border-black h-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
-                           hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-[box-shadow,translate,opacity] duration-200 cursor-pointer text-left`}
+                className={`group flex flex-col gap-3 p-6 bg-white border-2 border-black h-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] 
+                           hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-[box-shadow,translate,opacity] duration-200 cursor-pointer text-left`}
             >
                 {/* Main Link Overlay */}
                 <Link

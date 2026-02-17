@@ -64,7 +64,7 @@ export default function TermsPage() {
                 <div className="lg:col-span-8 space-y-0">
 
                     {/* Hero Banner */}
-                    <div className="relative border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-10">
+                    <div className="relative border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-10">
                         <div className="h-2 bg-gradient-to-r from-[#A78BFA] via-[#F472B6] to-[#A78BFA]" />
 
                         <div className="p-8 md:p-12">
@@ -83,7 +83,7 @@ export default function TermsPage() {
 
                             {/* Icon + Title */}
                             <div className="flex items-start gap-6 mb-6">
-                                <div className="w-20 h-20 bg-[#A78BFA] border-4 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300">
+                                <div className="w-20 h-20 bg-[#A78BFA] border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                     <Scale className="w-10 h-10 text-black" />
                                 </div>
                                 <div>
@@ -105,7 +105,7 @@ export default function TermsPage() {
                     <div className="space-y-12">
 
                         {/* 01 — Agreement */}
-                        <section id="agreement" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="agreement" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#A78BFA]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#A78BFA] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">01</span>
@@ -123,7 +123,7 @@ export default function TermsPage() {
                         </section>
 
                         {/* 02 — Permitted Use */}
-                        <section id="permitted-use" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="permitted-use" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#A3E635]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#A3E635] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">02</span>
@@ -140,7 +140,7 @@ export default function TermsPage() {
                         </section>
 
                         {/* 03 — Prohibited */}
-                        <section id="prohibited" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="prohibited" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#FF6B6B]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#FF6B6B] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">03</span>
@@ -159,14 +159,14 @@ export default function TermsPage() {
                         </section>
 
                         {/* 04 — Intellectual Property */}
-                        <section id="ip" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="ip" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#22D3EE]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#22D3EE] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">04</span>
                                 Intellectual Property
                             </h2>
                             <div className="grid sm:grid-cols-2 gap-4 pl-4">
-                                <div className="border-2 border-black p-5 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group bg-white relative overflow-hidden">
+                                <div className="border-2 border-black p-5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group bg-white relative overflow-hidden">
                                     <div className="absolute top-0 right-0 bg-[#A3E635] border-l-2 border-b-2 border-black px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest">Yours</div>
                                     <div className="flex items-center gap-3 mb-3">
                                         <div className="bg-[#A3E635] w-8 h-8 border-2 border-black flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
@@ -178,7 +178,7 @@ export default function TermsPage() {
                                         You retain full ownership of all documents. We claim no rights over your files.
                                     </p>
                                 </div>
-                                <div className="border-2 border-black p-5 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group bg-white relative overflow-hidden">
+                                <div className="border-2 border-black p-5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group bg-white relative overflow-hidden">
                                     <div className="absolute top-0 right-0 bg-[#22D3EE] border-l-2 border-b-2 border-black px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest">Ours</div>
                                     <div className="flex items-center gap-3 mb-3">
                                         <div className="bg-[#22D3EE] w-8 h-8 border-2 border-black flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
@@ -194,13 +194,13 @@ export default function TermsPage() {
                         </section>
 
                         {/* 05 — Disclaimer */}
-                        <section id="disclaimer" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="disclaimer" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#FBBF24]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#FBBF24] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">05</span>
                                 Disclaimer
                             </h2>
-                            <div className="border-2 border-black p-6 bg-[#FBBF24]/15 ml-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative">
+                            <div className="border-2 border-black p-6 bg-[#FBBF24]/15 ml-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative">
                                 <div className="absolute -top-3 -left-3 bg-black text-white px-3 py-1 text-[10px] font-display uppercase tracking-widest flex items-center gap-1.5">
                                     <AlertTriangle className="w-3 h-3" /> As-Is Service
                                 </div>
@@ -212,7 +212,7 @@ export default function TermsPage() {
                     </div>
 
                     {/* Footer Info */}
-                    <div className="pt-8 mt-10 border-t-4 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="pt-8 mt-10 border-t-2 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">
                             Updated: Feb 13, 2026
                         </p>
@@ -221,7 +221,7 @@ export default function TermsPage() {
 
                     {/* Cross-page Navigation */}
                     <div className="mt-10 grid grid-cols-2 gap-4">
-                        <Link href="/security" className="group border-3 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
+                        <Link href="/security" className="group border-2 border-black p-5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
                             <div className="w-12 h-12 bg-[#22D3EE] border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform">
                                 <Shield className="w-6 h-6" />
                             </div>
@@ -230,7 +230,7 @@ export default function TermsPage() {
                                 <span className="font-display uppercase tracking-tight text-lg">Security</span>
                             </div>
                         </Link>
-                        <Link href="/privacy" className="group border-3 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
+                        <Link href="/privacy" className="group border-2 border-black p-5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
                             <div className="w-12 h-12 bg-[#F472B6] border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform">
                                 <Eye className="w-6 h-6" />
                             </div>
@@ -244,7 +244,7 @@ export default function TermsPage() {
 
                 {/* Sidebar Navigation */}
                 <div className="lg:col-span-4 space-y-6">
-                    <div className="border-4 border-black bg-white p-6 sticky top-24 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="border-2 border-black bg-white p-6 sticky top-24 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <h3 className="font-bold border-b-2 border-black pb-3 mb-4 uppercase tracking-wider text-sm flex items-center gap-2">
                             <div className="w-2 h-2 bg-[#A78BFA] border border-black" />
                             Contents

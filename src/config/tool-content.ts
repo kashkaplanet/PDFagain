@@ -264,18 +264,21 @@ export const toolContent: Record<string, ToolContent> = {
         howTo: {
             title: "How to Extract Pages",
             steps: [
-                { title: "Upload PDF", description: "Choose your PDF file." },
-                { title: "Select Pages", description: "Click the pages you want to keep, or type page numbers (e.g., 1, 3-5)." },
-                { title: "Extract", description: "Click to create a new PDF containing only the selected pages." }
+                { title: "Upload PDF", description: "Select the PDF file you want to extract pages from, or simply drag and drop it." },
+                { title: "Select & Reorder", description: "Click pages to select them. Drag selected pages to rearrange the output order." },
+                { title: "Extract & Download", description: "Click 'Extract' to create a new PDF containing only your selected pages, then download instantly." }
             ]
         },
         features: [
-            { title: "Precision", description: "Keep only what matters.", icon: "Scissors" },
-            { title: "Secure", description: "No uploads required.", icon: "Lock" },
-            { title: "Free", description: "Extract pages from large files.", icon: "Check" }
+            { title: "Visual Page Picker", description: "Browse all pages with live thumbnails. Click to select, drag to reorder — you see exactly what you'll get.", icon: "Move" },
+            { title: "Custom Page Ordering", description: "Don't just extract — rearrange. Drag selected pages into any order before downloading your new PDF.", icon: "Star" },
+            { title: "100% Private & Local", description: "Your PDF never leaves your device. All extraction happens directly in the browser — no uploads, no servers.", icon: "Shield" },
+            { title: "Free & Unlimited", description: "No file size limits, no daily caps, no watermarks. Extract pages from any PDF, as many times as you need.", icon: "Zap" }
         ],
         faq: [
-            { question: "Does this delete the original pages?", answer: "No, it creates a copy. Your original file remains untouched." }
+            { question: "Does this modify my original file?", answer: "No, we create a brand-new PDF. Your original remains completely untouched." },
+            { question: "Can I rearrange the extracted pages?", answer: "Yes! After selecting pages, drag them into any order in the 'Selected Pages' panel before extracting." },
+            { question: "Is there a limit on file size or pages?", answer: "No. Processing is local, so the only limit is your browser's available memory." }
         ]
     },
     "remove-pages": {
@@ -451,20 +454,23 @@ export const toolContent: Record<string, ToolContent> = {
         title: "View PDF Online",
         description: "A lightweight, fast, and secure PDF viewer for your browser.",
         howTo: {
-            title: "How to View PDF",
+            title: "How to View a PDF",
             steps: [
-                { title: "Open PDF", description: "Drag and drop any PDF file here." },
-                { title: "Read", description: "Use zoom, scroll, and navigation tools to read comfortably." },
-                { title: "Private", description: "No history is saved." }
+                { title: "Upload PDF", description: "Drag and drop your PDF file, or click to browse. You can open multiple files at once." },
+                { title: "Read & Navigate", description: "Use the toolbar to jump between pages, zoom in or out, and switch between open documents via tabs." },
+                { title: "Stay Private", description: "Your files are never uploaded — everything runs locally in your browser with zero data collection." }
             ]
         },
         features: [
-            { title: "Lightweight", description: "Faster than bulky desktop readers.", icon: "Eye" },
-            { title: "Private", description: "Files aren't uploaded to perform viewing.", icon: "Shield" },
-            { title: "Universal", description: "Works on any device with a browser.", icon: "Globe" }
+            { title: "Multi-Tab Viewing", description: "Open several PDFs at once and switch between them with tabs — no need for multiple browser windows.", icon: "BookOpen" },
+            { title: "Zoom & Navigate", description: "Smooth zoom from 50% to 300%, page-by-page navigation, and direct page number input for quick jumping.", icon: "Move" },
+            { title: "100% Private & Offline", description: "Your documents never leave your device. No uploads, no tracking, no history saved — works offline too.", icon: "Shield" },
+            { title: "Free & Unlimited", description: "No file size limits, no sign-ups, no watermarks. View any PDF, as many times as you want.", icon: "Zap" }
         ],
         faq: [
-            { question: "Why use this instead of Chrome's viewer?", answer: "Our viewer guarantees that no background data collection happens, offering a strictly local reading experience." }
+            { question: "Why use this instead of Chrome's built-in viewer?", answer: "Our viewer guarantees zero data collection — no background analytics, no file metadata sent anywhere. It's a strictly local reading experience." },
+            { question: "Can I open multiple PDFs at the same time?", answer: "Yes! Upload several files and use the tab bar at the top to switch between them. Each document keeps its own page position." },
+            { question: "Does it work offline?", answer: "Yes. Once the page has loaded, all viewing is done locally — no internet connection required." }
         ]
     },
     "html-to-pdf": {

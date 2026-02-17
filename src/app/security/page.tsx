@@ -69,7 +69,7 @@ export default function SecurityPage() {
                 <div className="lg:col-span-8 space-y-0">
 
                     {/* Hero Banner */}
-                    <div className="relative border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-10">
+                    <div className="relative border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-10">
                         {/* Gradient strip */}
                         <div className="h-2 bg-gradient-to-r from-[#22D3EE] via-[#A3E635] to-[#22D3EE]" />
 
@@ -86,7 +86,7 @@ export default function SecurityPage() {
 
                             {/* Icon + Title */}
                             <div className="flex items-start gap-6 mb-6">
-                                <div className="w-20 h-20 bg-[#22D3EE] border-4 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300">
+                                <div className="w-20 h-20 bg-[#22D3EE] border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                     <Shield className="w-10 h-10 text-black" />
                                 </div>
                                 <div>
@@ -109,13 +109,13 @@ export default function SecurityPage() {
                     <div className="space-y-12">
 
                         {/* 01 — Core Principle */}
-                        <section id="core-principle" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="core-principle" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#22D3EE]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#22D3EE] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">01</span>
                                 Core Principle
                             </h2>
-                            <div className="bg-[#FFFBE6] border-2 border-black p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative ml-4">
+                            <div className="bg-[#FFFBE6] border-2 border-black p-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative ml-4">
                                 <div className="absolute -top-3 -left-3 bg-black text-white px-3 py-1 text-[10px] font-display uppercase tracking-widest">Key Promise</div>
                                 <p className="text-xl font-display uppercase tracking-tight mb-4 mt-2">&quot;Your Data Never Leaves Your Device&quot;</p>
                                 <p className="font-medium text-gray-700 leading-relaxed text-sm md:text-base">
@@ -125,7 +125,7 @@ export default function SecurityPage() {
                         </section>
 
                         {/* 02 — Technical Implementation */}
-                        <section id="technical" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="technical" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#A3E635]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-4 flex items-center gap-3 pl-4">
                                 <span className="bg-[#A3E635] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">02</span>
@@ -136,7 +136,7 @@ export default function SecurityPage() {
                             </p>
                             <div className="grid sm:grid-cols-2 gap-4 pl-4">
                                 {techItems.map(item => (
-                                    <div key={item.title} className="border-2 border-black p-5 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group bg-white">
+                                    <div key={item.title} className="border-2 border-black p-5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group bg-white">
                                         <div className="flex items-center gap-3 mb-3">
                                             <div className={`${item.color} w-8 h-8 border-2 border-black flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
                                                 <item.icon className="w-4 h-4" />
@@ -150,7 +150,7 @@ export default function SecurityPage() {
                         </section>
 
                         {/* 03 — Privacy by Design */}
-                        <section id="privacy" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="privacy" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#F472B6]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#F472B6] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">03</span>
@@ -172,7 +172,7 @@ export default function SecurityPage() {
                         </section>
 
                         {/* 04 — Vulnerability Reporting */}
-                        <section id="reporting" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="reporting" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#FBBF24]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-4 flex items-center gap-3 pl-4">
                                 <span className="bg-[#FBBF24] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">04</span>
@@ -182,7 +182,7 @@ export default function SecurityPage() {
                                 If you discover a vulnerability in our application logic, please report it immediately.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 pl-4">
-                                <a href="mailto:support@pdfagain.com" className="flex-1 p-5 border-2 border-black bg-[#FFFBE6] font-mono text-base flex items-center justify-center gap-3 hover:bg-[#22D3EE] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <a href="mailto:support@pdfagain.com" className="flex-1 p-5 border-2 border-black bg-[#FFFBE6] font-mono text-base flex items-center justify-center gap-3 hover:bg-[#22D3EE] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                     support@pdfagain.com
                                     <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
@@ -195,7 +195,7 @@ export default function SecurityPage() {
                     </div>
 
                     {/* Footer Info */}
-                    <div className="pt-8 mt-10 border-t-4 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="pt-8 mt-10 border-t-2 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">
                             Updated: Feb 13, 2026
                         </p>
@@ -204,7 +204,7 @@ export default function SecurityPage() {
 
                     {/* Cross-page Navigation */}
                     <div className="mt-10 grid grid-cols-2 gap-4">
-                        <Link href="/privacy" className="group border-3 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
+                        <Link href="/privacy" className="group border-2 border-black p-5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
                             <div className="w-12 h-12 bg-[#F472B6] border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform">
                                 <Eye className="w-6 h-6" />
                             </div>
@@ -213,7 +213,7 @@ export default function SecurityPage() {
                                 <span className="font-display uppercase tracking-tight text-lg">Privacy Policy</span>
                             </div>
                         </Link>
-                        <Link href="/terms" className="group border-3 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
+                        <Link href="/terms" className="group border-2 border-black p-5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
                             <div className="w-12 h-12 bg-[#A78BFA] border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform">
                                 <Scale className="w-6 h-6" />
                             </div>
@@ -227,7 +227,7 @@ export default function SecurityPage() {
 
                 {/* Sidebar Navigation */}
                 <div className="lg:col-span-4 space-y-6">
-                    <div className="border-4 border-black bg-white p-6 sticky top-24 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="border-2 border-black bg-white p-6 sticky top-24 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <h3 className="font-bold border-b-2 border-black pb-3 mb-4 uppercase tracking-wider text-sm flex items-center gap-2">
                             <div className="w-2 h-2 bg-[#22D3EE] border border-black" />
                             Contents

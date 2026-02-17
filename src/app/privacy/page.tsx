@@ -57,7 +57,7 @@ export default function PrivacyPage() {
                 <div className="lg:col-span-8 space-y-0">
 
                     {/* Hero Banner */}
-                    <div className="relative border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-10">
+                    <div className="relative border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-10">
                         <div className="h-2 bg-gradient-to-r from-[#F472B6] via-[#A78BFA] to-[#F472B6]" />
 
                         <div className="p-8 md:p-12">
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
 
                             {/* Icon + Title */}
                             <div className="flex items-start gap-6 mb-6">
-                                <div className="w-20 h-20 bg-[#F472B6] border-4 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300">
+                                <div className="w-20 h-20 bg-[#F472B6] border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                     <Eye className="w-10 h-10 text-black" />
                                 </div>
                                 <div>
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
                     <div className="space-y-12">
 
                         {/* 01 — Our Promise */}
-                        <section id="promise" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="promise" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#F472B6]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#F472B6] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">01</span>
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
                             <p className="font-medium text-gray-700 leading-relaxed mb-6 pl-4">
                                 At PDFagain, we have fundamentally architected our service to avoid knowing anything about you or your files. We do not want your data. We do not sell your data. We do not store your data.
                             </p>
-                            <div className="bg-[#FFFBE6] border-2 border-black p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative ml-4">
+                            <div className="bg-[#FFFBE6] border-2 border-black p-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative ml-4">
                                 <div className="absolute -top-3 -left-3 bg-black text-white px-3 py-1 text-[10px] font-display uppercase tracking-widest">No-Server Rule</div>
                                 <p className="text-sm font-medium text-gray-700 mt-2 leading-relaxed">
                                     When you &quot;upload&quot; a file to PDFagain, you are actually just loading it into your own browser&apos;s memory. It never travels over the internet to our servers. Therefore, we literally <strong>cannot</strong> have a privacy breach regarding your files, because we never possess them.
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
                         </section>
 
                         {/* 02 — Zero Collection */}
-                        <section id="no-collection" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="no-collection" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#FF6B6B]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#FF6B6B] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">02</span>
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
                         </section>
 
                         {/* 03 — Limited Interactions */}
-                        <section id="interactions" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="interactions" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#FBBF24]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-4 flex items-center gap-3 pl-4">
                                 <span className="bg-[#FBBF24] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">03</span>
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
                                 While we strive for zero data, the nature of the internet requires minimal technical interactions:
                             </p>
                             <div className="grid sm:grid-cols-2 gap-4 pl-4">
-                                <div className="border-2 border-black p-5 bg-gray-50 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group">
+                                <div className="border-2 border-black p-5 bg-gray-50 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group">
                                     <div className="flex items-center gap-3 mb-3">
                                         <div className="bg-[#FBBF24] w-8 h-8 border-2 border-black flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                                             <Server className="w-4 h-4" />
@@ -162,7 +162,7 @@ export default function PrivacyPage() {
                                         Like all websites, our hosting provider processes IP addresses for security (DDoS protection) and debugging. These logs are rotated out automatically.
                                     </p>
                                 </div>
-                                <div className="border-2 border-black p-5 bg-gray-50 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group">
+                                <div className="border-2 border-black p-5 bg-gray-50 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 group">
                                     <div className="flex items-center gap-3 mb-3">
                                         <div className="bg-[#A78BFA] w-8 h-8 border-2 border-black flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                                             <Cookie className="w-4 h-4" />
@@ -177,13 +177,13 @@ export default function PrivacyPage() {
                         </section>
 
                         {/* 04 — Third Parties */}
-                        <section id="third-party" className="scroll-mt-24 border-4 border-black bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+                        <section id="third-party" className="scroll-mt-24 border-2 border-black bg-white p-6 md:p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#A3E635]" />
                             <h2 className="text-2xl font-display uppercase tracking-tight mb-6 flex items-center gap-3 pl-4">
                                 <span className="bg-[#A3E635] text-black w-9 h-9 flex items-center justify-center text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">04</span>
                                 Third-Party Services
                             </h2>
-                            <div className="bg-[#A3E635]/20 border-2 border-black p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ml-4">
+                            <div className="bg-[#A3E635]/20 border-2 border-black p-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ml-4">
                                 <p className="font-medium text-gray-800 mb-4 text-sm leading-relaxed">
                                     We minimize dependencies. Our only third-party providers are infrastructure-related (Hosting, DNS, CDN) to deliver the application to you.
                                 </p>
@@ -195,7 +195,7 @@ export default function PrivacyPage() {
                     </div>
 
                     {/* Footer Info */}
-                    <div className="pt-8 mt-10 border-t-4 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="pt-8 mt-10 border-t-2 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">
                             Updated: Feb 13, 2026
                         </p>
@@ -204,7 +204,7 @@ export default function PrivacyPage() {
 
                     {/* Cross-page Navigation */}
                     <div className="mt-10 grid grid-cols-2 gap-4">
-                        <Link href="/security" className="group border-3 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
+                        <Link href="/security" className="group border-2 border-black p-5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
                             <div className="w-12 h-12 bg-[#22D3EE] border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform">
                                 <Shield className="w-6 h-6" />
                             </div>
@@ -213,7 +213,7 @@ export default function PrivacyPage() {
                                 <span className="font-display uppercase tracking-tight text-lg">Security</span>
                             </div>
                         </Link>
-                        <Link href="/terms" className="group border-3 border-black p-5 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
+                        <Link href="/terms" className="group border-2 border-black p-5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-4">
                             <div className="w-12 h-12 bg-[#A78BFA] border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform">
                                 <Scale className="w-6 h-6" />
                             </div>
@@ -227,7 +227,7 @@ export default function PrivacyPage() {
 
                 {/* Sidebar Navigation */}
                 <div className="lg:col-span-4 space-y-6">
-                    <div className="border-4 border-black bg-white p-6 sticky top-24 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="border-2 border-black bg-white p-6 sticky top-24 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <h3 className="font-bold border-b-2 border-black pb-3 mb-4 uppercase tracking-wider text-sm flex items-center gap-2">
                             <div className="w-2 h-2 bg-[#F472B6] border border-black" />
                             Contents

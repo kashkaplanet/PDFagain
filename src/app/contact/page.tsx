@@ -16,13 +16,17 @@ const sections = [
 export default function ContactPage() {
     return (
         <div className="max-w-4xl mx-auto py-8">
-            <Link href="/" className="inline-flex items-center gap-2 mb-8 text-sm font-bold uppercase tracking-wider group hover:text-[#F472B6] transition-colors">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
-            </Link>
+            <nav className="flex items-center gap-2 mb-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <Link href="/" className="hover:text-black transition-colors flex items-center gap-1 group">
+                    <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" /> Home
+                </Link>
+                <ChevronRight className="w-3 h-3" />
+                <span className="text-black">Contact Us</span>
+            </nav>
 
             {/* Hero */}
             <div className="text-center mb-16">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#F472B6] border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-6">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#F472B6] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
                     <MessageSquare className="w-10 h-10 text-black" />
                 </div>
                 <h1 className="text-5xl md:text-6xl font-display font-black tracking-tight mb-4">

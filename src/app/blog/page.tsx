@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
-import { BookOpen } from "lucide-react";
+import Link from "next/link";
+import { BookOpen, ArrowLeft, ChevronRight } from "lucide-react";
 import { blogPosts } from "@/config/blog";
 import { BlogCard } from "@/components/BlogCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -19,9 +20,16 @@ export const metadata: Metadata = {
 export default function BlogPage() {
     return (
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto pt-12 pb-24 px-4">
+            <nav className="w-full flex items-center gap-2 mb-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <Link href="/" className="hover:text-black transition-colors flex items-center gap-1 group">
+                    <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" /> Home
+                </Link>
+                <ChevronRight className="w-3 h-3" />
+                <span className="text-black">Blog</span>
+            </nav>
             {/* Header */}
             <div className="text-center mb-16 space-y-6">
-                <div className="inline-flex p-5 border-2 border-black bg-[#A78BFA] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:rotate-3 transition-transform duration-300 mb-2">
+                <div className="inline-flex p-5 border-2 border-black bg-[#A78BFA] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-3 transition-transform duration-300 mb-2">
                     <BookOpen className="w-12 h-12 text-black" />
                 </div>
 
@@ -41,7 +49,7 @@ export default function BlogPage() {
             </div>
 
             {/* Newsletter / Footer CTA */}
-            <div className="w-full mt-24 border-4 border-black bg-[#A3E635] p-12 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div className="w-full mt-24 border-2 border-black bg-[#A3E635] p-12 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <h2 className="text-3xl md:text-4xl font-display font-black mb-4 uppercase">
                     Stay Updated
                 </h2>

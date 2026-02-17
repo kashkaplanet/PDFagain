@@ -23,7 +23,8 @@ export default function ViewPdfClient() {
     const { pdfProxy, pageCount, loading } = usePDF(activeFile);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [scale, setScale] = useState(1.5);
+    const [scale, setScale] = useState<number | null>(null);
+    const [autoFitDone, setAutoFitDone] = useState(false);
 
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -32,12 +33,16 @@ export default function ViewPdfClient() {
 
     const handleFilesSelected = async (newFiles: File[]) => {
         if (newFiles.length > 0) {
-            setFiles(prev => [...prev, ...newFiles]);
-            if (files.length === 0) {
-                setActiveFileIndex(0);
-                setCurrentPage(1);
-                setScale(1.5);
-            }
+            setFiles(prev => {
+                const updated = [...prev, ...newFiles];
+                if (prev.length === 0) {
+                    setActiveFileIndex(0);
+                    setCurrentPage(1);
+                    setScale(null);
+                    setAutoFitDone(false);
+                }
+                return updated;
+            });
         }
     };
 
@@ -58,20 +63,38 @@ export default function ViewPdfClient() {
         }
     };
 
+    // Auto-fit: calculate scale to fit container width on first load
+    useEffect(() => {
+        if (!pdfProxy || autoFitDone || scale !== null) return;
+
+        const fitToContainer = async () => {
+            try {
+                const page = await pdfProxy.getPage(1);
+                const defaultViewport = page.getViewport({ scale: 1 });
+                const container = containerRef.current;
+                const containerWidth = container ? container.clientWidth - 48 : 800; // 48px = padding
+                const fitScale = Math.min(containerWidth / defaultViewport.width, 2);
+                setScale(Math.round(fitScale * 100) / 100); // round to 2 decimals
+                setAutoFitDone(true);
+            } catch (err) {
+                setScale(1.0);
+                setAutoFitDone(true);
+            }
+        };
+
+        fitToContainer();
+    }, [pdfProxy, autoFitDone, scale]);
+
     useEffect(() => {
         let isActive = true;
 
-        if (!pdfProxy || !canvasRef.current) return;
+        if (!pdfProxy || !canvasRef.current || scale === null) return;
 
         const renderPage = async () => {
             if (renderTaskRef.current) {
                 try {
                     renderTaskRef.current.cancel();
                 } catch { }
-                // We don't set null here immediately if we want to be super safe, 
-                // but usually cancel() is synchronous in signaling, 
-                // though the promise rejection is async. 
-                // Anyhow, the important part is guarding the *start* of the new render.
             }
 
             try {
@@ -95,8 +118,6 @@ export default function ViewPdfClient() {
                     viewport,
                 };
 
-                // Double check cancellation of any task that might have sneaked in
-                // (though logical single-thread JS means mostly sequential)
                 if (renderTaskRef.current) {
                     try {
                         renderTaskRef.current.cancel();
@@ -111,7 +132,6 @@ export default function ViewPdfClient() {
                     renderTaskRef.current = null;
                 }
             } catch (error: unknown) {
-                // Check if error is a RenderingCancelledException
                 const isCancelled = error instanceof Object && (error as any).name === 'RenderingCancelledException';
                 if (!isCancelled) {
                     console.error("Render error:", error);
@@ -142,21 +162,21 @@ export default function ViewPdfClient() {
         >
             {/* File Tabs */}
             {files.length > 0 && (
-                <div className="mb-6 flex flex-wrap items-center gap-2">
+                <div className="mb-4 flex flex-wrap items-center gap-2">
                     {files.map((file, idx) => (
                         <div
                             key={idx}
                             onClick={() => { setActiveFileIndex(idx); setCurrentPage(1); }}
-                            className={`flex items-center gap-2 px-3 py-2 cursor-pointer border-2 border-black transition-all ${idx === activeFileIndex
-                                ? "bg-[#A3E635] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                                : "bg-white hover:bg-gray-100"
+                            className={`group flex items-center gap-2 px-3 py-1.5 cursor-pointer border-2 border-black text-sm font-display transition-all duration-150 ${idx === activeFileIndex
+                                ? "bg-[#A3E635] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+                                : "bg-white hover:bg-gray-50 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                                 }`}
                         >
-                            <FileText className="w-4 h-4" />
-                            <span className="text-sm font-display truncate max-w-[150px]">{file.name}</span>
+                            <FileText className="w-3.5 h-3.5 shrink-0" />
+                            <span className="truncate max-w-[180px]">{file.name}</span>
                             <button
                                 onClick={(e) => removeFile(idx, e)}
-                                className="p-0.5 hover:bg-black/10 rounded"
+                                className="p-0.5 hover:bg-black/10 rounded opacity-50 group-hover:opacity-100 transition-opacity"
                             >
                                 <X className="w-3 h-3" />
                             </button>
@@ -164,9 +184,9 @@ export default function ViewPdfClient() {
                     ))}
 
                     {/* Add File Button */}
-                    <label className="flex items-center gap-1 px-3 py-2 cursor-pointer bg-[#A3E635] border-2 border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-                        <Plus className="w-4 h-4" />
-                        <span className="text-sm font-display">Add PDF</span>
+                    <label className="flex items-center gap-1.5 px-3 py-1.5 cursor-pointer border-2 border-dashed border-black/40 hover:border-black bg-white hover:bg-[#A3E635]/20 text-sm font-display transition-all duration-150">
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Add PDF</span>
                         <input
                             type="file"
                             accept=".pdf"
@@ -205,18 +225,18 @@ export default function ViewPdfClient() {
             ) : (
                 <>
                     {/* Toolbar */}
-                    <div className="sticky top-4 z-10 mx-auto max-w-3xl mb-6">
-                        <div className="bg-[#FFFBEB] border-2 border-black p-2 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] gap-4">
+                    <div className="sticky top-2 z-10 mb-4">
+                        <div className="bg-white border-2 border-black p-2 flex items-center justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] gap-3">
                             {/* Page Navigation */}
-                            <div className="flex items-center gap-1 border-2 border-black bg-white">
+                            <div className="flex items-center gap-0.5 border-2 border-black bg-gray-50">
                                 <button
                                     onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                                     disabled={currentPage === 1}
-                                    className="p-2 hover:bg-gray-100 disabled:opacity-30"
+                                    className="p-1.5 hover:bg-[#A3E635]/40 disabled:opacity-30 transition-colors"
                                 >
-                                    <ChevronLeft className="w-5 h-5" />
+                                    <ChevronLeft className="w-4 h-4" />
                                 </button>
-                                <div className="flex items-center px-1">
+                                <div className="flex items-center px-1 border-x-2 border-black bg-white">
                                     <input
                                         type="number"
                                         min={1}
@@ -228,58 +248,63 @@ export default function ViewPdfClient() {
                                                 setCurrentPage(val);
                                             }
                                         }}
-                                        className="w-12 py-1 text-center bg-transparent font-display focus:outline-none appearance-none"
+                                        className="w-10 py-1 text-center bg-transparent font-display text-sm focus:outline-none appearance-none"
                                     />
-                                    <span className="text-gray-500 text-sm">/ {pageCount}</span>
+                                    <span className="text-gray-400 text-xs font-display">/ {pageCount}</span>
                                 </div>
                                 <button
                                     onClick={() => setCurrentPage(p => Math.min(pageCount, p + 1))}
                                     disabled={currentPage >= pageCount}
-                                    className="p-2 hover:bg-gray-100 disabled:opacity-30"
+                                    className="p-1.5 hover:bg-[#A3E635]/40 disabled:opacity-30 transition-colors"
                                 >
-                                    <ChevronRight className="w-5 h-5" />
+                                    <ChevronRight className="w-4 h-4" />
                                 </button>
                             </div>
+
+                            {/* File Name (center) */}
+                            <span className="hidden sm:block text-xs font-display text-gray-500 truncate max-w-[200px]">
+                                {activeFile.name}
+                            </span>
 
                             {/* Zoom Controls */}
-                            <div className="flex items-center gap-1 border-2 border-black bg-white">
+                            <div className="flex items-center gap-0.5 border-2 border-black bg-gray-50">
                                 <button
-                                    onClick={() => setScale(s => Math.max(0.5, s - 0.25))}
-                                    disabled={scale <= 0.5}
-                                    className="p-2 hover:bg-gray-100 disabled:opacity-30"
+                                    onClick={() => setScale(s => Math.max(0.5, (s ?? 1) - 0.25))}
+                                    disabled={(scale ?? 1) <= 0.5}
+                                    className="p-1.5 hover:bg-[#A3E635]/40 disabled:opacity-30 transition-colors"
                                 >
-                                    <ZoomOut className="w-4 h-4" />
+                                    <ZoomOut className="w-3.5 h-3.5" />
                                 </button>
-                                <span className="text-sm font-display w-12 text-center select-none">
-                                    {Math.round(scale * 100)}%
+                                <span className="text-xs font-display w-10 text-center select-none border-x-2 border-black bg-white py-1.5">
+                                    {Math.round((scale ?? 1) * 100)}%
                                 </span>
                                 <button
-                                    onClick={() => setScale(s => Math.min(3, s + 0.25))}
-                                    disabled={scale >= 3}
-                                    className="p-2 hover:bg-gray-100 disabled:opacity-30"
+                                    onClick={() => setScale(s => Math.min(3, (s ?? 1) + 0.25))}
+                                    disabled={(scale ?? 1) >= 3}
+                                    className="p-1.5 hover:bg-[#A3E635]/40 disabled:opacity-30 transition-colors"
                                 >
-                                    <ZoomIn className="w-4 h-4" />
+                                    <ZoomIn className="w-3.5 h-3.5" />
                                 </button>
                             </div>
-
-
                         </div>
                     </div>
 
                     {/* Canvas Container */}
                     <div
                         ref={containerRef}
-                        className="relative flex justify-center overflow-auto min-h-[600px] pb-20"
-                        style={{ maxHeight: 'calc(100vh - 140px)' }}
+                        className="relative flex justify-center overflow-auto bg-gray-50 border-2 border-black p-6 min-h-[500px] mb-6"
                     >
                         {loading && (
-                            <div className="absolute inset-0 flex items-center justify-center w-full h-full py-20">
-                                <Loader2 className="w-8 h-8 animate-spin" />
+                            <div className="absolute inset-0 flex items-center justify-center bg-gray-50/80 z-10">
+                                <div className="flex flex-col items-center gap-3">
+                                    <Loader2 className="w-8 h-8 animate-spin text-[#A3E635]" />
+                                    <span className="text-sm font-display text-gray-500">Loading PDF...</span>
+                                </div>
                             </div>
                         )}
                         <canvas
                             ref={canvasRef}
-                            className={`shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black bg-white ${loading ? 'invisible' : ''}`}
+                            className={`shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] border border-gray-200 bg-white ${loading ? 'invisible' : ''}`}
                         />
                     </div>
                 </>

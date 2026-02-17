@@ -45,7 +45,7 @@ export const ToolGrid: React.FC<ToolGridProps> = React.memo(({
                                 aria-expanded={!isCollapsed}
                                 aria-controls={`grid-${section.title}`}
                             >
-                                <div className={`p-3 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300 ${colors.bg}`}>
+                                <div className={`p-3 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:rotate-6 hover:scale-110 transition-transform duration-300 ${colors.bg}`}>
                                     <SectionIcon className="w-6 h-6" />
                                 </div>
                                 <div className="flex-1">
