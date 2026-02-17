@@ -7,18 +7,15 @@ interface SearchBarProps {
     setSearchQuery: (query: string) => void;
     totalResults: number;
     placeholderText: string;
-    isSticky?: boolean;
-    stickyRef?: React.RefObject<HTMLInputElement | null>;
     searchRef?: React.RefObject<HTMLInputElement | null>;
 }
+
 
 export const SearchBar: React.FC<SearchBarProps> = ({
     searchQuery,
     setSearchQuery,
     totalResults,
     placeholderText,
-    isSticky = false,
-    stickyRef,
     searchRef
 }) => {
     // We need to handle the updateSearch logic here or pass it down.
@@ -27,18 +24,18 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     // Actually, the parent handles URL sync in updateSearch.
 
     return (
-        <div className={`max-w-lg ${isSticky ? "w-full" : ""} mx-auto group relative z-20`}>
-            <div className={`relative flex items-center bg-white border-3 border-black 
-                            ${isSticky ? "shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" : "shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"} 
+        <div className="max-w-lg mx-auto group relative z-20">
+            <div className="relative flex items-center bg-white border-3 border-black 
+                            shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] 
                             transition-all duration-300 focus-within:translate-x-[2px] focus-within:translate-y-[2px] 
-                            focus-within:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
+                            focus-within:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
 
                 <div className="pl-5 flex items-center pointer-events-none">
                     <Search className={`w-6 h-6 transition-colors duration-300 ${searchQuery ? "text-black" : "text-gray-400"}`} strokeWidth={3} />
                 </div>
 
                 <input
-                    ref={isSticky ? stickyRef : searchRef}
+                    ref={searchRef}
                     type="text"
                     placeholder={placeholderText}
                     value={searchQuery}

@@ -32,8 +32,14 @@ body {
 }
 
 /* Hard reset for retro feel - remove smooth scrolling for snappiness? keeping it for now */
-html {
-  scroll-behavior: smooth;
+/* html { scroll-behavior: smooth; } */
+
+html,
+body {
+  /* overflow-y: auto; */
+  /* height: 100%; */
+  scroll-padding-top: 100px;
+  /* Account for sticky header/search */
 }
 
 /* Custom Scrollbar */

@@ -14,7 +14,7 @@ interface ToolGridProps {
     handleGridKeyDown: (e: React.KeyboardEvent, tools: Tool[], index: number) => void;
 }
 
-export const ToolGrid: React.FC<ToolGridProps> = ({
+export const ToolGrid: React.FC<ToolGridProps> = React.memo(({
     filteredSections,
     collapsedSections,
     toggleCollapse,
@@ -85,4 +85,4 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
             })}
         </div>
     );
-};
+});

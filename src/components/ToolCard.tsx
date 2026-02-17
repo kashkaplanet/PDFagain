@@ -30,38 +30,33 @@ export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKey
     const colorKey = (sectionColor || (tool as any).sectionColor) as keyof typeof RETRO_COLORS;
     const colors = RETRO_COLORS[colorKey] || RETRO_COLORS.default;
     const cardRef = useRef<HTMLAnchorElement>(null);
-    // Initialize visible state based on whether this tool has already animated
-    const [isVisible, setIsVisible] = useState(() => animatedCards.has(tool.href));
+    const [isVisible] = useState(true); // Always visible
 
-    // Animation: fade in when visible
+    // Check if this card is the target of the hash and scroll to it
     useEffect(() => {
-        const ref = cardRef.current;
-        if (!ref) return;
+        if (typeof window !== 'undefined' && window.location.hash) {
+            const hashId = window.location.hash.substring(1);
+            // Match against the ID we use (which is tool.href stripped of leading /)
+            const myId = tool.href.replace(/^\//, "");
 
-        // If already visible (e.g. from previous render), no need to observe
-        if (isVisible) return;
-
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                // Determine stagger delay based on grid alignment?
-                // The parent logic used `i * 50`. We can pass `gridIndex` but that changes if list reorders.
-                // Simple random-ish or fixed small delay is often fine.
-                // Or just rely on natural browser timing + requestAnimationFrame.
-
-                // If we want staggering, we can use gridIndex.
-                const delay = (gridIndex || 0) % 10 * 50;
-
+            if (hashId === myId && cardRef.current) {
+                // We are the target!
                 setTimeout(() => {
-                    setIsVisible(true);
-                    animatedCards.add(tool.href);
-                }, delay);
-                observer.disconnect();
-            }
-        }, { threshold: 0.1 }); // Show when 10% visible
+                    const element = document.getElementById(myId) || cardRef.current;
+                    if (!element) return;
 
-        observer.observe(ref);
-        return () => observer.disconnect();
-    }, [isVisible, gridIndex, tool.href]);
+                    const SCROLL_OFFSET = 140;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - SCROLL_OFFSET;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }, 300); // Slight delay to allow layout to settle
+            }
+        }
+    }, [tool.href]);
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (onGridKeyDown && gridTools && typeof gridIndex === 'number') {
@@ -101,8 +96,7 @@ export const ToolCard = memo(({ tool, isFav, onToggleFav, onToolClick, onGridKey
         <div id={id} className="h-full relative hover:z-10 isolate">
             <div
                 className={`group flex flex-col gap-3 p-6 bg-white border-2 border-black h-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
-                           hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-[box-shadow,translate,opacity] duration-200 cursor-pointer text-left
-                           ${isVisible ? "animate-card-enter opacity-100" : "opacity-0 translate-y-4"}`}
+                           hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-[box-shadow,translate,opacity] duration-200 cursor-pointer text-left`}
             >
                 {/* Main Link Overlay */}
                 <Link

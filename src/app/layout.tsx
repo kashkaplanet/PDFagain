@@ -9,8 +9,8 @@ import { FileProvider } from "@/context/FileContext";
 import { DragDropOverlay } from "@/components/DragDropOverlay";
 import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/react";
-import ScrollToTop from "@/components/ScrollToTop";
-import { RouteDebugger } from "@/components/RouteDebugger";
+
+import { ScrollRestorationFix } from "@/components/ScrollRestorationFix";
 
 
 
@@ -110,6 +110,8 @@ export const viewport: Viewport = {
 
 
 
+import { SmoothScrolling } from "@/components/SmoothScrolling";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -123,8 +125,8 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1595077575947362"
           crossOrigin="anonymous"
         ></script>
-        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
-        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js" suppressHydrationWarning></script>
+        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js" suppressHydrationWarning></script>
         <meta name="ezoic-site-verification" content="Bl2N8Swc1x9FmJreejK4l9uTrHS2R6" />
         <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
         <script
@@ -134,28 +136,31 @@ export default function RootLayout({
               ezstandalone.cmd = ezstandalone.cmd || [];
             `,
           }}
+          suppressHydrationWarning
         />
       </head>
       <body className={`${inter.variable} ${futura.variable} font-sans antialiased bg-[#FFFBE6] text-black text-lg`} suppressHydrationWarning>
-        <DownloadQueueProvider>
-          <FileProvider>
-            <ScrollToTop />
-            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:font-display focus:text-sm focus:border-2 focus:border-white">
-              Skip to content
-            </a>
-            <div className="min-h-screen flex flex-col">
-              <Navbar />
-              <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
-                {children}
-              </main>
-              <Footer />
-            </div>
-            <DragDropOverlay />
-            <RouteDebugger />
-            <JsonLd />
-            <Analytics />
-          </FileProvider>
-        </DownloadQueueProvider>
+        <SmoothScrolling>
+          <DownloadQueueProvider>
+            <FileProvider>
+              <ScrollRestorationFix />
+              <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:font-display focus:text-sm focus:border-2 focus:border-white">
+                Skip to content
+              </a>
+              <div className="min-h-screen flex flex-col">
+                <Navbar />
+                <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+              <DragDropOverlay />
+
+              <JsonLd />
+              <Analytics />
+            </FileProvider>
+          </DownloadQueueProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );

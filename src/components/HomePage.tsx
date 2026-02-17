@@ -5,7 +5,6 @@ import { ToolCard } from "@/components/ToolCard";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { sections, popularTools, type Tool } from "@/config/tools";
 import { HeroSection } from "@/components/home/HeroSection";
-import { SearchBar } from "@/components/home/SearchBar";
 import { ToolGrid } from "@/components/home/ToolGrid";
 
 // LocalStorage keys
@@ -25,7 +24,6 @@ export default function HomePage() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const searchRef = useRef<HTMLInputElement>(null);
-    const stickySearchRef = useRef<HTMLInputElement>(null);
     const heroRef = useRef<HTMLDivElement>(null);
 
     const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
@@ -34,7 +32,6 @@ export default function HomePage() {
     const [favoriteHrefs, setFavoriteHrefs] = useLocalStorage<string[]>(FAVORITES_KEY, []);
 
     const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
-    const [isSearchSticky, setIsSearchSticky] = useState(false);
     const [placeholderIndex, setPlaceholderIndex] = useState(0);
     const [placeholderText, setPlaceholderText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
@@ -62,17 +59,7 @@ export default function HomePage() {
         return () => clearTimeout(timer);
     }, [placeholderText, isDeleting, placeholderIndex, typingSpeed]);
 
-    // Sticky search observer
-    useEffect(() => {
-        const sentinel = heroRef.current;
-        if (!sentinel) return;
-        const observer = new IntersectionObserver(
-            ([entry]) => setIsSearchSticky(!entry.isIntersecting),
-            { threshold: 0 }
-        );
-        observer.observe(sentinel);
-        return () => observer.disconnect();
-    }, []);
+
 
 
     // Keyboard shortcut: / or Ctrl+K
@@ -80,62 +67,53 @@ export default function HomePage() {
         const handler = (e: KeyboardEvent) => {
             if (e.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)) {
                 e.preventDefault();
-                if (isSearchSticky) {
-                    stickySearchRef.current?.focus();
-                } else {
-                    searchRef.current?.focus();
-                }
+                searchRef.current?.focus();
             }
             if ((e.ctrlKey || e.metaKey) && e.key === "k") {
                 e.preventDefault();
-                if (isSearchSticky) {
-                    stickySearchRef.current?.focus();
-                } else {
-                    searchRef.current?.focus();
-                }
+                searchRef.current?.focus();
             }
         };
         document.addEventListener("keydown", handler);
         return () => document.removeEventListener("keydown", handler);
-    }, [isSearchSticky]);
+    }, []);
 
-    // Handle hash scrolling on load
+    // Handle hash scrolling on load with robust polling
     useEffect(() => {
         const hash = window.location.hash;
         if (hash) {
             const id = hash.substring(1);
+            if (!id) return;
 
-            // Wait for layout stability
-            setTimeout(() => {
+            const startTime = Date.now();
+            const maxDuration = 2000; // 2 seconds timeout to find the element
+
+            // Offset for sticky header/search bar
+            const SCROLL_OFFSET = 140;
+
+            const checkAndScroll = () => {
                 const element = document.getElementById(id);
                 if (element) {
-                    const headerOffset = 100;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const startPosition = window.scrollY;
-                    const offsetPosition = elementPosition + startPosition - headerOffset;
-                    const distance = offsetPosition - startPosition;
-                    const duration = 1000; // ms
+                    // Element found! Wait a tick to ensure layout is stable
+                    setTimeout(() => {
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - SCROLL_OFFSET;
 
-                    // Easing function: easeInOutCubic
-                    const ease = (t: number) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
 
-                    let start: number | null = null;
-                    const animation = (currentTime: number) => {
-                        if (start === null) start = currentTime;
-                        const timeElapsed = currentTime - start;
-                        const progress = Math.min(timeElapsed / duration, 1);
-                        const easeProgress = ease(progress);
 
-                        window.scrollTo(0, startPosition + distance * easeProgress);
-
-                        if (timeElapsed < duration) {
-                            requestAnimationFrame(animation);
-                        }
-                    };
-
-                    requestAnimationFrame(animation);
+                    }, 100);
+                } else if (Date.now() - startTime < maxDuration) {
+                    // Not found yet, keep polling
+                    requestAnimationFrame(checkAndScroll);
                 }
-            }, 100);
+            };
+
+            // Start polling
+            checkAndScroll();
         }
     }, []);
 
@@ -173,6 +151,11 @@ export default function HomePage() {
     const favoriteTools = useMemo(() => favoriteHrefs.map(h => allToolsFlat.find(t => t.href === h)).filter(Boolean) as typeof allToolsFlat, [favoriteHrefs, allToolsFlat]);
 
     const handleToolClick = useCallback((href: string) => {
+        // Update the current history entry with the tool's hash ID
+        // This ensures that when the user clicks "Back", they return to this specific spot
+        const toolId = href.replace(/^\//, "");
+        window.history.replaceState(null, "", `#${toolId}`);
+
         setRecentHrefs(prev => {
             const recent = prev.filter(h => h !== href);
             recent.unshift(href);
@@ -222,22 +205,7 @@ export default function HomePage() {
     return (
         <div className="flex flex-col items-center w-full max-w-6xl mx-auto gap-20 pt-4 relative">
 
-            {/* Sticky Search Bar */}
-            <div
-                className={`fixed top-0 left-0 right-0 z-[60] transition-transform duration-300 ${isSearchSticky ? "translate-y-0" : "-translate-y-full"
-                    } bg-[#FFFBE6] border-b-2 border-black px-4 py-3 will-change-transform`}
-            >
-                <div className="max-w-6xl mx-auto">
-                    <SearchBar
-                        searchQuery={searchQuery}
-                        setSearchQuery={updateSearch}
-                        totalResults={totalResults}
-                        placeholderText={placeholderText}
-                        isSticky={true}
-                        stickyRef={stickySearchRef}
-                    />
-                </div>
-            </div>
+
 
             {/* Hero Section */}
             <div ref={heroRef} className="w-full">
