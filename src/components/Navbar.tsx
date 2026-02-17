@@ -13,7 +13,7 @@ import {
 const navItems = [
     {
         name: "Organize",
-        href: "#organize-pdf",
+        href: "/#organize-pdf",
         color: "#F472B6",
         hoverColor: "#EC4899",
         tools: [
@@ -27,7 +27,7 @@ const navItems = [
     },
     {
         name: "Optimize",
-        href: "#optimize-pdf",
+        href: "/#optimize-pdf",
         color: "#FB923C",
         hoverColor: "#F97316",
         tools: [
@@ -37,7 +37,7 @@ const navItems = [
     },
     {
         name: "Convert",
-        href: "#convert-to-pdf",
+        href: "/#convert-to-pdf",
         color: "#22D3EE",
         hoverColor: "#06B6D4",
         tools: [
@@ -47,7 +47,7 @@ const navItems = [
     },
     {
         name: "Edit",
-        href: "#edit-pdf",
+        href: "/#edit-pdf",
         color: "#A78BFA",
         hoverColor: "#8B5CF6",
         tools: [
