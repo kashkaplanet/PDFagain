@@ -51,7 +51,7 @@ export function ToolContentSection({ content }: { content: ToolContent }) {
                     {content.features.map((feature, index) => {
                         const Icon = icons[feature.icon] || Star;
                         return (
-                            <div key={index} className="bg-[#FFFBE6] border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
+                            <div key={index} className="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
                                 <Icon className="w-8 h-8 mb-4 text-black" />
                                 <h3 className="font-bold text-lg mb-2 font-display uppercase tracking-wide">
                                     {feature.title}
@@ -66,7 +66,7 @@ export function ToolContentSection({ content }: { content: ToolContent }) {
             </section>
 
             {/* FAQ Section */}
-            <section className="border-4 border-black bg-white p-8 mb-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <section className="border-2 border-black bg-white p-8 mb-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <h2 className="text-3xl font-display font-black uppercase mb-8 flex items-center gap-3">
                     <span className="bg-[#F472B6] border-2 border-black w-10 h-10 flex items-center justify-center text-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Q</span>
                     Frequently Asked Questions

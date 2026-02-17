@@ -383,25 +383,472 @@ export const toolContent: Record<string, ToolContent> = {
             { question: "What is Base64?", answer: "It's a way to represent binary data (like a PDF) as text, useful for sending files in JSON or HTML." }
         ]
     },
-    "jpg-to-binary": {
-        slug: "jpg-to-binary",
-        title: "JPG to Base64 Binary",
-        description: "Convert a JPG image into a Base64 string for embedding or transmission.",
+    "sign-pdf": {
+        slug: "sign-pdf",
+        title: "Sign PDF",
+        description: "Create and add electronic signatures to your PDF documents.",
         howTo: {
-            title: "How to Convert JPG to Base64",
+            title: "How to Sign a PDF",
             steps: [
-                { title: "Upload JPG", description: "Select your image." },
-                { title: "Encode", description: "Get the Base64 text representation." },
-                { title: "Use", description: "Copy for use in HTML/CSS or APIs." }
+                { title: "Upload PDF", description: "Select the document needing a signature." },
+                { title: "Create Signature", description: "Draw with your mouse, type your name, or upload an image." },
+                { title: "Place & Save", description: "Drag the signature to the correct spot and click 'Download'." }
             ]
         },
         features: [
-            { title: "Embed Images", description: "Use images directly in code.", icon: "Zap" },
-            { title: "Secure", description: "Local conversion.", icon: "Shield" },
-            { title: "Fast", description: "Instant output.", icon: "Check" }
+            { title: "eSignatures", description: "Quickly sign contracts and forms.", icon: "PenTool" },
+            { title: "Secure", description: "Signing happens locally. We don't store your signature.", icon: "Shield" },
+            { title: "Multi-Platform", description: "Works on desktop and mobile.", icon: "Check" }
         ],
         faq: [
-            { question: "Does this increase size?", answer: "Yes, Base64 is typically about 33% larger than the original binary file." }
+            { question: "Is this legally binding?", answer: "Electronic signatures are valid in many jurisdictions, but for highly sensitive legal documents, check your local laws regarding digital signature requirements." }
+        ]
+    },
+    "compare-pdf": {
+        slug: "compare-pdf",
+        title: "Compare PDF Files",
+        description: "Compare two PDF documents side-by-side to find differences.",
+        howTo: {
+            title: "How to Compare PDFs",
+            steps: [
+                { title: "Upload Files", description: "Select two PDF versions you want to compare." },
+                { title: "Analyze", description: "The tool overlays or visualizes differences between the documents." },
+                { title: "Review", description: "Scroll through to see what has changed." }
+            ]
+        },
+        features: [
+            { title: "Visual Comparison", description: "Spot layout changes easily.", icon: "GitCompare" },
+            { title: "Privacy", description: "Comparison logic runs in your browser.", icon: "Shield" },
+            { title: "Fast", description: "No need to print and scan to check changes.", icon: "Zap" }
+        ],
+        faq: [
+            { question: "Does it highlight text changes?", answer: "Currently, we focus on visual page comparison. Text-diffing features are in development." }
+        ]
+    },
+    "legal-comparison": {
+        slug: "legal-comparison",
+        title: "Legal Document Comparison",
+        description: "Specialized view for comparing legal contract versions.",
+        howTo: {
+            title: "How to Compare Contracts",
+            steps: [
+                { title: "Upload Versions", description: "Upload the original and the revised contract." },
+                { title: "Compare", description: "View them side-by-side to ensure integrity." },
+                { title: "Verify", description: "Check clause numbering and formatting." }
+            ]
+        },
+        features: [
+            { title: "Side-by-Side", description: "Classic split-screen view.", icon: "Scale" },
+            { title: "Secure", description: "Confidential contracts stay on your machine.", icon: "Lock" },
+            { title: "Precise", description: "High-resolution rendering.", icon: "Check" }
+        ],
+        faq: [
+            { question: "Is the data sent to a server?", answer: "Never. Legal documents are processed strictly within your browser session." }
+        ]
+    },
+    "view-pdf": {
+        slug: "view-pdf",
+        title: "View PDF Online",
+        description: "A lightweight, fast, and secure PDF viewer for your browser.",
+        howTo: {
+            title: "How to View PDF",
+            steps: [
+                { title: "Open PDF", description: "Drag and drop any PDF file here." },
+                { title: "Read", description: "Use zoom, scroll, and navigation tools to read comfortably." },
+                { title: "Private", description: "No history is saved." }
+            ]
+        },
+        features: [
+            { title: "Lightweight", description: "Faster than bulky desktop readers.", icon: "Eye" },
+            { title: "Private", description: "Files aren't uploaded to perform viewing.", icon: "Shield" },
+            { title: "Universal", description: "Works on any device with a browser.", icon: "Globe" }
+        ],
+        faq: [
+            { question: "Why use this instead of Chrome's viewer?", answer: "Our viewer guarantees that no background data collection happens, offering a strictly local reading experience." }
+        ]
+    },
+    "html-to-pdf": {
+        slug: "html-to-pdf",
+        title: "HTML to PDF",
+        description: "Convert webpages or HTML code into properly formatted PDF documents.",
+        howTo: {
+            title: "How to Convert HTML to PDF",
+            steps: [
+                { title: "Enter URL", description: "Paste the website link you want to capture." },
+                { title: "Convert", description: "Our engine renders the page and prints it to PDF." },
+                { title: "Download", description: "Save the article or page for offline reading." }
+            ]
+        },
+        features: [
+            { title: "Clean Layout", description: "Removes ads and popups for better reading.", icon: "Globe" },
+            { title: "Fast", description: "Capture content in seconds.", icon: "Zap" },
+            { title: "Free", description: "Archive web content easily.", icon: "Check" }
+        ],
+        faq: [
+            { question: "Does it work on login-protected pages?", answer: "No, the tool can only access publicly available URLs. For private pages, use 'Print to PDF' in your browser." }
+        ]
+    },
+    "png-to-pdf": {
+        slug: "png-to-pdf",
+        title: "PNG to PDF",
+        description: "Convert PNG images into high-quality PDF files. Preserves transparency and quality.",
+        howTo: {
+            title: "How to Convert PNG to PDF",
+            steps: [
+                { title: "Upload PNGs", description: "Select your PNG image files." },
+                { title: "Arrange", description: "Reorder them if creating a multi-page document." },
+                { title: "Convert", description: "Click to generate the PDF." }
+            ]
+        },
+        features: [
+            { title: "Transparency", description: "Handles PNG alpha channels correctly.", icon: "FileImage" },
+            { title: "Batching", description: "Combine multiple PNGs.", icon: "Layers" },
+            { title: "Secure", description: "Local processing.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Is quality lost?", answer: "We embed the image directly, so visual quality is preserved at the original resolution." }
+        ]
+    },
+    "txt-to-pdf": {
+        slug: "txt-to-pdf",
+        title: "Text to PDF",
+        description: "Convert plain text files (.txt) into clean, readable PDF documents.",
+        howTo: {
+            title: "How to Convert Text to PDF",
+            steps: [
+                { title: "Upload Text", description: "Select your .txt file." },
+                { title: "Format", description: "The tool applies standard formatting (font, margins)." },
+                { title: "Download", description: "Save as a professional PDF." }
+            ]
+        },
+        features: [
+            { title: "Simple", description: "Great for converting code or logs.", icon: "FileText" },
+            { title: "Fast", description: "Instant conversion.", icon: "Zap" },
+            { title: "Secure", description: "Your text stays local.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Can I change the font?", answer: "Currently, we use a standard readable font (Courier or Helvetica) for best compatibility." }
+        ]
+    },
+    "webp-to-pdf": {
+        slug: "webp-to-pdf",
+        title: "WebP to PDF",
+        description: "Convert modern WebP images into standard PDF documents.",
+        howTo: {
+            title: "How to Convert WebP to PDF",
+            steps: [
+                { title: "Upload WebP", description: "Select your WebP images." },
+                { title: "Convert", description: "We transcode them into a PDF container." },
+                { title: "Download", description: "Save the file." }
+            ]
+        },
+        features: [
+            { title: "Modern Format", description: "Support for the latest web image standards.", icon: "FileImage" },
+            { title: "Local", description: "No server uploads.", icon: "Shield" },
+            { title: "Free", description: "Convert unlimited files.", icon: "Check" }
+        ],
+        faq: [
+            { question: "Why use WebP?", answer: "WebP offers smaller file sizes than JPG. Converting to PDF makes them easier to share with people who can't open WebP." }
+        ]
+    },
+    "pdf-to-jpg": {
+        slug: "pdf-to-jpg",
+        title: "PDF to JPG",
+        description: "Convert each page of your PDF into high-quality JPG images.",
+        howTo: {
+            title: "How to Convert PDF to JPG",
+            steps: [
+                { title: "Upload PDF", description: "Select the file you want to convert." },
+                { title: "Convert", description: "The tool rasterizes each page into an image." },
+                { title: "Download", description: "Download a ZIP file containing all your images." }
+            ]
+        },
+        features: [
+            { title: "High Res", description: "Render pages at 300 DPI for print quality.", icon: "FileImage" },
+            { title: "Secure", description: "Processing stays on your device.", icon: "Shield" },
+            { title: "Fast", description: "Convert entire books in seconds.", icon: "Zap" }
+        ],
+        faq: [
+            { question: "Can I choose the quality?", answer: "Yes, we prioritize high-quality output suitable for printing and archiving." }
+        ]
+    },
+    "pdf-to-png": {
+        slug: "pdf-to-png",
+        title: "PDF to PNG",
+        description: "Convert PDF pages into transparent, lossless PNG images.",
+        howTo: {
+            title: "How to Convert PDF to PNG",
+            steps: [
+                { title: "Upload PDF", description: "Select your document." },
+                { title: "Convert", description: "Each page is turned into a PNG file." },
+                { title: "Download", description: "Save the images." }
+            ]
+        },
+        features: [
+            { title: "Lossless", description: "Perfect for diagrams and text.", icon: "FileImage" },
+            { title: "Transparent", description: "Supports transparency if present in the PDF.", icon: "Layers" },
+            { title: "Secure", description: "Local processing.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Why PNG?", answer: "PNG is lossless, meaning no quality is lost during compression, unlike JPG. It's better for text and line art." }
+        ]
+    },
+    "pdf-to-txt": {
+        slug: "pdf-to-txt",
+        title: "PDF to Text",
+        description: "Extract all text content from a PDF file.",
+        howTo: {
+            title: "How to Extract Text from PDF",
+            steps: [
+                { title: "Upload PDF", description: "Choose your file." },
+                { title: "Extract", description: "The tool pulls all selectable text from the document." },
+                { title: "Download", description: "Save as a simple .txt file." }
+            ]
+        },
+        features: [
+            { title: "Clean Output", description: "Removes formatting to give you raw text.", icon: "FileText" },
+            { title: "Fast", description: "Copy-paste entire documents in seconds.", icon: "Zap" },
+            { title: "Secure", description: "Your data never leaves your browser.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Does it work on scanned PDFs?", answer: "No, this tool only works on PDFs with selectable text. For scans, you need an OCR tool." }
+        ]
+    },
+    "binary-to-jpg": {
+        slug: "binary-to-jpg",
+        title: "Binary to JPG",
+        description: "Decode Base64 binary strings back into viewable JPG images.",
+        howTo: {
+            title: "How to Convert Base64 to JPG",
+            steps: [
+                { title: "Paste Code", description: "Paste your Base64 string into the text box." },
+                { title: "Decode", description: "The tool reconstructs the image instantly." },
+                { title: "Download", description: "Save the restored JPG file." }
+            ]
+        },
+        features: [
+            { title: "Developer Tool", description: "Debug API responses easily.", icon: "Wrench" },
+            { title: "Secure", description: "Decoding happens locally.", icon: "Shield" },
+            { title: "Instant", description: "See the image immediately.", icon: "Eye" }
+        ],
+        faq: [
+            { question: "What if the code is invalid?", answer: "The tool will alert you if the string is not valid Base64 or doesn't represent a JPG." }
+        ]
+    },
+    "binary-to-pdf": {
+        slug: "binary-to-pdf",
+        title: "Binary to PDF",
+        description: "Decode Base64 binary strings back into readable PDF documents.",
+        howTo: {
+            title: "How to Convert Base64 to PDF",
+            steps: [
+                { title: "Paste Code", description: "Input the Base64 string." },
+                { title: "Decode", description: "The tool converts text back to a PDF file." },
+                { title: "Download", description: "Save the document." }
+            ]
+        },
+        features: [
+            { title: "Restore Files", description: "Recover files from data dumps.", icon: "RotateCcw" },
+            { title: "Secure", description: "No server processing.", icon: "Shield" },
+            { title: "Free", description: "Unlimited decoding.", icon: "Check" }
+        ],
+        faq: [
+            { question: "Is there a size limit?", answer: "Only what your browser memory can handle (usually hundreds of megabytes)." }
+        ]
+    },
+    "binary-to-txt": {
+        slug: "binary-to-txt",
+        title: "Binary to Text",
+        description: "Decode Base64 binary strings back into plain text files.",
+        howTo: {
+            title: "How to Convert Base64 to Text",
+            steps: [
+                { title: "Input Base64", description: "Paste the encoded string." },
+                { title: "Decode", description: "Read the original text." },
+                { title: "Copy", description: "Copy the result to your clipboard." }
+            ]
+        },
+        features: [
+            { title: "Simple", description: "Standard Base64 decoding.", icon: "FileText" },
+            { title: "Secure", description: "Totally local.", icon: "Shield" },
+            { title: "Fast", description: "Instant results.", icon: "Zap" }
+        ],
+        faq: [
+            { question: "Does it support UTF-8?", answer: "Yes, we handle standard character encodings correctly." }
+        ]
+    },
+    "txt-to-binary": {
+        slug: "txt-to-binary",
+        title: "Text to Binary",
+        description: "Encode plain text into Base64 binary format.",
+        howTo: {
+            title: "How to Convert Text to Base64",
+            steps: [
+                { title: "Type Text", description: "Enter the text you want to encode." },
+                { title: "Encode", description: "The tool converts it to a Base64 string." },
+                { title: "Copy", description: "Use the string in your application." }
+            ]
+        },
+        features: [
+            { title: "Safe", description: "Obfuscate simple text.", icon: "Lock" },
+            { title: "Compatible", description: "Standard RFC 4648 Base64.", icon: "Check" },
+            { title: "Secure", description: "Local processing.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Is this encryption?", answer: "No! Base64 is encoding, not encryption. It can be easily reversed (decoded) by anyone." }
+        ]
+    },
+    "reverse-pdf": {
+        slug: "reverse-pdf",
+        title: "Reverse PDF Pages",
+        description: "Reverse the order of pages in your PDF document instantly.",
+        howTo: {
+            title: "How to Reverse PDF Order",
+            steps: [
+                { title: "Upload PDF", description: "Select the file with pages you want to reverse." },
+                { title: "Process", description: "The tool automatically reorders pages from last to first." },
+                { title: "Download", description: "Save the reversed document." }
+            ]
+        },
+        features: [
+            { title: "Instant Reorder", description: "Fix scanning errors where pages were fed backwards.", icon: "RotateCcw" },
+            { title: "Secure", description: "Processing happens locally.", icon: "Shield" },
+            { title: "Free", description: "Reverse large documents easily.", icon: "Check" }
+        ],
+        faq: [
+            { question: "Can I reverse only part of the document?", answer: "This tool reverses the entire file. Use 'Organize PDF' to manually reorder specific pages." }
+        ]
+    },
+    "rotate-pdf": {
+        slug: "rotate-pdf",
+        title: "Rotate PDF Pages",
+        description: "Rotate specific pages or the entire document 90, 180, or 270 degrees.",
+        howTo: {
+            title: "How to Rotate PDF",
+            steps: [
+                { title: "Upload PDF", description: "Choose the file you need to rotate." },
+                { title: "Select Rotation", description: "Click buttons to rotate individual pages or all pages left/right." },
+                { title: "Apply", description: "Confirm the new orientation." },
+                { title: "Download", description: "Save the corrected PDF." }
+            ]
+        },
+        features: [
+            { title: "Page Level Control", description: "Rotate just the pages that are upside down.", icon: "RotateCcw" },
+            { title: "Permanent Fix", description: "Saves the new orientation to the file.", icon: "Check" },
+            { title: "Secure", description: "No uploads required.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Does this affect file quality?", answer: "No, rotation is a metadata change and does not degrade text or image quality." }
+        ]
+    },
+    "page-numbers": {
+        slug: "page-numbers",
+        title: "Add Page Numbers",
+        description: "Insert page numbers into your PDF with custom positioning and formatting.",
+        howTo: {
+            title: "How to Add Page Numbers",
+            steps: [
+                { title: "Upload PDF", description: "Select your document." },
+                { title: "Configure", description: "Choose position (e.g., Bottom Center) and font style." },
+                { title: "Apply", description: "The tool stamps numbers onto every page." },
+                { title: "Download", description: "Save the paginated file." }
+            ]
+        },
+        features: [
+            { title: "Customizable", description: "Choose font, size, and location.", icon: "Hash" },
+            { title: "Professional", description: "Perfect for reports and legal docs.", icon: "FileText" },
+            { title: "Secure", description: "Processing stays on your device.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Can I start numbering from a specific page?", answer: "Currently, we number from the first page, but you can use 'Split PDF' to separate front matter first." }
+        ]
+    },
+    "watermark-pdf": {
+        slug: "watermark-pdf",
+        title: "Watermark PDF",
+        description: "Stamp text or images over your PDF pages to protect intellectual property.",
+        howTo: {
+            title: "How to Add a Watermark",
+            steps: [
+                { title: "Upload PDF", description: "Choose the file to watermark." },
+                { title: "Customize", description: "Type text (e.g., 'CONFIDENTIAL') or upload a logo image." },
+                { title: "Apply", description: "The watermark is fused onto every page." },
+                { title: "Download", description: "Get your protected document." }
+            ]
+        },
+        features: [
+            { title: "Text or Image", description: "Use text or your company logo.", icon: "Stamp" },
+            { title: "Adjustable", description: "Control opacity, rotation, and position.", icon: "Move" },
+            { title: "Fast", description: "Watermark large files in seconds.", icon: "Zap" }
+        ],
+        faq: [
+            { question: "Can the watermark be removed?", answer: "We bake the watermark into the page content, making it difficult to remove without specialized editing software." }
+        ]
+    },
+    "pdf-metadata": {
+        slug: "pdf-metadata",
+        title: "Edit PDF Metadata",
+        description: "View and modify PDF properties like Title, Author, Subject, and Keywords.",
+        howTo: {
+            title: "How to Edit Metadata",
+            steps: [
+                { title: "Upload PDF", description: "Select the file to inspect." },
+                { title: "Edit Fields", description: "Update the Title, Author, or other meta tags." },
+                { title: "Save", description: "Click 'Update Metadata' to write changes." },
+                { title: "Download", description: "Save the file with new properties." }
+            ]
+        },
+        features: [
+            { title: "SEO Friendly", description: "Improve searchability of your PDFs.", icon: "FileSearch" },
+            { title: "Privacy", description: "Remove author names before sharing.", icon: "EyeOff" },
+            { title: "Easy", description: "Simple form interface.", icon: "Check" }
+        ],
+        faq: [
+            { question: "Is this info visible to everyone?", answer: "Yes, anyone can view PDF properties in their reader software (usually under File > Properties)." }
+        ]
+    },
+    "redact-pdf": {
+        slug: "redact-pdf",
+        title: "Redact PDF",
+        description: "Permanently black out sensitive text and regions from your PDF.",
+        howTo: {
+            title: "How to Redact a PDF",
+            steps: [
+                { title: "Upload PDF", description: "Open the file containing sensitive info." },
+                { title: "Select Areas", description: "Draw boxes over text you want to hide." },
+                { title: "Redact", description: "Click to permanently fill those areas with black." },
+                { title: "Download", description: "Save the sanitized version." }
+            ]
+        },
+        features: [
+            { title: "Permanent", description: "Information is completely removed, not just covered.", icon: "EyeOff" },
+            { title: "Secure", description: "Processing happens in your browser.", icon: "Shield" },
+            { title: "Easy", description: "Visual selection tool.", icon: "Move" }
+        ],
+        faq: [
+            { question: "Can redaction be undone?", answer: "No. Once redacted and saved, the underlying information is destroyed and cannot be recovered." }
+        ]
+    },
+    "resize-pdf": {
+        slug: "resize-pdf",
+        title: "Resize PDF Pages",
+        description: "Change the page dimensions and margins of your PDF document.",
+        howTo: {
+            title: "How to Resize PDF",
+            steps: [
+                { title: "Upload PDF", description: "Select the file to resize." },
+                { title: "Choose Size", description: "Select a standard format (A4, Letter) or custom dimensions." },
+                { title: "Process", description: "The tool scales your content to fit the new size." },
+                { title: "Download", description: "Save the resized PDF." }
+            ]
+        },
+        features: [
+            { title: "Standard Sizes", description: "Quickly convert to A4, Letter, etc.", icon: "Maximize2" },
+            { title: "Maintain Aspect", description: "Option to add white space instead of stretching.", icon: "Move" },
+            { title: "Local", description: "No server uploads.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Does this scale the text?", answer: "Yes, the entire page content is scaled to fit the new dimensions." }
         ]
     }
 };
