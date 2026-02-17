@@ -125,19 +125,7 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1595077575947362"
           crossOrigin="anonymous"
         ></script>
-        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js" suppressHydrationWarning></script>
-        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js" suppressHydrationWarning></script>
-        <meta name="ezoic-site-verification" content="Bl2N8Swc1x9FmJreejK4l9uTrHS2R6" />
-        <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.ezstandalone = window.ezstandalone || {};
-              ezstandalone.cmd = ezstandalone.cmd || [];
-            `,
-          }}
-          suppressHydrationWarning
-        />
+
       </head>
       <body className={`${inter.variable} ${futura.variable} font-sans antialiased bg-[#FFFBE6] text-black text-lg`} suppressHydrationWarning>
         <SmoothScrolling>
