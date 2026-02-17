@@ -216,9 +216,7 @@ export default function TermsPage() {
                         <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">
                             Updated: Feb 13, 2026
                         </p>
-                        <p className="font-display uppercase tracking-widest text-sm bg-black text-white px-3 py-1.5 shadow-[2px_2px_0px_0px_rgba(167,139,250,1)]">
-                            Ver: 3.5 (Redesigned)
-                        </p>
+
                     </div>
 
                     {/* Cross-page Navigation */}

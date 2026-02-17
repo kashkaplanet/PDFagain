@@ -35,7 +35,7 @@ export default function AboutPage() {
             </div>
 
             {/* Table of Contents */}
-            <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-16 p-6">
+            <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-16 p-6">
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-4 border-2 border-black inline-block px-3 py-1 bg-[#A78BFA] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     Table of Contents
                 </h2>
@@ -140,19 +140,15 @@ export default function AboutPage() {
             </div>
 
             {/* Cross-links */}
-            <div className="mt-16 border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-6">
+            <div className="mt-16 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
                 <h3 className="text-sm font-bold uppercase tracking-wider mb-4 border-2 border-black inline-block px-3 py-1 bg-[#A78BFA] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     Get in Touch
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                     <Link href="/contact" className="flex items-center justify-between px-6 py-4 border-2 border-black bg-[#FFFBE6] hover:bg-[#F472B6] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all duration-200 font-bold text-lg group">
                         <span>Contact Us</span>
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center justify-between px-6 py-4 border-2 border-black bg-[#FFFBE6] hover:bg-[#22D3EE] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all duration-200 font-bold text-lg group">
-                        <span>GitHub</span>
-                        <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                    </a>
                 </div>
             </div>
         </div>

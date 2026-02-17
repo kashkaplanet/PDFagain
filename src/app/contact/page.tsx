@@ -34,7 +34,7 @@ export default function ContactPage() {
             </div>
 
             {/* Table of Contents */}
-            <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-16 p-6">
+            <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-16 p-6">
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-4 border-2 border-black inline-block px-3 py-1 bg-[#F472B6] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     Table of Contents
                 </h2>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                         <span className="flex items-center justify-center w-10 h-10 bg-[#F472B6] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-sm font-black">1</span>
                         <h2 className="text-2xl md:text-3xl font-display font-black">Get in Touch</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6">
                         <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
                             <div className="mb-4 inline-flex items-center justify-center w-12 h-12 bg-[#A3E635] border-2 border-black rounded-full">
                                 <Mail className="w-6 h-6 text-black" />
@@ -80,18 +80,7 @@ export default function ContactPage() {
                             </a>
                         </div>
 
-                        <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-                            <div className="mb-4 inline-flex items-center justify-center w-12 h-12 bg-[#22D3EE] border-2 border-black rounded-full">
-                                <Github className="w-6 h-6 text-black" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2">GitHub</h3>
-                            <p className="text-gray-600 mb-4">
-                                For technical discussions, feature requests, and code contributions.
-                            </p>
-                            <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-bold hover:text-[#22D3EE] transition-colors">
-                                View Repository <ChevronRight className="w-4 h-4" />
-                            </a>
-                        </div>
+
                     </div>
                 </section>
 
@@ -147,9 +136,7 @@ export default function ContactPage() {
                                     If you encounter any issues while using our tools, please let us know. Detailed reports help us fix problems faster.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <a href="https://github.com" target="_blank" rel="noreferrer" className="bg-black text-white px-6 py-3 font-bold border-2 border-black hover:bg-[#A3E635] hover:text-black transition-colors text-center">
-                                        Open GitHub Issue
-                                    </a>
+
                                     <a href="mailto:support@pdfagain.com" className="bg-white text-black px-6 py-3 font-bold border-2 border-black hover:bg-[#F472B6] transition-colors text-center">
                                         Email Support
                                     </a>

@@ -6,6 +6,8 @@ import { ChevronRight, LucideIcon } from "lucide-react";
 import { RETRO_COLORS, RetroVariant } from "@/config/design";
 import { getRelatedTools, getSectionForTool } from "@/config/tools";
 import { usePathname } from "next/navigation";
+import { toolContent } from "@/config/tool-content";
+import { ToolContentSection } from "@/components/ToolContentSection";
 
 interface ToolPageWrapperProps {
     title: string;
@@ -20,6 +22,8 @@ export function ToolPageWrapper({ title, description, icon: Icon, color, childre
     const pathname = usePathname();
     const sectionInfo = getSectionForTool(pathname);
     const relatedTools = getRelatedTools(pathname, 4);
+
+    const toolContentData = toolContent[pathname.replace(/^\//, "")] || toolContent[pathname.replace(/^\/.*?\//, "")];
 
     return (
         <div className="w-full max-w-5xl mx-auto">
@@ -36,7 +40,7 @@ export function ToolPageWrapper({ title, description, icon: Icon, color, childre
                         <>
                             <ChevronRight className="w-3 h-3 text-gray-400 shrink-0" />
                             <Link
-                                href={`/#${pathname.replace(/^\//, '')}`}
+                                href={`/#${sectionInfo.section.title.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
                                 className="text-gray-500 hover:text-black transition-colors"
                             >
                                 {sectionInfo.section.title}
@@ -64,6 +68,9 @@ export function ToolPageWrapper({ title, description, icon: Icon, color, childre
 
             {/* Content */}
             {children}
+
+            {/* Rich Content Section (How-to, Features, FAQ) */}
+            {toolContentData && <ToolContentSection content={toolContentData} />}
 
             {/* Related Tools */}
             {relatedTools.length > 0 && (
