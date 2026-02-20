@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Page Numbers - Add Page Numbers to PDF Online | PDFagain',
-  description: 'Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and local processing.',
+  description: 'Experience the ultimate Page Numbers tool with PDFagain. Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['page numbers', 'add page numbers to pdf', 'number pdf pages', 'paginate pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/page-numbers',
   },
   openGraph: {
     title: 'Page Numbers - Add Page Numbers to PDF Online',
-    description: 'Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and local processing.',
+    description: 'Experience the ultimate Page Numbers tool with PDFagain. Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/page-numbers',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function PageNumbersPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Add Page Numbers",
-    "description": "Add page numbers to your PDF documents easily.",
+    "description": "Experience the ultimate Page Numbers tool with PDFagain. Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

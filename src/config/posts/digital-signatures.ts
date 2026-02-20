@@ -16,7 +16,7 @@ export const digitalSignatures: BlogPost = {
             What if someone copies your signature image and pastes it on another document?
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Terminology Confusion</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Electronic vs. Digital Signatures: Key Differences</h2>
         <p class="mb-6 text-lg leading-relaxed">
             People use "Electronic Signature" and "Digital Signature" interchangeably, but in the eyes of the law and computer science, they are vastly different concepts.
         </p>
@@ -57,7 +57,7 @@ export const digitalSignatures: BlogPost = {
             <li>If the decrypted hash matches the document, it proves <strong>Integrity</strong> (the file hasn't changed since signing) and <strong>Identity</strong> (only you possess the private key).</li>
         </ol>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Legal Validity: Can I go to Court?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Are Digital Signatures Legally Binding?</h2>
         <p class="mb-6 text-lg leading-relaxed">
             In the US (ESIGN Act) and EU (eIDAS Regulation), both types are legal, but they carry different weight.
         </p>
@@ -90,7 +90,7 @@ export const digitalSignatures: BlogPost = {
             For these, you typically need a USB token (like a YubiKey) or a specialized account with a Certificate Authority (CA) like DocuSign or Adobe Sign to prove your identity beyond a reasonable doubt.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Step-by-Step Implementation</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Digitally Sign a PDF: A Workflow</h2>
         <p class="mb-6 text-lg leading-relaxed">
             If you are a freelancer or small business owner, here is the best workflow:
         </p>
@@ -101,7 +101,7 @@ export const digitalSignatures: BlogPost = {
             <li><strong>Integrity Check:</strong> If available, apply a "Self-Signed" digital certificate to lock the file against changes, even if it's just a basic one.</li>
         </ol>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Future: Blockchain Signatures?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Blockchain and the Future of Signing</h2>
         <p class="mb-6 text-lg leading-relaxed">
             We are seeing the rise of blockchain-based verification. Instead of a centralized Certificate Authority, the "hash" of your signed document is posted to a public ledger (Ethereum/Bitcoin).
             This proves <em>existence</em> at a specific point in time.

@@ -18,7 +18,7 @@ export const reducePdfSizeGovernment: BlogPost = {
             Panic sets in. Your file is 15MB.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Are Portals So Restrictive?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Government Portals Have Strict File Size Limits</h2>
         <p class="mb-6 text-lg leading-relaxed">
             In an age of gigabit internet and terabyte drives, why does the government limit uploads to floppy-disk sizes?
             Three reasons:
@@ -29,7 +29,7 @@ export const reducePdfSizeGovernment: BlogPost = {
             <li><strong>Review Speed:</strong> A 2MB file opens instantly for the reviewing officer. A 50MB file takes 30 seconds to download. Multiply that by 1,000 applications a day.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Hierarchy of Compression</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Reduce PDF Size for Uploads</h2>
         <p class="mb-6 text-lg leading-relaxed">
             To beat the limit, you need to understand <em>what</em> takes up space.
             1. Images (90%)
@@ -69,14 +69,14 @@ export const reducePdfSizeGovernment: BlogPost = {
             Upload them as "Bank_Statement_Part_1.pdf" and "Bank_Statement_Part_2.pdf".
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">What Not To Do</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Common PDF Compression Mistakes</h2>
         <p class="mb-6 text-lg leading-relaxed">
              <strong>Do not ZIP it.</strong> Most portals reject .zip files. They want .pdf.
              <strong>Do not take a screenshot.</strong> A screenshot of a PDF page is often a fuzzy, low-res PNG that looks unprofessional.
              <strong>Do not trust sketchy software.</strong> Installing "Free PDF Shrinker.exe" from a random site is a great way to get malware. Use browser-based tools.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Check Your Work</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Verifying PDF Legibility After Compression</h2>
         <p class="mb-6 text-lg leading-relaxed">
             After compressing, <strong>zoom in to 100%</strong>.
             Can you read the small text?

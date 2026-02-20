@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -36,14 +37,18 @@ const futura = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "PDFagain - 100% Free PDF Tools",
+    default: "PDFagain - Free, Private & AI PDF Tools | Merge, Split, Edit & Convert",
     template: "%s | PDFagain",
   },
-  description: "Chat with PDF, edit, convert, and organize. 100% free and local processing. No file uploads - secure and private PDF tools.",
+  description: "Experience the ultimate PDF toolkit with PDFagain. Chat with your documents using AI, edit, convert, merge, split, and organize files locally. 100% free, secure, and private - no file uploads required.",
   applicationName: "PDFagain",
   authors: [{ name: "PDFagain" }],
   generator: "Next.js",
-  keywords: ["pdf tools", "convert pdf", "edit pdf", "merge pdf", "split pdf", "compress pdf", "free pdf tools", "offline pdf tools", "local pdf processing", "chat with pdf", "ocr pdf"],
+  keywords: [
+    "pdf tools", "convert pdf", "edit pdf", "merge pdf", "split pdf", "compress pdf",
+    "free pdf tools", "offline pdf tools", "local pdf processing", "chat with pdf",
+    "ocr pdf", "ai pdf tools", "chat with pdf ai", "secure pdf editor", "browser-based pdf tools"
+  ],
   referrer: "origin-when-cross-origin",
   creator: "PDFagain",
   publisher: "PDFagain",
@@ -57,8 +62,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "PDFagain - 100% Free PDF Tools",
-    description: "Chat with PDF, edit, convert, and organize. 100% free and local processing. No file uploads - secure and private PDF tools.",
+    title: "PDFagain - Free, Private & AI PDF Tools | Merge, Split, Edit & Convert",
+    description: "Experience the ultimate PDF toolkit with PDFagain. Chat with your documents using AI, edit, convert, merge, split, and organize files locally. 100% free, secure, and private - no file uploads required.",
     url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
     siteName: "PDFagain",
     locale: "en_US",
@@ -74,8 +79,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PDFagain - 100% Free PDF Tools",
-    description: "Chat with PDF, edit, convert, and organize. 100% free and local processing.",
+    title: "PDFagain - Free, Private & AI PDF Tools | Merge, Split, Edit & Convert",
+    description: "Experience the ultimate PDF toolkit with PDFagain. Chat with your documents using AI, edit, convert, merge, split, and organize files locally. 100% free, secure, and private - no file uploads required.",
     creator: "@pdfagain", // Placeholder
     images: ["/og-image.png"],
   },
@@ -120,12 +125,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1595077575947362"
           crossOrigin="anonymous"
-        ></script>
-
+          strategy="lazyOnload"
+        />
       </head>
       <body className={`${inter.variable} ${futura.variable} font-sans antialiased bg-[#FFFBE6] text-black text-lg`} suppressHydrationWarning>
         <SmoothScrolling>

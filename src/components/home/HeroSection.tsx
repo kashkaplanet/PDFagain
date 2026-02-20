@@ -30,9 +30,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return (
         <section className="text-center space-y-10 relative z-10">
             <div className="relative">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display tracking-tight relative w-full mx-auto leading-none">
-                    100% Free AI-Powered PDF Tools
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display tracking-tight relative w-full mx-auto leading-none mb-6">
+                    Free AI PDF Tools: Merge, Split, Convert & Edit
                 </h1>
+                <p className="text-lg md:text-xl text-gray-600 font-sans leading-relaxed max-w-2xl mx-auto">
+                    Process files locally with our 100% free, private PDF tools.
+                    <span className="text-black font-medium"> Merge</span>,
+                    <span className="text-black font-medium"> Split</span>,
+                    <span className="text-black font-medium"> Compress</span>,
+                    <span className="text-black font-medium"> Convert</span>,
+                    <span className="text-black font-medium"> Edit</span>,
+                    and <span className="text-black font-medium"> Chat</span> with your documents directly in your browser without uploading to any server.
+                </p>
             </div>
 
             {/* Feature Badges */}

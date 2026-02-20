@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Rotate PDF - Rotate PDF Pages Online for Free | PDFagain',
-  description: 'Rotate PDF pages permanently. Rotate individual pages or all pages. 100% free, secure, and local processing.',
+  description: 'Experience the ultimate Rotate PDF tool with PDFagain. Rotate PDF pages permanently. Orient your PDF documents correctly. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['rotate pdf', 'rotate pdf pages', 'turn pdf pages', 'pdf rotator', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/rotate-pdf',
   },
   openGraph: {
     title: 'Rotate PDF - Rotate PDF Pages Online for Free',
-    description: 'Rotate PDF pages permanently. Rotate individual pages or all pages. 100% free, secure, and local processing.',
+    description: 'Experience the ultimate Rotate PDF tool with PDFagain. Rotate PDF pages permanently. Orient your PDF documents correctly. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/rotate-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function RotatePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Rotate PDF",
-    "description": "Rotate PDF pages permanently. Rotate individual pages or all pages.",
+    "description": "Experience the ultimate Rotate PDF tool with PDFagain. Rotate PDF pages permanently. Orient your PDF documents correctly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Unlock PDF - Remove Password from PDF | PDFagain',
-  description: 'Remove password protection from PDF files. Unlock PDF documents instantly. 100% free, secure, and local processing.',
+  description: 'Experience the ultimate Unlock PDF tool with PDFagain. Remove password protection from PDF files. Unlock PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['unlock pdf', 'remove pdf password', 'decrypt pdf', 'pdf password remover', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/unlock-pdf',
   },
   openGraph: {
     title: 'Unlock PDF - Remove Password from PDF',
-    description: 'Remove password protection from PDF files. Unlock PDF documents instantly. 100% free and local processing.',
+    description: 'Experience the ultimate Unlock PDF tool with PDFagain. Remove password protection from PDF files. Unlock PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/unlock-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function UnlockPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Unlock PDF",
-    "description": "Remove password protection from PDF files. Unlock PDF documents instantly.",
+    "description": "Experience the ultimate Unlock PDF tool with PDFagain. Remove password protection from PDF files. Unlock PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

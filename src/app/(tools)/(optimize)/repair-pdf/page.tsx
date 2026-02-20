@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Repair PDF - Fix Corrupted PDF Files | PDFagain',
-  description: 'Repair corrupted or damaged PDF files. Recover data from unreadable PDFs. 100% free, secure, and local processing.',
+  description: 'Experience the ultimate Repair PDF tool with PDFagain. Repair corrupted or damaged PDF files. Recover content from broken PDFs. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['repair pdf', 'fix pdf', 'recover pdf', 'corrupt pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/repair-pdf',
   },
   openGraph: {
     title: 'Repair PDF - Fix Corrupted PDF Files',
-    description: 'Repair corrupted or damaged PDF files. Recover data from unreadable PDFs. 100% free and local processing.',
+    description: 'Experience the ultimate Repair PDF tool with PDFagain. Repair corrupted or damaged PDF files. Recover content from broken PDFs. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/repair-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function RepairPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Repair PDF",
-    "description": "Repair corrupted or damaged PDF files.",
+    "description": "Experience the ultimate Repair PDF tool with PDFagain. Repair corrupted or damaged PDF files. Recover content from broken PDFs. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

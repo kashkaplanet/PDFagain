@@ -16,7 +16,7 @@ export const base64Pdf: BlogPost = {
             This "nonsense" is actually your PDF file, translated into a language that computers can safely transmit.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Problem: Binary Data vs Text Protocols</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Email Can't Send Binary Files Directly</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Computers store data as binary: strictly 0s and 1s.
             However, the internet was largely built to transmit text. 
@@ -29,7 +29,7 @@ export const base64Pdf: BlogPost = {
             If a PDF accidentally contains these bytes (and it always does), the file transfer aborts.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Solution: Base64 Encoding</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How Base64 Encoding Solves File Transfer</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Base64 is a translation scheme. It takes binary data and translates it into a "safe" alphabet of 64 characters:
             A-Z (26), a-z (26), 0-9 (10), + (1), / (1).
@@ -49,7 +49,7 @@ export const base64Pdf: BlogPost = {
             This is why Base64 files are always larger than the original. Specifically, they are ~33% larger.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Do We Use It?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">3 Common Uses for Base64 PDFs</h2>
 
         <h3 class="text-2xl font-bold mt-8 mb-4">1. Data URIs (Embedding in HTML)</h3>
         <p class="mb-6 text-lg leading-relaxed">
@@ -75,7 +75,7 @@ export const base64Pdf: BlogPost = {
             Your email client silently converts "Proposal.pdf" into a text block, sends it as part of the MIME multipart message, and the recipient's email client decodes it back to a file.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Trade-offs</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Pros and Cons of Base64 Encoding</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>Pros:</strong>
             - Safe for transport through any system (even old 7-bit ASCII servers).

@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Excel to PDF - Convert XLSX to PDF Online for Free | PDFagain',
-  description: 'Convert Excel spreadsheets (XLSX) to PDF documents instantly. 100% free, secure, and processing happens locally in your browser.',
+  description: 'Experience the ultimate Excel to PDF tool with PDFagain. Convert Excel spreadsheets (XLSX) to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['excel to pdf', 'xlsx to pdf', 'convert excel to pdf', 'xls to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/excel-to-pdf',
   },
   openGraph: {
     title: 'Excel to PDF - Convert XLSX to PDF Online for Free',
-    description: 'Convert Excel spreadsheets to PDF documents instantly. 100% free, secure, and processing happens locally.',
+    description: 'Experience the ultimate Excel to PDF tool with PDFagain. Convert Excel spreadsheets (XLSX) to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/excel-to-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function ExcelToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Excel to PDF",
-    "description": "Convert Excel spreadsheets (XLSX) to PDF documents instantly.",
+    "description": "Experience the ultimate Excel to PDF tool with PDFagain. Convert Excel spreadsheets (XLSX) to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'PNG To PDF | PDFagain',
-    description: 'Free online PNG To PDF tool. Fast, secure, and private. No installation required.',
+    description: 'Experience the best online PNG To PDF tool with PDFagain. Fast, secure, and private processing directly in your browser. No installation or registration required. 100% free and easy to use.',
 };
 
 import dynamic from 'next/dynamic';

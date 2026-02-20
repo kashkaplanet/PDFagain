@@ -18,7 +18,7 @@ export const studentPdfHacks: BlogPost = {
             Welcome to college.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why PDF Skills = Better Grades</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Mastering PDFs improves Study Efficiency</h2>
         <p class="mb-6 text-lg leading-relaxed">
             In the digital campus, PDF is the currency of knowledge.
             Syllabi are PDFs. Textbooks are PDFs. Readings are PDFs.
@@ -26,7 +26,7 @@ export const studentPdfHacks: BlogPost = {
             Here are the Top 5 Hacks to hacking your workflow.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 1: The "Frankenstein" Master File</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 1: Merging Lecture Slides into Master Files</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Problem:</strong> Studying for a midterm involves opening "Lecture_1.pdf", "Lecture_2.pdf", and "Reading_Week_3.pdf".
             You end up with 20 tabs open. Ctrl+Tab is a nightmare.
@@ -39,7 +39,7 @@ export const studentPdfHacks: BlogPost = {
             Use our <a href="/merge-pdf" class="text-blue-600 underline font-bold">Merge Tool</a>.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 2: Extract Only What You Need</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 2: Extracting Textbook Pages</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Problem:</strong> The professor assigned pages 145-162 of a 500-page textbook PDF.
             Every time you open the file, you have to scroll, scroll, scroll.
@@ -54,7 +54,7 @@ export const studentPdfHacks: BlogPost = {
             You can annotate it without lagging your tablet.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 3: The "Formatting Insurance" (Flattening)</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 3: Flattening Formatting for Submission</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Problem:</strong> You spent 3 hours formatting your essay in Word. Images are perfectly aligned.
             You upload the .docx file to Canvas/Blackboard.
@@ -70,7 +70,7 @@ export const studentPdfHacks: BlogPost = {
             What you see is exactly what the professor sees.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 4: Shrink for Submission</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 4: Compressing Large Presentations</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Problem:</strong> "Upload failed. Max size 10MB."
             Your presentation is 50MB because you used high-res photos.
@@ -82,7 +82,7 @@ export const studentPdfHacks: BlogPost = {
             It creates a web-friendly version that uploads instantly.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 5: The "Corrupt File" Myth</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Hack 5: Fixing Corrupt PDF Files</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Myth:</strong> "Professor, my file was corrupt, can I email it tomorrow?"
         </p>

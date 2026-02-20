@@ -240,7 +240,7 @@ export default function HomePage() {
                             <div className="p-3 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-[#F472B6] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                 <Heart className="w-6 h-6" />
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide">MY FAVORITES</h2>
+                            <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide">MY FAVORITE PDF TOOLS</h2>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" data-grid>
                             {favoriteTools.map((tool, i) => (
@@ -270,7 +270,7 @@ export default function HomePage() {
                             <div className="p-3 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-[#FBBF24] hover:rotate-6 hover:scale-110 transition-transform duration-300">
                                 <Star className="w-6 h-6" />
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide">MOST POPULAR</h2>
+                            <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide">POPULAR PDF TOOLS</h2>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" data-grid>
                             {popularTools.map((tool, i) => (

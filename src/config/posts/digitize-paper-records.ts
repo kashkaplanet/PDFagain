@@ -14,14 +14,14 @@ export const digitizePaperRecords: BlogPost = {
             The dream of the "Paperless Office" was promised to us in the 1990s. Yet, in 2026, many of us still have a filing cabinet bursting with old bills, tax returns, and warranty cards.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Do We Hoard Paper?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Benefits of a Paperless Home Office</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Fear. We keep documents "just in case." Just in case of an audit. Just in case the toaster breaks. Just in case...
             But paper is fragile. It fades, it burns, it gets wet, and it takes up valuable real estate in your home.
             Digitizing isn't just about cleaning up; it's about preservation and access. A digital file, properly backed up, lasts forever and can be found in seconds.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Workflow: From Physical to Digital</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">5 Steps to Digitize Your Paper Records</h2>
         <p class="mb-6 text-lg leading-relaxed">
             To successfully go paperless, you need a system. Randomly snapping photos won't cut it. You need a pipeline.
         </p>
@@ -96,7 +96,7 @@ export const digitizePaperRecords: BlogPost = {
             This is the scary part, but it is the goal.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Maintenance: The "Inbox" Habit</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Maintaining a Digital Filing System</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Going paperless is a lifestyle, not a one-time event.
             Set up a physical "Inbox" tray near your door.

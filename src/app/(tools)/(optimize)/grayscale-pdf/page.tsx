@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Grayscale PDF - Convert PDF to Black and White | PDFagain',
-  description: 'Convert PDF documents to grayscale (black and white). Reduce printing costs and file size. 100% free and local processing.',
+  description: 'Experience the ultimate Grayscale PDF tool with PDFagain. Convert PDF colors to grayscale. Reduce file size and save ink. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['grayscale pdf', 'convert pdf to black and white', 'remove color from pdf', 'pdf grayscale', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/grayscale-pdf',
   },
   openGraph: {
     title: 'Grayscale PDF - Convert PDF to Black and White',
-    description: 'Convert PDF documents to grayscale (black and white). Reduce printing costs and file size. 100% free and local processing.',
+    description: 'Experience the ultimate Grayscale PDF tool with PDFagain. Convert PDF colors to grayscale. Reduce file size and save ink. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/grayscale-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function GrayscalePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Grayscale PDF",
-    "description": "Convert PDF documents to grayscale (black and white).",
+    "description": "Experience the ultimate Grayscale PDF tool with PDFagain. Convert PDF colors to grayscale. Reduce file size and save ink. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

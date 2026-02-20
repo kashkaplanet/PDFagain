@@ -14,7 +14,7 @@ export const mergePdfGuide: BlogPost = {
             Digital clutter is the new paper clutter. Instead of messy desks, we have messy "Downloads" folders filled with "Invoice_1.pdf", "Invoice_2_final.pdf", and "Scan_003.pdf".
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Need for Unification</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Merge PDF Files?</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Merging PDFs is one of the most common administrative tasks in the modern world. Whether you are a student submitting a final thesis with appendices, a lawyer compiling case files, or a freelancer invoicing a client for multiple projects, the need to present a single, cohesive document is universal.
         </p>
@@ -22,7 +22,7 @@ export const mergePdfGuide: BlogPost = {
             Sending five separate email attachments looks unprofessional and increases the risk that the recipient will miss one. A single, merged PDF tells a story. It controls the narrative order. It ensures that "Page 1" is followed by "Page 2", not "Page 7" because the recipient clicked the wrong file first.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Under the Hood: How Merging Works</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How PDF Merging Works Technically</h2>
         <p class="mb-6 text-lg leading-relaxed">
             To understand the merging process, let's look briefly at how a PDF is built. It is not just a continuous image like a JPEG strip.
         </p>
@@ -47,7 +47,7 @@ export const mergePdfGuide: BlogPost = {
             Our tool rebuilds the entire document structure mathematically, ensuring pixel-perfect fidelity.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Step-by-Step Tutorial</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Merge PDFs: A Step-by-Step Guide</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Using our <a href="/merge-pdf" class="text-blue-600 underline font-bold">Merge PDF Tool</a> is designed to be intuitive, but let's walk through the optimal workflow for complex projects.
         </p>
@@ -85,7 +85,7 @@ export const mergePdfGuide: BlogPost = {
             <li>Page order mistakes.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Advanced Merging Scenarios</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Merging Documents: Advanced Workflows</h2>
 
         <h3 class="text-2xl font-bold mt-8 mb-4">Scenario A: The "Frankenstein" Report</h3>
         <p class="mb-6 text-lg leading-relaxed">
@@ -115,7 +115,7 @@ export const mergePdfGuide: BlogPost = {
             <br>4. Run the final result through <a href="/compress-pdf" class="text-blue-600 underline">Compress PDF</a> to remove duplicate font data.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Troubleshooting Common Errors</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Fixing Common PDF Merge Errors</h2>
 
         <h3 class="text-2xl font-bold mt-8 mb-4">"The file is encrypted"</h3>
         <p class="mb-6 text-lg leading-relaxed">

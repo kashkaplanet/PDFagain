@@ -2,7 +2,8 @@
 
 import React, { useState, useCallback } from "react";
 import { PDFDocument } from "pdf-lib";
-import { Download, X, MoveUp, MoveDown, Image, ChevronDown } from "lucide-react";
+import { Download, X, MoveUp, MoveDown, Image as ImageIcon, ChevronDown } from "lucide-react";
+import NextImage from "next/image";
 import { RetroFileUploader } from "@/components/RetroFileUploader";
 import { RetroCard, RetroActionButton } from "@/components/RetroCard";
 import { ToolPageWrapper } from "@/components/ToolPageWrapper";
@@ -21,7 +22,43 @@ const PAGE_SIZES: Record<string, { label: string; width: number; height: number 
 interface ImageFile {
     file: File;
     preview: string;
+    thumbnail?: string;
 }
+
+const createThumbnail = async (file: File, maxWidth = 300, maxHeight = 300): Promise<string> => {
+    return new Promise((resolve) => {
+        const img = new window.Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height) {
+                if (width > maxWidth) {
+                    height *= maxWidth / width;
+                    width = maxWidth;
+                }
+            } else {
+                if (height > maxHeight) {
+                    width *= maxHeight / height;
+                    height = maxHeight;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+                ctx.drawImage(img, 0, 0, width, height);
+                resolve(canvas.toDataURL(file.type));
+            } else {
+                resolve(URL.createObjectURL(file)); // Fallback
+            }
+        };
+        img.onerror = () => resolve(URL.createObjectURL(file)); // Fallback
+        img.src = URL.createObjectURL(file);
+    });
+};
 
 interface JpgToPdfClientProps {
     title?: string;
@@ -45,12 +82,18 @@ export default function JpgToPdfClient({
     const [error, setError] = useState<string | null>(null);
     const [pageSize, setPageSize] = useState<string>("a4");
 
-    const onDrop = useCallback((acceptedFiles: File[]) => {
+    const onDrop = useCallback(async (acceptedFiles: File[]) => {
         setError(null);
-        const newImages = acceptedFiles.map(file => ({
-            file,
-            preview: URL.createObjectURL(file),
-        }));
+        // Process sequentially to avoid freezing UI with too many canvas operations at once
+        const newImages: ImageFile[] = [];
+
+        for (const file of acceptedFiles) {
+            const preview = URL.createObjectURL(file);
+            // Generate thumbnail for display optimization
+            const thumbnail = await createThumbnail(file);
+            newImages.push({ file, preview, thumbnail });
+        }
+
         setImages(prev => [...prev, ...newImages]);
     }, []);
 
@@ -64,6 +107,7 @@ export default function JpgToPdfClient({
         setImages(prev => {
             const newImages = [...prev];
             URL.revokeObjectURL(newImages[index].preview);
+            // Also revoke thumbnail if it's a blob url (though currently it's data url for canvas, but good practice if we change it)
             newImages.splice(index, 1);
             return newImages;
         });
@@ -180,7 +224,7 @@ export default function JpgToPdfClient({
         <ToolPageWrapper
             title={title}
             description={description}
-            icon={Image}
+            icon={ImageIcon}
             color={variant}
         >
             <RetroCard>
@@ -214,10 +258,13 @@ export default function JpgToPdfClient({
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6 mb-6">
                             {images.map((img, index) => (
                                 <div key={img.preview} className="relative group">
-                                    <img
-                                        src={img.preview}
+                                    <NextImage
+                                        src={img.thumbnail || img.preview}
                                         alt={`Preview ${index + 1}`}
-                                        className="w-full h-32 object-cover border-2 border-black"
+                                        className="object-cover border-2 border-black"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                        unoptimized={!img.thumbnail} // specific unoptimized usage logic if needed, but data urls work with unoptimized usually
                                     />
                                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1">
                                         <button

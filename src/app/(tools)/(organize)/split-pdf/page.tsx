@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Split PDF - Separate PDF Pages Online for Free | PDFagain',
-  description: 'Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and local processing.',
+  description: 'Experience the ultimate Split PDF tool with PDFagain. Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['split pdf', 'extract pdf pages', 'separate pdf', 'pdf splitter', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/split-pdf',
   },
   openGraph: {
     title: 'Split PDF - Separate PDF Pages Online for Free',
-    description: 'Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and local processing.',
+    description: 'Experience the ultimate Split PDF tool with PDFagain. Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/split-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function SplitPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Split PDF",
-    "description": "Split PDF files into individual pages or extract specific pages instantly.",
+    "description": "Experience the ultimate Split PDF tool with PDFagain. Split PDF files into individual pages or extract specific pages instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

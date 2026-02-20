@@ -18,7 +18,7 @@ export const resumePdfVsWord: BlogPost = {
             The wrong choice could mean a human never sees it.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Case for PDF (The Human Choice)</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why PDF is Best for Human Recruiters</h2>
         <p class="mb-6 text-lg leading-relaxed">
             If you are emailing a hiring manager directly, or handing a printed copy to someone, <strong>PDF is the only choice.</strong>
             Here is why:
@@ -30,7 +30,7 @@ export const resumePdfVsWord: BlogPost = {
             <li><strong>Virus Safety:</strong> Recruiters are wary of opening .doc files because of macro viruses. PDFs (if flattened) are generally seen as safer.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Case for Word (The Robot Choice)</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Word Was Preferred for ATS (Old Systems)</h2>
         <p class="mb-6 text-lg leading-relaxed">
             So why does Word even exist in this debate?
             Because of <strong>Applicant Tracking Systems (ATS)</strong>.
@@ -40,7 +40,7 @@ export const resumePdfVsWord: BlogPost = {
             Word documents (.docx) are XML-based text files. Robots read them perfectly.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Modern Verdict (2026)</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">PDF vs Word: The 2026 Verdict</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>Rule 1: Always check the instructions.</strong>
             If the job post says "Word Only", don't be clever. Send Word.
@@ -61,7 +61,7 @@ export const resumePdfVsWord: BlogPost = {
             This covers both bases.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Convert Correctly</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Convert Word to PDF for Resumes</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Don't just "Save As". Use "Export".
             In Word: <code>File > Export > Create PDF/XPS</code>.

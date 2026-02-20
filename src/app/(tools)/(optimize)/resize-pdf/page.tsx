@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Resize PDF - Change PDF Page Size | PDFagain',
-  description: 'Change the page size of your PDF document. Scale pages to A4, Letter, and more. 100% free and local processing.',
+  description: 'Experience the ultimate Resize PDF tool with PDFagain. Resize PDF page dimensions. Change paper size (A4, Letter, etc.) easily. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['resize pdf', 'change pdf size', 'scale pdf', 'pdf page size', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/resize-pdf',
   },
   openGraph: {
     title: 'Resize PDF - Change PDF Page Size',
-    description: 'Change the page size of your PDF document. Scale pages to A4, Letter, and more. 100% free and local processing.',
+    description: 'Experience the ultimate Resize PDF tool with PDFagain. Resize PDF page dimensions. Change paper size (A4, Letter, etc.) easily. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/resize-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function ResizePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Resize PDF",
-    "description": "Change the page size of your PDF document.",
+    "description": "Experience the ultimate Resize PDF tool with PDFagain. Resize PDF page dimensions. Change paper size (A4, Letter, etc.) easily. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

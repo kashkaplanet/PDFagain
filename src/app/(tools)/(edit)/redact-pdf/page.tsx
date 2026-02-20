@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Redact PDF - Black Out Text in PDF Online | PDFagain',
-  description: 'Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free and local processing.',
+  description: 'Experience the ultimate Redact PDF tool with PDFagain. Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['redact pdf', 'black out pdf', 'remove text from pdf', 'sanitize pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/redact-pdf',
   },
   openGraph: {
     title: 'Redact PDF - Black Out Text in PDF Online',
-    description: 'Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free and local processing.',
+    description: 'Experience the ultimate Redact PDF tool with PDFagain. Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/redact-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function RedactPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Redact PDF",
-    "description": "Redact sensitive information from PDF files securely.",
+    "description": "Experience the ultimate Redact PDF tool with PDFagain. Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

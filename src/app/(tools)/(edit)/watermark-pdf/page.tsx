@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Watermark PDF - Add Watermark to PDF Online | PDFagain',
-  description: 'Add text or image watermarks to your PDF documents. Customize position, opacity, and style. Secure and local processing.',
+  description: 'Experience the ultimate Watermark PDF tool with PDFagain. Add watermarks to your PDF documents. Custom text or image watermarks. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['watermark pdf', 'add watermark', 'pdf watermark', 'stamp pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/watermark-pdf',
   },
   openGraph: {
     title: 'Watermark PDF - Add Watermark to PDF Online',
-    description: 'Add text or image watermarks to your PDF documents. Customize position, opacity, and style. Secure and local processing.',
+    description: 'Experience the ultimate Watermark PDF tool with PDFagain. Add watermarks to your PDF documents. Custom text or image watermarks. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/watermark-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function WatermarkPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Watermark PDF",
-    "description": "Add text or image watermarks to your PDF documents.",
+    "description": "Experience the ultimate Watermark PDF tool with PDFagain. Add watermarks to your PDF documents. Custom text or image watermarks. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

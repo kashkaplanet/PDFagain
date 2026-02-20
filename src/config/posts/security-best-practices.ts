@@ -14,7 +14,7 @@ export const securityBestPractices: BlogPost = {
             A PDF file often contains the lifeblood of a company: contracts, blueprints, financial projections, and employee records. Yet, it is arguably the most mishandled file format in terms of security.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The Leakage Crisis</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Risks of Unsecured PDF Documents</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Every year, millions of sensitive documents end up in the public domain. Sometimes it's a hacker. More often, it's an employee who didn't realize that "Hidden Text" was still selectable, or who emailed an unencrypted invoice to the wrong "John".
         </p>
@@ -24,7 +24,7 @@ export const securityBestPractices: BlogPost = {
             Here are the 5 pillars of PDF security for the modern enterprise.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">1. Encryption is Non-Negotiable</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">1. PDF Encryption (User and Owner Passwords)</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Risk:</strong> Email is not secure. If you send a plain PDF attachment, it passes through dozens of servers. Any admin with access to those servers can read it.
         </p>
@@ -43,7 +43,7 @@ export const securityBestPractices: BlogPost = {
             <em>The Owner Password does NOT encrypt the file content strongly.</em> Always set a User Password if confidentiality is the goal.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">2. Redaction: Do It Right or Don't Do It</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">2. Proper PDF Redaction Techniques</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Risk:</strong> The "Black Box" failure.
             You have a court document. You draw a black rectangle over the witness's name in Microsoft Word or Preview. You save as PDF.
@@ -63,7 +63,7 @@ export const securityBestPractices: BlogPost = {
             If you can still search for the text, it hasn't been redacted. It's just been hidden.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">3. Watermarking for Deterrence</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">3. Watermarking for Document Security</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Risk:</strong> Internal leaks.
             You send a "Confidential Strategy Draft" to 50 employees. One of them leaks it to the press. You don't know who.
@@ -77,7 +77,7 @@ export const securityBestPractices: BlogPost = {
             Even a simple "DRAFT" watermark prevents unfinished work from being mistaken for final policy.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">4. Metadata Scrubbing</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">4. Removing Hidden PDF Metadata</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Risk:</strong> The hidden biography.
             A PDF contains more than text. It contains "Metadata dictionaries."
@@ -94,7 +94,7 @@ export const securityBestPractices: BlogPost = {
             Our tools automatically strip standard metadata when you use the "Compress" or "Flatten" functions, ensuring a clean file.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">5. Flattening Interactive Elements</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">5. Flattening PDFs for Integrity</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>The Risk:</strong> Form hijacking.
             You send a signed contract with form fields. The recipient changes the "$10,000" field to "$1,000" because the form is still editable.

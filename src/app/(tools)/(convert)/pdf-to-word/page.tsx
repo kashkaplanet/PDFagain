@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'PDF to Word - Convert PDF to DOCX Online for Free | PDFagain',
-  description: 'Convert PDF files to editable Word (DOCX) documents. 100% free, secure, and processing happens locally in your browser.',
+  description: 'Experience the ultimate PDF to Word tool with PDFagain. Convert PDF files to editable Word (DOCX) documents. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['pdf to word', 'convert pdf to docx', 'pdf converter', 'editable word', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/pdf-to-word',
   },
   openGraph: {
     title: 'PDF to Word - Convert PDF to DOCX Online for Free',
-    description: 'Convert PDF files to editable Word documents. 100% free, secure, and processing happens locally.',
+    description: 'Experience the ultimate PDF to Word tool with PDFagain. Convert PDF files to editable Word (DOCX) documents. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/pdf-to-word',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function PdfToWordPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "PDF to Word",
-    "description": "Convert PDF files to editable Word (DOCX) documents.",
+    "description": "Experience the ultimate PDF to Word tool with PDFagain. Convert PDF files to editable Word (DOCX) documents. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

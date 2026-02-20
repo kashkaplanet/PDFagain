@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Protect PDF - Encrypt PDF with Password | PDFagain',
-  description: 'Protect your PDF files with a password. Encrypt PDF documents securely. 100% free and local processing.',
+  description: 'Experience the ultimate Protect PDF tool with PDFagain. Protect your PDF files with a password. Encrypt PDF documents securely. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['protect pdf', 'encrypt pdf', 'password protect pdf', 'pdf security', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/protect-pdf',
   },
   openGraph: {
     title: 'Protect PDF - Encrypt PDF with Password',
-    description: 'Protect your PDF files with a password. Encrypt PDF documents securely. 100% free and local processing.',
+    description: 'Experience the ultimate Protect PDF tool with PDFagain. Protect your PDF files with a password. Encrypt PDF documents securely. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/protect-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function ProtectPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Protect PDF",
-    "description": "Protect your PDF files with a password. Encrypt PDF documents securely.",
+    "description": "Experience the ultimate Protect PDF tool with PDFagain. Protect your PDF files with a password. Encrypt PDF documents securely. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

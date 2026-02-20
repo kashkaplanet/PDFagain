@@ -15,7 +15,7 @@ export const whatIsPdfA: BlogPost = {
             Will a PDF you create today open on a computer in 2076? Only if it adheres to strict standards.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The "Digital Dark Age"</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Preventing Digital Obsolescence</h2>
         <p class="mb-6 text-lg leading-relaxed">
             In the 1980s, people wrote documents in WordPerfect and Lotus 1-2-3. Today, opening those files is a forensic challenge.
             A standard PDF is better, but not perfect. A PDF might rely on:
@@ -27,7 +27,7 @@ export const whatIsPdfA: BlogPost = {
             <li><strong>JavaScript:</strong> Code that works in Acrobat 2024 might crash Acrobat 2040.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Enter PDF/A</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">What is PDF/A? (ISO 19005)</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>PDF/A (Archive)</strong> is an ISO-standardized version of the Portable Document Format (ISO 19005). 
             Its sole purpose is long-term preservation.
@@ -47,7 +47,7 @@ export const whatIsPdfA: BlogPost = {
             <li><strong>No Executable Code:</strong> No JavaScript or launch actions.</li>
         </ol>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Understanding the Flavors: 1, 2, 3</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">PDF/A-1 vs PDF/A-2 vs PDF/A-3</h2>
         <p class="mb-6 text-lg leading-relaxed">
             The standard has evolved. You will see options like PDF/A-1b or PDF/A-3u. What do they mean?
         </p>
@@ -66,7 +66,7 @@ export const whatIsPdfA: BlogPost = {
             <li><strong>Level U (Unicode):</strong> Visual + Searchable text. A middle ground introduced in PDF/A-2.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Use Cases: When to use PDF/A?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">When to Use PDF/A Archiving</h2>
 
         <h3 class="text-2xl font-bold mt-8 mb-4">1. Legal and Courts</h3>
         <p class="mb-6 text-lg leading-relaxed">
@@ -83,7 +83,7 @@ export const whatIsPdfA: BlogPost = {
             The Library of Congress and National Archives exclusively use PDF/A for digitizing historical records.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Validate Compliance</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Validate and Convert to PDF/A</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Just because a file extension is ".pdf" doesn't mean it's safe.
             You must run a "Preflight" check.

@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'PDF to Excel - Convert PDF to XLSX Online | PDFagain',
-  description: 'Convert PDF tables using OCR to Editable Excel spreadsheets. maintain formatting and data accuracy. 100% free and local processing.',
+  description: 'Experience the ultimate PDF to Excel tool with PDFagain. Convert PDF tables using OCR to Editable Excel spreadsheets. Maintain formatting and data accuracy. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['pdf to excel', 'convert pdf to xlsx', 'extract tables from pdf', 'pdf table extractor', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/pdf-to-excel',
   },
   openGraph: {
     title: 'PDF to Excel - Convert PDF to XLSX Online',
-    description: 'Convert PDF tables using OCR to Editable Excel spreadsheets. 100% free and local processing.',
+    description: 'Experience the ultimate PDF to Excel tool with PDFagain. Convert PDF tables using OCR to Editable Excel spreadsheets. Maintain formatting and data accuracy. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/pdf-to-excel',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function PdfToExcelPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "PDF to Excel",
-    "description": "Convert PDF tables using OCR to Editable Excel spreadsheets.",
+    "description": "Experience the ultimate PDF to Excel tool with PDFagain. Convert PDF tables using OCR to Editable Excel spreadsheets. Maintain formatting and data accuracy. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

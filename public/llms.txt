@@ -1,0 +1,58 @@
+# PDF Tools
+
+A comprehensive PDF manipulation tool suite built with Next.js 15 and React 19.
+
+## Features
+
+- **PDF Conversion**: Word, Excel, PPT, HTML, Images ↔ PDF
+- **PDF Manipulation**: Merge, Split, Compress, Rotate, Organize, Resize
+- **PDF Security**: Protect, Unlock, Redact, Flatten, Watermark
+- **AI Chat**: Ask questions about your PDF documents
+- **OCR**: Extract text from scanned PDFs using Tesseract.js
+
+## Tools
+
+### Analyze
+- [Bank Statement Analyzer](/bank-statement-analyzer)
+- [Compare PDF](/compare-pdf)
+- [Invoice Extractor](/invoice-extractor)
+- [Legal Comparison](/legal-comparison)
+- [OCR PDF](/ocr-pdf)
+- [PDF Metadata](/pdf-metadata)
+
+### Convert
+- [PDF to Word](/pdf-to-word)
+- [Word to PDF](/word-to-pdf)
+- [PDF to Excel](/pdf-to-excel)
+- [Excel to PDF](/excel-to-pdf)
+- [PDF to PPT](/pdf-to-ppt)
+- [PPT to PDF](/ppt-to-pdf)
+- [PDF to Image (JPG/PNG/WebP)](/pdf-to-jpg)
+- [Image to PDF](/jpg-to-pdf)
+- [HTML to PDF](/html-to-pdf)
+
+### Edit
+- [Edit PDF](/edit-pdf)
+- [Page Numbers](/page-numbers)
+- [Redact PDF](/redact-pdf)
+- [Rotate PDF](/rotate-pdf)
+- [Sign PDF](/sign-pdf)
+- [Watermark PDF](/watermark-pdf)
+
+### Optimize
+- [Compress PDF](/compress-pdf)
+- [Flatten PDF](/flatten-pdf)
+- [Grayscale PDF](/grayscale-pdf)
+- [Repair PDF](/repair-pdf)
+- [Resize PDF](/resize-pdf)
+
+### Organize
+- [Merge PDF](/merge-pdf)
+- [Split PDF](/split-pdf)
+- [Organize PDF](/organize-pdf)
+- [Extract Pages](/extract-pages)
+- [Remove Pages](/remove-pages)
+
+### Security
+- [Protect PDF](/protect-pdf)
+- [Unlock PDF](/unlock-pdf)

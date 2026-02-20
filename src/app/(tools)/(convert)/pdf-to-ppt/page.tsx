@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'PDF to PPT - Convert PDF to PowerPoint Online | PDFagain',
-  description: 'Convert PDF slides to Editable PowerPoint (PPTX) presentations. Restore your slides instantly. 100% free and local processing.',
+  description: 'Experience the ultimate PDF to PPT tool with PDFagain. Convert PDF slides to Editable PowerPoint (PPTX) presentations. Restore your slides instantly. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['pdf to ppt', 'convert pdf to powerpoint', 'pdf to pptx', 'pdf presentation converter', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/pdf-to-ppt',
   },
   openGraph: {
     title: 'PDF to PPT - Convert PDF to PowerPoint Online',
-    description: 'Convert PDF slides to Editable PowerPoint (PPTX) presentations. Restore your slides instantly. 100% free and local processing.',
+    description: 'Experience the ultimate PDF to PPT tool with PDFagain. Convert PDF slides to Editable PowerPoint (PPTX) presentations. Restore your slides instantly. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/pdf-to-ppt',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function PdfToPptPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "PDF to PPT",
-    "description": "Convert PDF slides to Editable PowerPoint (PPTX) presentations.",
+    "description": "Experience the ultimate PDF to PPT tool with PDFagain. Convert PDF slides to Editable PowerPoint (PPTX) presentations. Restore your slides instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

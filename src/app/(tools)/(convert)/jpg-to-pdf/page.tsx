@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'JPG to PDF - Convert Images to PDF Online for Free | PDFagain',
-  description: 'Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and processing happens locally in your browser.',
+  description: 'Experience the ultimate JPG to PDF tool with PDFagain. Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['jpg to pdf', 'image to pdf', 'convert jpg to pdf', 'png to pdf', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/jpg-to-pdf',
   },
   openGraph: {
     title: 'JPG to PDF - Convert Images to PDF Online for Free',
-    description: 'Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and processing happens locally.',
+    description: 'Experience the ultimate JPG to PDF tool with PDFagain. Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/jpg-to-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function JpgToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "JPG to PDF",
-    "description": "Convert JPG, PNG, and other image files to PDF documents instantly.",
+    "description": "Experience the ultimate JPG to PDF tool with PDFagain. Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

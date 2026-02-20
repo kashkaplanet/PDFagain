@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
     title: 'Edit PDF - Free Online PDF Editor | PDFagain',
-    description: 'Edit PDF files online for free. Add text, images, and shapes to your PDF documents. Secure and local processing.',
+    description: 'Experience the ultimate Edit PDF tool with PDFagain. Edit PDF files online for free. Add text, images, and shapes to your PDF documents. 100% free, secure, and private - processing happens locally in your browser.',
     keywords: ['edit pdf', 'pdf editor', 'free pdf editor', 'add text to pdf', 'online pdf editor', 'local pdf processing'],
     alternates: {
         canonical: '/edit-pdf',
     },
     openGraph: {
         title: 'Edit PDF - Free Online PDF Editor',
-        description: 'Edit PDF files online for free. Add text, images, and shapes to your PDF documents. Secure and local processing.',
+        description: 'Experience the ultimate Edit PDF tool with PDFagain. Edit PDF files online for free. Add text, images, and shapes to your PDF documents. 100% free, secure, and private - processing happens locally in your browser.',
         url: 'https://pdfagain.com/edit-pdf',
         type: 'website',
     },
@@ -24,7 +24,7 @@ export default function EditPdfPage() {
     const jsonLdData = {
         "@type": "SoftwareApplication",
         "name": "Edit PDF",
-        "description": "Edit PDF files online for free. Add text, images, and shapes to your PDF documents.",
+        "description": "Experience the ultimate Edit PDF tool with PDFagain. Edit PDF files online for free. Add text, images, and shapes to your PDF documents. 100% free, secure, and private - processing happens locally in your browser.",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Any",
         "offers": {

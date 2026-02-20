@@ -1,10 +1,15 @@
-import { MetadataRoute } from 'next';
+
 import * as fs from 'fs';
 import * as path from 'path';
-import { blogPosts } from '@/config/blog';
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+// Mock blogPosts for testing logic
+const blogPosts = [
+    { id: 'why-client-side-pdf-tools-are-safer', date: 'February 17, 2026' },
+    { id: 'merge-pdf-guide', date: 'February 17, 2026' }
+];
+
+async function sitemap() {
+    const baseUrl = 'http://localhost:3000';
 
     try {
         // Helper to get file modification time
@@ -56,9 +61,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const staticSitemapEntries = staticRoutes.map(({ route, filePath }) => ({
             url: `${baseUrl}${route === '/' ? '' : route}`,
             lastModified: getFileModTime(filePath),
-            changeFrequency: 'monthly' as const,
-            priority: route === '/' ? 1 : 0.8,
+            filePath: filePath // Debugging
         }));
+
+        console.log("Static Entries Pattern:");
+        if (staticSitemapEntries.length > 0) {
+            console.log(JSON.stringify(staticSitemapEntries[0], null, 2));
+        }
 
         // 2. Blog Posts
         // Build map of postId -> filePath
@@ -86,14 +95,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             return {
                 url: `${baseUrl}/blog/${post.id}`,
                 lastModified: lastMod,
-                changeFrequency: 'weekly' as const,
-                priority: 0.7,
+                filePath: filePath // Debugging
             };
         });
 
-        return [...staticSitemapEntries, ...blogSitemapEntries];
+        console.log("Blog Entries Pattern:");
+        if (blogSitemapEntries.length > 0) {
+            console.log(JSON.stringify(blogSitemapEntries[0], null, 2));
+        }
+
     } catch (error) {
         console.error("Sitemap generation error:", error);
-        return [{ url: baseUrl, lastModified: new Date() }];
     }
 }
+
+sitemap();

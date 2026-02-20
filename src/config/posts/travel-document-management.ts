@@ -16,7 +16,7 @@ export const travelDocumentManagement: BlogPost = {
             This scenario is avoidable.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The "One Trip, One File" Rule</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">The "One Trip, One File" PDF Strategy</h2>
         <p class="mb-6 text-lg leading-relaxed">
             The Golden Rule of digital travel is consolidation.
             Instead of managing 15 different emails, screenshots, and apps, create a single "Master Trip PDF".
@@ -35,7 +35,7 @@ export const travelDocumentManagement: BlogPost = {
             <li><strong>Page 5+: Accommodation.</strong> Hotel booking confirmations with the address in the local language.</li>
         </ol>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Step-by-Step Workflow</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Create a Digital Travel Wallet</h2>
 
         <h3 class="text-2xl font-bold mt-8 mb-4">1. Capture (Before You Leave)</h3>
         <p class="mb-6 text-lg leading-relaxed">
@@ -69,7 +69,7 @@ export const travelDocumentManagement: BlogPost = {
             4. <strong>Physical (Optional):</strong> Print just the first page (Summary).
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Emergency Protocol</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Emergency Access to Travel Documents</h2>
         <p class="mb-6 text-lg leading-relaxed">
             <strong>Scenario:</strong> You lose your bag with your passport and phone.
             <strong>Solution:</strong>

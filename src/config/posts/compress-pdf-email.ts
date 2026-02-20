@@ -15,14 +15,14 @@ export const compressPdfEmail: BlogPost = {
             Few error messages are as frustrating as this one, especially when you are on a tight deadline to submit a proposal or application.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Why Does Email Have a Size Limit?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Understanding Email Attachment Size Limits</h2>
         <p class="mb-6 text-lg leading-relaxed">
             The 25MB limit (standard for Gmail, Outlook, and Yahoo) is a relic of the early internet. Email protocols (SMTP) were never designed for file transfer. 
             Sending large files clogs up mail servers and slows down delivery for everyone. 
             Even worse, when you attach a 20MB file, email encoding (Base64) increases its size by roughly 33%, turning it into a 27MB monster that gets rejected.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Diagnosis: Why is Your PDF Big?</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">What Causes Large PDF Files?</h2>
         <p class="mb-6 text-lg leading-relaxed">
             Before we fix it, we must know the cause. A simple text document should only be 50KB. If yours is 50MB, it's usually one of three culprits:
         </p>
@@ -32,7 +32,7 @@ export const compressPdfEmail: BlogPost = {
             <li><strong>Hidden Objects:</strong> Adobe Illustrator layers or Photoshop editing capabilities often get saved inside the PDF "just in case" you want to edit it later.</li>
         </ul>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Strategies to Beat the Limit</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">How to Compress PDFs for Email</h2>
 
         <h3 class="text-2xl font-bold mt-8 mb-4">Strategy 1: Smart Compression (The Best Way)</h3>
         <p class="mb-6 text-lg leading-relaxed">
@@ -71,7 +71,7 @@ export const compressPdfEmail: BlogPost = {
             Only use links if you know the recipient can open them.
         </p>
 
-        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Case Study: The Architect's Dilemma</h2>
+        <h2 class="text-3xl font-display font-black mt-12 mb-6 uppercase border-b-2 border-black pb-2">Real-World Strategy: Shrinking Architectural PDFs</h2>
         <p class="mb-6 text-lg leading-relaxed">
             An architectural firm needs to send a bid to the city council. The PDF is 140MB because it contains high-res renders. The city council's portal has a strict 20MB limit.
             <strong>What did they do?</strong>

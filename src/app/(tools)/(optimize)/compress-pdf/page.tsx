@@ -3,14 +3,14 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Compress PDF - Reduce PDF File Size Online for Free | PDFagain',
-  description: 'Compress PDF files to reduce size while maintaining quality. 100% free, secure, and processing happens locally in your browser.',
+  description: 'Experience the ultimate Compress PDF tool with PDFagain. Compress PDF files to reduce size while maintaining quality. 100% free, secure, and private - processing happens locally in your browser.',
   keywords: ['compress pdf', 'reduce pdf size', 'optimize pdf', 'pdf compressor', 'free pdf tools', 'local pdf processing'],
   alternates: {
     canonical: '/compress-pdf',
   },
   openGraph: {
     title: 'Compress PDF - Reduce PDF File Size Online for Free',
-    description: 'Compress PDF files to reduce size while maintaining quality. 100% free, secure, and processing happens locally.',
+    description: 'Experience the ultimate Compress PDF tool with PDFagain. Compress PDF files to reduce size while maintaining quality. 100% free, secure, and private - processing happens locally in your browser.',
     url: 'https://pdfagain.com/compress-pdf',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export default function CompressPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
     "name": "Compress PDF",
-    "description": "Compress PDF files to reduce size while maintaining quality.",
+    "description": "Experience the ultimate Compress PDF tool with PDFagain. Compress PDF files to reduce size while maintaining quality. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {

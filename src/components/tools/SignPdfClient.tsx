@@ -9,6 +9,7 @@ import { usePDF } from "@/hooks/usePDF";
 import { PDFDocument } from "pdf-lib";
 // import * as pdfjsLib from "pdfjs-dist";
 import { Download, PenTool, Eraser, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 // if (typeof window !== "undefined") {
 //    pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
@@ -327,15 +328,19 @@ export default function SignPdfClient() {
                                         className={signature ? "cursor-crosshair w-full" : "w-full"}
                                     />
                                     {signaturePosition && signaturePosition.pageIndex === currentPage && (
-                                        <img
+                                        <Image
                                             src={signaturePosition.dataUrl}
                                             alt="Signature"
+                                            unoptimized
+                                            width={100} // Arbitrary width, controlled by style
+                                            height={50} // Arbitrary height, controlled by style
                                             style={{
                                                 position: 'absolute',
                                                 left: `${signaturePosition.x}%`,
                                                 top: `${signaturePosition.y}%`,
                                                 transform: 'translate(-50%, -50%)',
                                                 width: `${signaturePosition.width}%`,
+                                                height: 'auto',
                                                 pointerEvents: 'none',
                                             }}
                                         />
