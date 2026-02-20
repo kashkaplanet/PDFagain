@@ -9,7 +9,7 @@ export default function WebpToPdfClient() {
             title="WebP to PDF"
             description="Convert WebP images to a single PDF document."
             accept={{ "image/webp": [".webp"] }}
-            variant="lime"
+            variant="cyan"
         />
     );
 }

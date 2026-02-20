@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, rgb } from "pdf-lib";
 import { Download, X, MoveUp, MoveDown, Image as ImageIcon, ChevronDown } from "lucide-react";
 import NextImage from "next/image";
 import { RetroFileUploader } from "@/components/RetroFileUploader";
@@ -124,7 +124,7 @@ export default function JpgToPdfClient({
         });
     };
 
-    const convertWebpToPng = async (file: File): Promise<Uint8Array> => {
+    const standardizeImageToPng = async (file: File): Promise<Uint8Array> => {
         return new Promise((resolve, reject) => {
             const img = new window.Image();
             img.onload = () => {
@@ -133,13 +133,18 @@ export default function JpgToPdfClient({
                 canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
                 if (!ctx) { reject(new Error('Canvas context unavailable')); return; }
+
+                // Fill with white background so transparent parts don't turn black in the PDF
+                ctx.fillStyle = "#ffffff";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(img, 0, 0);
+
                 canvas.toBlob((blob) => {
                     if (!blob) { reject(new Error('PNG conversion failed')); return; }
                     blob.arrayBuffer().then(buf => resolve(new Uint8Array(buf))).catch(reject);
                 }, 'image/png');
             };
-            img.onerror = () => reject(new Error('Failed to load WEBP image'));
+            img.onerror = () => reject(new Error(`Failed to load ${file.type} image`));
             img.src = URL.createObjectURL(file);
         });
     };
@@ -160,10 +165,16 @@ export default function JpgToPdfClient({
                 const fileType = img.file.type;
 
                 if (fileType === 'image/webp' || img.file.name.toLowerCase().endsWith('.webp')) {
-                    const pngBytes = await convertWebpToPng(img.file);
+                    const pngBytes = await standardizeImageToPng(img.file);
                     pdfImage = await pdfDoc.embedPng(pngBytes);
-                } else if (fileType === 'image/png') {
-                    pdfImage = await pdfDoc.embedPng(uint8Array);
+                } else if (fileType === 'image/png' || img.file.name.toLowerCase().endsWith('.png')) {
+                    try {
+                        pdfImage = await pdfDoc.embedPng(uint8Array);
+                    } catch (err) {
+                        console.warn('Native PNG embedding failed, falling back to canvas:', err);
+                        const pngBytes = await standardizeImageToPng(img.file);
+                        pdfImage = await pdfDoc.embedPng(pngBytes);
+                    }
                 } else {
                     pdfImage = await pdfDoc.embedJpg(uint8Array);
                 }
@@ -173,6 +184,13 @@ export default function JpgToPdfClient({
                 if (pageSize === 'original' || !('width' in sizeConfig)) {
                     // Original: page matches image size
                     const page = pdfDoc.addPage([pdfImage.width, pdfImage.height]);
+                    page.drawRectangle({
+                        x: 0,
+                        y: 0,
+                        width: pdfImage.width,
+                        height: pdfImage.height,
+                        color: rgb(1, 1, 1),
+                    });
                     page.drawImage(pdfImage, {
                         x: 0,
                         y: 0,
@@ -192,6 +210,13 @@ export default function JpgToPdfClient({
                     const drawH = pdfImage.height * scale;
 
                     const page = pdfDoc.addPage([pageWidth, pageHeight]);
+                    page.drawRectangle({
+                        x: 0,
+                        y: 0,
+                        width: pageWidth,
+                        height: pageHeight,
+                        color: rgb(1, 1, 1),
+                    });
                     page.drawImage(pdfImage, {
                         x: (pageWidth - drawW) / 2,
                         y: (pageHeight - drawH) / 2,

@@ -9,7 +9,7 @@ export default function PdfToPngClient() {
             title="PDF to PNG"
             description="Convert PDF pages to high-quality PNG images with transparent backgrounds."
             outputFormat="png"
-            variant="purple"
+            variant="blue"
         />
     );
 }

@@ -9,7 +9,7 @@ export default function PdfToWebpClient() {
             title="PDF to WebP"
             description="Convert PDF pages to modern, highly optimized WebP images."
             outputFormat="webp"
-            variant="orange"
+            variant="blue"
         />
     );
 }
