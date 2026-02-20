@@ -23,6 +23,7 @@ const ExcelToPdfClient = dynamic(() => import('@/components/tools/ExcelToPdfClie
 export default function ExcelToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Excel to PDF",
     "description": "Experience the ultimate Excel to PDF tool with PDFagain. Convert Excel spreadsheets (XLSX) to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

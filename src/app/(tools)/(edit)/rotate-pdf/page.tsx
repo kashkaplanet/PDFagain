@@ -23,6 +23,7 @@ const RotatePdfClient = dynamic(() => import('@/components/tools/RotatePdfClient
 export default function RotatePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Rotate PDF",
     "description": "Experience the ultimate Rotate PDF tool with PDFagain. Rotate PDF pages permanently. Orient your PDF documents correctly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

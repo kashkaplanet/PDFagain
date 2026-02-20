@@ -23,6 +23,7 @@ const WordToPdfClient = dynamic(() => import('@/components/tools/WordToPdfClient
 export default function WordToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Word to PDF",
     "description": "Experience the ultimate Word to PDF tool with PDFagain. Convert Microsoft Word (DOCX) files to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

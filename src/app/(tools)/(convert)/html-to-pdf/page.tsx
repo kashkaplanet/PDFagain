@@ -23,6 +23,7 @@ const HtmlToPdfClient = dynamic(() => import('@/components/tools/HtmlToPdfClient
 export default function HtmlToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "HTML to PDF",
     "description": "Experience the ultimate HTML to PDF tool with PDFagain. Convert HTML files and web pages to PDF documents. Save websites as PDF. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

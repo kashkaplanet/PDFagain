@@ -1,19 +1,31 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { getToolSchema } from '@/utils/schema';
+import { toolContent } from '@/config/tool-content';
 
 export const metadata: Metadata = {
-  title: 'PDF To TXT | PDFagain',
-  description: 'Experience the best online PDF To TXT tool with PDFagain. Fast, secure, and private processing directly in your browser. No installation or registration required. 100% free and easy to use.',
+  title: 'PDF to Text - Extract Text from PDF | PDFagain',
+  description: 'Extract all text content from PDF files. Convert PDFs to plain text (.txt) instantly. Fast, secure, and private processing in your browser. 100% free.',
+  keywords: ['pdf to text', 'extract text from pdf', 'pdf to txt', 'pdf text extractor', 'free pdf tools'],
+  alternates: {
+    canonical: '/pdf-to-txt',
+  },
+  openGraph: {
+    title: 'PDF to Text - Extract Text from PDF',
+    description: 'Extract all text content from PDF files. Processing happens locally in your browser.',
+    url: 'https://pdfagain.com/pdf-to-txt',
+    type: 'website',
+  },
 };
 
 import dynamic from 'next/dynamic';
-import React from 'react';
 const PdfToTxtClient = dynamic(() => import('@/components/tools/PdfToTxtClient'));
 
-
-
-
-
-
 export default function PdfToTxtPage() {
-  return <PdfToTxtClient />;
+  return (
+    <>
+      <JsonLd data={getToolSchema(toolContent['pdf-to-txt'])} />
+      <PdfToTxtClient />
+    </>
+  );
 }

@@ -23,6 +23,7 @@ const MergePdfClient = dynamic(() => import('@/components/tools/MergePdfClient')
 export default function MergePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Merge PDF",
     "description": "Experience the ultimate Merge PDF tool with PDFagain. Merge multiple PDF files into one document instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

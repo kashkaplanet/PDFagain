@@ -23,6 +23,7 @@ const ExtractPagesPdfClient = dynamic(() => import('@/components/tools/ExtractPa
 export default function ExtractPagesPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Extract PDF Pages",
     "description": "Experience the ultimate Extract Pages tool with PDFagain. Extract specific pages from your PDF file and save them as a new document. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

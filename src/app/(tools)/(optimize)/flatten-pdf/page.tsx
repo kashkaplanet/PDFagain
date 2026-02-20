@@ -23,6 +23,7 @@ const FlattenPdfClient = dynamic(() => import('@/components/tools/FlattenPdfClie
 export default function FlattenPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Flatten PDF",
     "description": "Flatten PDF forms and annotations to make them uneditable.",
     "applicationCategory": "UtilitiesApplication",

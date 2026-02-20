@@ -23,6 +23,7 @@ const PdfToJpgClient = dynamic(() => import('@/components/tools/PdfToJpgClient')
 export default function PdfToJpgPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "PDF to JPG",
     "description": "Experience the ultimate PDF to JPG tool with PDFagain. Convert PDF pages to high-quality JPG images. Extract images from PDF documents. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

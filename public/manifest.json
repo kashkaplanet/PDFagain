@@ -1,6 +1,6 @@
 {
-    "name": "PDF Tools",
-    "short_name": "PDF Tools",
+    "name": "PDFagain",
+    "short_name": "PDFagain",
     "description": "28+ free PDF tools: merge, split, compress, convert, rotate, unlock, watermark PDFs. 100% client-side.",
     "start_url": "/",
     "display": "standalone",

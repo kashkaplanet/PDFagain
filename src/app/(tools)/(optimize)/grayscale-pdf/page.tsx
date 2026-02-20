@@ -23,6 +23,7 @@ const GrayscalePdfClient = dynamic(() => import('@/components/tools/GrayscalePdf
 export default function GrayscalePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Grayscale PDF",
     "description": "Experience the ultimate Grayscale PDF tool with PDFagain. Convert PDF colors to grayscale. Reduce file size and save ink. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

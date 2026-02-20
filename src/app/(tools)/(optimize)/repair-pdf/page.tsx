@@ -23,6 +23,7 @@ const RepairPdfClient = dynamic(() => import('@/components/tools/RepairPdfClient
 export default function RepairPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Repair PDF",
     "description": "Experience the ultimate Repair PDF tool with PDFagain. Repair corrupted or damaged PDF files. Recover content from broken PDFs. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

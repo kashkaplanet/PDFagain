@@ -23,6 +23,7 @@ const RedactPdfClient = dynamic(() => import('@/components/tools/RedactPdfClient
 export default function RedactPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Redact PDF",
     "description": "Experience the ultimate Redact PDF tool with PDFagain. Redact sensitive information from PDF files securely. Permanently remove text and images. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

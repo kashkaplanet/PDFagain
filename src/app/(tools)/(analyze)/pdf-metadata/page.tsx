@@ -1,19 +1,31 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { getToolSchema } from '@/utils/schema';
+import { toolContent } from '@/config/tool-content';
 
 export const metadata: Metadata = {
-  title: 'PDF Metadata | PDFagain',
-  description: 'Experience the best online PDF Metadata tool with PDFagain. Fast, secure, and private processing directly in your browser. No installation or registration required. 100% free and easy to use.',
+  title: 'PDF Metadata Editor - View & Edit PDF Properties | PDFagain',
+  description: 'View and edit PDF metadata including title, author, subject, and keywords. Fast, secure, and private processing directly in your browser.',
+  keywords: ['pdf metadata', 'edit pdf properties', 'pdf author', 'pdf title editor', 'free pdf tools'],
+  alternates: {
+    canonical: '/pdf-metadata',
+  },
+  openGraph: {
+    title: 'PDF Metadata Editor - View & Edit PDF Properties',
+    description: 'View and edit PDF metadata including title, author, subject, and keywords. Processing happens locally in your browser.',
+    url: 'https://pdfagain.com/pdf-metadata',
+    type: 'website',
+  },
 };
 
 import dynamic from 'next/dynamic';
-import React from 'react';
+const PdfMetadataClient = dynamic(() => import('@/components/tools/MetadataPdfClient'));
 
-const MetadataPdfClient = dynamic(() => import('@/components/tools/MetadataPdfClient'));
-
-
-
-
-
-export default function MetadataPdfPage() {
-  return <MetadataPdfClient />;
+export default function PdfMetadataPage() {
+  return (
+    <>
+      <JsonLd data={getToolSchema(toolContent['pdf-metadata'])} />
+      <PdfMetadataClient />
+    </>
+  );
 }

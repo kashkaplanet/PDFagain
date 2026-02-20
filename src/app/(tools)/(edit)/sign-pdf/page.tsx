@@ -23,6 +23,7 @@ const SignPdfClient = dynamic(() => import('@/components/tools/SignPdfClient'));
 export default function SignPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Sign PDF",
     "description": "Sign PDF documents online for free. Draw your signature or upload an image.",
     "applicationCategory": "UtilitiesApplication",

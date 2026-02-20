@@ -23,6 +23,7 @@ const PageNumbersClient = dynamic(() => import('@/components/tools/PageNumbersPd
 export default function PageNumbersPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Add Page Numbers",
     "description": "Experience the ultimate Page Numbers tool with PDFagain. Add page numbers to your PDF documents easily. Customize position and format. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

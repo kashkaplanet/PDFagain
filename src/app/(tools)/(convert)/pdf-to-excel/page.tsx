@@ -23,6 +23,7 @@ const PdfToExcelClient = dynamic(() => import('@/components/tools/PdfToExcelClie
 export default function PdfToExcelPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "PDF to Excel",
     "description": "Experience the ultimate PDF to Excel tool with PDFagain. Convert PDF tables using OCR to Editable Excel spreadsheets. Maintain formatting and data accuracy. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

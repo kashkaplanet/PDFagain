@@ -23,6 +23,7 @@ const JpgToPdfClient = dynamic(() => import('@/components/tools/JpgToPdfClient')
 export default function JpgToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "JPG to PDF",
     "description": "Experience the ultimate JPG to PDF tool with PDFagain. Convert JPG, PNG, and other image files to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

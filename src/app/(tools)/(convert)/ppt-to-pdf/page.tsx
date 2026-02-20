@@ -23,6 +23,7 @@ const PptToPdfClient = dynamic(() => import('@/components/tools/PptToPdfClient')
 export default function PptToPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "PPT to PDF",
     "description": "Experience the ultimate PPT to PDF tool with PDFagain. Convert PowerPoint presentations (PPTX) to PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

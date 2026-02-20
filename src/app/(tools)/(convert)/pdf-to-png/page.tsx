@@ -1,26 +1,31 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { getToolSchema } from '@/utils/schema';
+import { toolContent } from '@/config/tool-content';
 
 export const metadata: Metadata = {
-    title: 'PDF To PNG | PDFagain',
-    description: 'Experience the best online PDF To PNG tool with PDFagain. Fast, secure, and private processing directly in your browser. No installation or registration required. 100% free and easy to use.',
+    title: 'PDF to PNG - Convert PDF Pages to PNG Images | PDFagain',
+    description: 'Convert PDF pages into transparent, lossless PNG images. Fast, secure, and private processing directly in your browser. 100% free.',
+    keywords: ['pdf to png', 'convert pdf to png', 'pdf to image', 'lossless pdf converter', 'free pdf tools'],
+    alternates: {
+        canonical: '/pdf-to-png',
+    },
+    openGraph: {
+        title: 'PDF to PNG - Convert PDF Pages to PNG Images',
+        description: 'Convert PDF pages into transparent, lossless PNG images. Processing happens locally in your browser.',
+        url: 'https://pdfagain.com/pdf-to-png',
+        type: 'website',
+    },
 };
 
 import dynamic from 'next/dynamic';
-import React from 'react';
-const PdfToJpgClient = dynamic(() => import('@/components/tools/PdfToJpgClient'));
-
-
-
-
-
+const PdfToPngClient = dynamic(() => import('@/components/tools/PdfToPngClient'));
 
 export default function PdfToPngPage() {
     return (
-        <PdfToJpgClient
-            title="PDF to PNG"
-            description="Convert each page of your PDF into high-quality PNG images."
-            outputFormat="png"
-            variant="blue"
-        />
+        <>
+            <JsonLd data={getToolSchema(toolContent['pdf-to-png'])} />
+            <PdfToPngClient />
+        </>
     );
 }

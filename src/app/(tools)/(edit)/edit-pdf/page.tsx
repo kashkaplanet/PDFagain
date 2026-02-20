@@ -23,6 +23,7 @@ const EditPdfClient = dynamic(() => import('@/components/tools/EditPdfClient'));
 export default function EditPdfPage() {
     const jsonLdData = {
         "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
         "name": "Edit PDF",
         "description": "Experience the ultimate Edit PDF tool with PDFagain. Edit PDF files online for free. Add text, images, and shapes to your PDF documents. 100% free, secure, and private - processing happens locally in your browser.",
         "applicationCategory": "UtilitiesApplication",

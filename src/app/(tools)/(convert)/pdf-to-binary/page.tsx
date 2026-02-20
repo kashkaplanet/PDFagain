@@ -1,19 +1,31 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { getToolSchema } from '@/utils/schema';
+import { toolContent } from '@/config/tool-content';
 
 export const metadata: Metadata = {
-  title: 'PDF To Binary | PDFagain',
-  description: 'Experience the best online PDF To Binary tool with PDFagain. Fast, secure, and private processing directly in your browser. No installation or registration required. 100% free and easy to use.',
+  title: 'PDF to Base64 Binary - Encode PDF as Base64 | PDFagain',
+  description: 'Convert PDF files into Base64 binary strings for data transmission and API testing. Fast, secure, and private processing in your browser. 100% free.',
+  keywords: ['pdf to base64', 'encode pdf', 'pdf to binary', 'base64 encoder', 'free tools'],
+  alternates: {
+    canonical: '/pdf-to-binary',
+  },
+  openGraph: {
+    title: 'PDF to Base64 Binary - Encode PDF as Base64',
+    description: 'Convert PDF files into Base64 binary strings. Processing happens locally in your browser.',
+    url: 'https://pdfagain.com/pdf-to-binary',
+    type: 'website',
+  },
 };
 
 import dynamic from 'next/dynamic';
-import React from 'react';
 const PdfToBinaryClient = dynamic(() => import('@/components/tools/PdfToBinaryClient'));
 
-
-
-
-
-
 export default function PdfToBinaryPage() {
-  return <PdfToBinaryClient />;
+  return (
+    <>
+      <JsonLd data={getToolSchema(toolContent['pdf-to-binary'])} />
+      <PdfToBinaryClient />
+    </>
+  );
 }

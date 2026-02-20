@@ -23,6 +23,7 @@ const CompressPdfClient = dynamic(() => import('@/components/tools/CompressPdfCl
 export default function CompressPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Compress PDF",
     "description": "Experience the ultimate Compress PDF tool with PDFagain. Compress PDF files to reduce size while maintaining quality. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

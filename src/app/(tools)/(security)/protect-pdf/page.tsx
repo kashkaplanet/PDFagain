@@ -23,6 +23,7 @@ const ProtectPdfClient = dynamic(() => import('@/components/tools/ProtectPdfClie
 export default function ProtectPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Protect PDF",
     "description": "Experience the ultimate Protect PDF tool with PDFagain. Protect your PDF files with a password. Encrypt PDF documents securely. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

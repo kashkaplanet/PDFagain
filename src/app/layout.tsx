@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png", // We should probably create this or use a default one - I'll assume one exists or will be created, or user can provide
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "PDFagain - Free PDF Tools",

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { FaqItem } from "@/components/FaqItem";
 import { RetroButton } from "@/components/RetroButton";
 import { HelpCircle, ArrowLeft, ChevronRight } from "lucide-react";
+import JsonLd from "@/components/JsonLd";
+import { getFaqSchema } from "@/utils/schema";
 
 export const metadata: Metadata = {
     title: "FAQ - PDFagain",
@@ -67,6 +69,8 @@ export default function FaqPage() {
                         <FaqItem key={index} question={faq.question} answer={faq.answer} />
                     ))}
                 </div>
+
+                <JsonLd data={getFaqSchema(faqs)} />
 
                 {/* Contact CTA */}
                 <div className="mt-16 text-center">

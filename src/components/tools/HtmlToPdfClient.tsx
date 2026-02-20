@@ -15,48 +15,64 @@ export default function HtmlToPdfClient() {
         if (!url.trim()) return;
 
         setIsProcessing(true);
-        try {
-            // const html2pdf = (await import('html2pdf.js')).default;
-            throw new Error("HTML to PDF conversion is currently disabled.");
+        setError(null);
 
-            const iframe = document.createElement('iframe');
-            iframe.style.position = 'absolute';
-            iframe.style.left = '-9999px';
-            iframe.style.width = '1200px';
-            iframe.style.height = '800px';
-            document.body.appendChild(iframe);
+        try {
+            const html2pdf = (await import('html2pdf.js')).default;
+
+            // Create a hidden container for the content
+            const container = document.createElement('div');
+            container.style.width = '800px';
+            container.style.visibility = 'hidden';
+            container.style.position = 'absolute';
+            container.style.left = '-9999px';
+            document.body.appendChild(container);
 
             try {
-                const response = await fetch(url.startsWith('http') ? url : `https://${url}`);
+                // Use our proxy to fetch the content avoiding CORS
+                const proxyUrl = `/api/proxy?url=${encodeURIComponent(url.startsWith('http') ? url : `https://${url}`)}`;
+                const response = await fetch(proxyUrl);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch URL (${response.status})`);
+                }
+
                 const html = await response.text();
 
-                const container = document.createElement('div');
+                // Set the HTML content
                 container.innerHTML = html;
-                container.style.width = '800px';
-                container.style.padding = '20px';
-                container.style.background = 'white';
-                document.body.appendChild(container);
 
-                // const opt = {
-                //     margin: 10,
-                //     filename: 'webpage.pdf',
-                //     image: { type: 'jpeg' as const, quality: 0.98 },
-                //     html2canvas: { scale: 2, useCORS: true, allowTaint: true },
-                //     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' as const }
-                // };
+                // Clean up potentially problematic elements that might break rendering
+                const scripts = container.getElementsByTagName('script');
+                while (scripts.length > 0) {
+                    scripts[0].parentNode?.removeChild(scripts[0]);
+                }
 
-                // await html2pdf().set(opt as any).from(container).save();
+                const opt = {
+                    margin: 10,
+                    filename: 'webpage.pdf',
+                    image: { type: 'jpeg' as const, quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, logging: false },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' as const }
+                };
 
-                document.body.removeChild(container);
-            } catch {
-                setError("Unable to fetch this URL. Due to browser security restrictions, some websites cannot be converted.");
+                // Make container visible temporarily for capture (sometimes needed for html2canvas)
+                // but kept off-screen
+
+                await html2pdf().set(opt).from(container).save();
+
+            } catch (err) {
+                console.error("Fetch error:", err);
+                setError("Unable to fetch this URL. The website might be blocking access or it doesn't exist.");
+            } finally {
+                if (document.body.contains(container)) {
+                    document.body.removeChild(container);
+                }
             }
-
-            document.body.removeChild(iframe);
 
         } catch (err) {
             console.error("Failed to convert HTML to PDF:", err);
-            setError("Failed to convert webpage to PDF.");
+            setError("Failed to generate PDF. Please try checking the URL.");
         } finally {
             setIsProcessing(false);
         }
@@ -82,27 +98,29 @@ export default function HtmlToPdfClient() {
 
         setIsProcessing(true);
         try {
-            // const html2pdf = (await import('html2pdf.js')).default;
-            throw new Error("HTML to PDF conversion is currently disabled.");
+            const html2pdf = (await import('html2pdf.js')).default;
 
             const container = document.createElement('div');
             container.innerHTML = html || "";
             container.style.width = '800px';
-            if (container.style) {
-                container.style.padding = '20px';
-                container.style.background = 'white';
-            }
+            container.style.padding = '20px';
+            container.style.background = 'white';
+
+            // Hide it but make it part of DOM
+            container.style.position = 'absolute';
+            container.style.left = '-9999px';
+
             document.body.appendChild(container);
 
-            // const opt = {
-            //     margin: 10,
-            //     filename: 'html-content.pdf',
-            //     image: { type: 'jpeg' as const, quality: 0.98 },
-            //     html2canvas: { scale: 2, useCORS: true },
-            //     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' as const }
-            // };
+            const opt = {
+                margin: 10,
+                filename: 'html-content.pdf',
+                image: { type: 'jpeg' as const, quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' as const }
+            };
 
-            // await html2pdf().set(opt as any).from(container).save();
+            await html2pdf().set(opt).from(container).save();
 
             document.body.removeChild(container);
         } catch (err) {
@@ -185,7 +203,7 @@ export default function HtmlToPdfClient() {
                 </button>
 
                 <div className="mt-6 p-4 bg-[#FB923C]/10 border-2 border-[#FB923C] text-sm font-sans">
-                    <strong>Note:</strong> Due to browser security restrictions (CORS), some websites cannot be directly converted. For best results, use the &quot;Paste HTML&quot; option.
+                    <strong>Note:</strong> We retrieve the website content for you. Complex sites requiring login or heavy interactivity may not render perfectly.
                 </div>
 
                 {error && (

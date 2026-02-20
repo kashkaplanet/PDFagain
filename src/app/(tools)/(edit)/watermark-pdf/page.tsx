@@ -23,6 +23,7 @@ const WatermarkPdfClient = dynamic(() => import('@/components/tools/WatermarkPdf
 export default function WatermarkPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Watermark PDF",
     "description": "Experience the ultimate Watermark PDF tool with PDFagain. Add watermarks to your PDF documents. Custom text or image watermarks. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

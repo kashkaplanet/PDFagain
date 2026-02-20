@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import { Loader2 } from "lucide-react";
 
+import JsonLd, { homePageSchema } from "@/components/JsonLd";
+
 const HomePage = dynamic(() => import("@/components/HomePage"), {
   loading: () => (
     <div className="min-h-screen flex items-center justify-center bg-transparent">
@@ -12,5 +14,10 @@ const HomePage = dynamic(() => import("@/components/HomePage"), {
 });
 
 export default function Home() {
-  return <HomePage />;
+  return (
+    <>
+      <JsonLd data={homePageSchema} />
+      <HomePage />
+    </>
+  );
 }

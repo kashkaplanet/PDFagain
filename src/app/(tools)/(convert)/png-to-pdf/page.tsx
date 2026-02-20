@@ -1,26 +1,31 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { getToolSchema } from '@/utils/schema';
+import { toolContent } from '@/config/tool-content';
 
 export const metadata: Metadata = {
-    title: 'PNG To PDF | PDFagain',
-    description: 'Experience the best online PNG To PDF tool with PDFagain. Fast, secure, and private processing directly in your browser. No installation or registration required. 100% free and easy to use.',
+    title: 'PNG to PDF - Convert PNG Images to PDF | PDFagain',
+    description: 'Convert PNG images into high-quality PDF files. Preserves transparency and quality. Fast, secure, and private processing in your browser. 100% free.',
+    keywords: ['png to pdf', 'convert png to pdf', 'image to pdf', 'png converter', 'free pdf tools'],
+    alternates: {
+        canonical: '/png-to-pdf',
+    },
+    openGraph: {
+        title: 'PNG to PDF - Convert PNG Images to PDF',
+        description: 'Convert PNG images into high-quality PDF files. Processing happens locally in your browser.',
+        url: 'https://pdfagain.com/png-to-pdf',
+        type: 'website',
+    },
 };
 
 import dynamic from 'next/dynamic';
-import React from 'react';
-const JpgToPdfClient = dynamic(() => import('@/components/tools/JpgToPdfClient'));
-
-
-
-
-
+const PngToPdfClient = dynamic(() => import('@/components/tools/PngToPdfClient'));
 
 export default function PngToPdfPage() {
     return (
-        <JpgToPdfClient
-            title="PNG to PDF"
-            description="Convert PNG images to a single PDF document."
-            accept={{ "image/png": [".png"] }}
-            variant="cyan"
-        />
+        <>
+            <JsonLd data={getToolSchema(toolContent['png-to-pdf'])} />
+            <PngToPdfClient />
+        </>
     );
 }

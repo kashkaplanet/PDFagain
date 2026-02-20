@@ -23,6 +23,7 @@ const ResizePdfClient = dynamic(() => import('@/components/tools/ResizePdfClient
 export default function ResizePdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Resize PDF",
     "description": "Experience the ultimate Resize PDF tool with PDFagain. Resize PDF page dimensions. Change paper size (A4, Letter, etc.) easily. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

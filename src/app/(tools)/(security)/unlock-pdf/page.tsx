@@ -23,6 +23,7 @@ const UnlockPdfClient = dynamic(() => import('@/components/tools/UnlockPdfClient
 export default function UnlockPdfPage() {
   const jsonLdData = {
     "@type": "SoftwareApplication",
+    "image": "https://pdfagain.com/icons/icon-512.svg",
     "name": "Unlock PDF",
     "description": "Experience the ultimate Unlock PDF tool with PDFagain. Remove password protection from PDF files. Unlock PDF documents instantly. 100% free, secure, and private - processing happens locally in your browser.",
     "applicationCategory": "UtilitiesApplication",

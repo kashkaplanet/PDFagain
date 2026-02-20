@@ -4,7 +4,7 @@ import * as path from 'path';
 import { blogPosts } from '@/config/blog';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://pdfagain.com';
 
     try {
         // Helper to get file modification time
