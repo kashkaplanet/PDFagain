@@ -1,7 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { PDFDocument, PDFName, PDFHexString, PDFString } from 'pdf-lib';
 import { md5, RC4, hexToBytes } from '@pdfsmaller/pdf-encrypt-lite';
-import { handleApiError, handleBadRequest } from '@/lib/api-utils';
 
 // Standard PDF padding string (from PDF specification)
 const PADDING = new Uint8Array([
@@ -156,160 +154,112 @@ function decryptObject(
     return rc4.process(data);
 }
 
-export async function POST(req: NextRequest) {
-    try {
-        const formData = await req.formData();
-        const file = formData.get('file') as File | null;
-        const password = formData.get('password') as string | '';
+export async function unlockPdf(file: File, password?: string): Promise<Blob> {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdfBytes = new Uint8Array(arrayBuffer);
 
-        if (!file) {
-            return handleBadRequest("PDF file is required");
-        }
+    // Load with ignoreEncryption to access the structure
+    const pdfDoc = await PDFDocument.load(pdfBytes, {
+        ignoreEncryption: true,
+        updateMetadata: false,
+    } as any);
 
-        console.log(`Processing file: ${file.name}`);
+    const context = pdfDoc.context;
+    const trailer = context.trailerInfo;
 
-        const arrayBuffer = await file.arrayBuffer();
-        const pdfBytes = new Uint8Array(arrayBuffer);
+    // Check if PDF is actually encrypted
+    const encryptRef = (trailer as any).Encrypt;
+    if (!encryptRef) {
+        const cleanBytes = await pdfDoc.save();
+        return new Blob([cleanBytes as any], { type: 'application/pdf' });
+    }
 
-        // Load with ignoreEncryption to access the structure
-        const pdfDoc = await PDFDocument.load(pdfBytes, {
-            ignoreEncryption: true,
-            updateMetadata: false,
-        } as any);
+    // Get the encrypt dictionary
+    const encryptDict = context.lookup(encryptRef) as any;
+    if (!encryptDict) {
+        throw new Error("Could not read encryption dictionary");
+    }
 
-        const context = pdfDoc.context;
-        const trailer = context.trailerInfo;
+    // Extract encryption parameters
+    const revision = encryptDict.get(PDFName.of('R'))?.asNumber?.() ?? 3;
+    const version = encryptDict.get(PDFName.of('V'))?.asNumber?.() ?? 2;
+    const lengthBits = encryptDict.get(PDFName.of('Length'))?.asNumber?.() ?? 128;
+    const keyLength = Math.min(lengthBits / 8, 16);
+    const permissions = encryptDict.get(PDFName.of('P'))?.asNumber?.() ?? 0;
 
-        // Check if PDF is actually encrypted
-        const encryptRef = (trailer as any).Encrypt;
-        if (!encryptRef) {
-            console.log("PDF is not encrypted");
-            // PDF is not encrypted, just return it as-is
-            const cleanBytes = await pdfDoc.save();
-            return new NextResponse(Buffer.from(cleanBytes), {
-                headers: {
-                    'Content-Type': 'application/pdf',
-                    'Content-Disposition': 'attachment; filename="unlocked.pdf"',
-                    'Content-Length': cleanBytes.length.toString(),
-                },
-            });
-        }
+    if (revision > 4) {
+        throw new Error("This PDF uses advanced encryption (AES-256) which is not currently supported by our local unlocker.");
+    }
 
-        // Get the encrypt dictionary
-        const encryptDict = context.lookup(encryptRef) as any;
-        if (!encryptDict) {
-            console.error("Could not read encryption dictionary");
-            return handleBadRequest("Could not read encryption dictionary");
-        }
+    // Get O and U values
+    const oEntry = encryptDict.get(PDFName.of('O'));
+    const uEntry = encryptDict.get(PDFName.of('U'));
+    if (!oEntry || !uEntry) {
+        throw new Error("Missing encryption keys in PDF");
+    }
 
-        // Extract encryption parameters
-        const revision = encryptDict.get(PDFName.of('R'))?.asNumber?.() ?? 3;
-        const version = encryptDict.get(PDFName.of('V'))?.asNumber?.() ?? 2;
-        const lengthBits = encryptDict.get(PDFName.of('Length'))?.asNumber?.() ?? 128;
-        const keyLength = Math.min(lengthBits / 8, 16);
-        const permissions = encryptDict.get(PDFName.of('P'))?.asNumber?.() ?? 0;
+    const oValue = oEntry instanceof PDFHexString
+        ? hexToBytes(oEntry.asString())
+        : oEntry.asBytes();
+    const uValue = uEntry instanceof PDFHexString
+        ? hexToBytes(uEntry.asString())
+        : uEntry.asBytes();
 
-        console.log(`Encryption params: R=${revision}, V=${version}, Length=${lengthBits}, P=${permissions}`);
-
-        if (revision > 4) {
-            console.error(`Unsupported PDF revision: ${revision}. Only RC4/AES up to V4 is supported locally.`);
-            return handleBadRequest("This PDF uses advanced encryption (AES-256) which is not currently supported by our local unlocker.");
-        }
-
-        // Get O and U values
-        const oEntry = encryptDict.get(PDFName.of('O'));
-        const uEntry = encryptDict.get(PDFName.of('U'));
-        if (!oEntry || !uEntry) {
-            return handleBadRequest("Missing encryption keys in PDF");
-        }
-
-        const oValue = oEntry instanceof PDFHexString
-            ? hexToBytes(oEntry.asString())
-            : oEntry.asBytes();
-        const uValue = uEntry instanceof PDFHexString
-            ? hexToBytes(uEntry.asString())
-            : uEntry.asBytes();
-
-        // Get file ID
-        let fileId: Uint8Array;
-        const idArray = (trailer as any).ID;
-        if (idArray && idArray.size?.() > 0) {
-            const firstId = idArray.lookup(0, PDFHexString) ?? idArray.lookup(0, PDFString);
-            if (firstId instanceof PDFHexString) {
-                fileId = hexToBytes(firstId.asString());
-            } else if (firstId) {
-                fileId = firstId.asBytes();
-            } else {
-                fileId = new Uint8Array(16);
-            }
-        } else if (idArray && Array.isArray(idArray)) {
-            const idString = idArray[0].toString();
-            const hexStr = idString.replace(/^<|>$/g, '');
-            fileId = hexToBytes(hexStr);
+    // Get file ID
+    let fileId: Uint8Array;
+    const idArray = (trailer as any).ID;
+    if (idArray && idArray.size?.() > 0) {
+        const firstId = idArray.lookup(0, PDFHexString) ?? idArray.lookup(0, PDFString);
+        if (firstId instanceof PDFHexString) {
+            fileId = hexToBytes(firstId.asString());
+        } else if (firstId) {
+            fileId = firstId.asBytes();
         } else {
             fileId = new Uint8Array(16);
         }
-
-        console.log("Verifying password...");
-
-        // Verify password (try as user password first, then as owner password)
-        const pwd = password || '';
-        let encryptionKey = verifyUserPassword(pwd, uValue, oValue, permissions, fileId, keyLength, revision);
-        if (encryptionKey) {
-            console.log("Unlocked with User Password");
-        } else {
-            encryptionKey = verifyOwnerPassword(pwd, oValue, uValue, permissions, fileId, keyLength, revision);
-            if (encryptionKey) console.log("Unlocked with Owner Password");
-        }
-
-        if (!encryptionKey) {
-            console.warn("Password verification failed");
-            return NextResponse.json(
-                { error: "Incorrect password. Please try again." },
-                { status: 401 }
-            );
-        }
-
-        // Decrypt all objects
-        const { PDFRawStream, PDFString: PDFStr, PDFDict: PDFDct, PDFArray: PDFArr } = await import('pdf-lib');
-
-        const indirectObjects = context.enumerateIndirectObjects();
-        const encryptObjNum = encryptRef.objectNumber;
-
-        for (const [ref, obj] of indirectObjects) {
-            const objectNum = ref.objectNumber;
-            const generationNum = ref.generationNumber || 0;
-
-            // Skip the encryption dictionary itself
-            if (objectNum === encryptObjNum) continue;
-
-            // Decrypt streams
-            if (obj instanceof PDFRawStream) {
-                const streamData = obj.contents;
-                (obj as any).contents = decryptObject(streamData, objectNum, generationNum, encryptionKey);
-            }
-
-            // Decrypt strings recursively
-            decryptStringsInObject(obj, objectNum, generationNum, encryptionKey, PDFStr, PDFHexString, PDFDct, PDFArr);
-        }
-
-        // Remove the encryption dictionary reference from trailer
-        delete (trailer as any).Encrypt;
-
-        // Save without encryption
-        const cleanBytes = await pdfDoc.save({ useObjectStreams: false });
-
-        return new NextResponse(Buffer.from(cleanBytes), {
-            headers: {
-                'Content-Type': 'application/pdf',
-                'Content-Disposition': 'attachment; filename="unlocked.pdf"',
-                'Content-Length': cleanBytes.length.toString(),
-            },
-        });
-
-    } catch (error) {
-        return handleApiError(error, "Incorrect password or internal error");
+    } else if (idArray && Array.isArray(idArray)) {
+        const idString = idArray[0].toString();
+        const hexStr = idString.replace(/^<|>$/g, '');
+        fileId = hexToBytes(hexStr);
+    } else {
+        fileId = new Uint8Array(16);
     }
+
+    // Verify password
+    const pwd = password || '';
+    let encryptionKey = verifyUserPassword(pwd, uValue, oValue, permissions, fileId, keyLength, revision);
+    if (!encryptionKey) {
+        encryptionKey = verifyOwnerPassword(pwd, oValue, uValue, permissions, fileId, keyLength, revision);
+    }
+
+    if (!encryptionKey) {
+        throw new Error("Incorrect password. Please try again.");
+    }
+
+    // @ts-ignore
+    const { PDFRawStream, PDFString: PDFStr, PDFDict: PDFDct, PDFArray: PDFArr } = await import('pdf-lib');
+
+    const indirectObjects = context.enumerateIndirectObjects();
+    const encryptObjNum = encryptRef.objectNumber;
+
+    for (const [ref, obj] of indirectObjects) {
+        const objectNum = ref.objectNumber;
+        const generationNum = ref.generationNumber || 0;
+
+        if (objectNum === encryptObjNum) continue;
+
+        if (obj instanceof PDFRawStream) {
+            const streamData = obj.contents;
+            (obj as any).contents = decryptObject(streamData, objectNum, generationNum, encryptionKey);
+        }
+
+        decryptStringsInObject(obj, objectNum, generationNum, encryptionKey, PDFStr, PDFHexString, PDFDct, PDFArr);
+    }
+
+    delete (trailer as any).Encrypt;
+
+    const cleanBytes = await pdfDoc.save({ useObjectStreams: false });
+    return new Blob([cleanBytes as any], { type: 'application/pdf' });
 }
 
 function decryptStringsInObject(
@@ -327,7 +277,6 @@ function decryptStringsInObject(
     if (obj instanceof PDFStr) {
         const originalBytes = obj.asBytes();
         const decrypted = decryptObject(originalBytes, objectNum, generationNum, encryptionKey);
-        // Replace with decrypted hex string
         const hex = Array.from(decrypted).map((b: number) => b.toString(16).padStart(2, '0')).join('');
         obj.value = hex;
     } else if (obj instanceof PDFHex) {
@@ -350,5 +299,3 @@ function decryptStringsInObject(
         }
     }
 }
-
-

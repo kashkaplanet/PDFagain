@@ -6,6 +6,7 @@ import { RetroFileUploader } from "@/components/RetroFileUploader";
 import { RetroCard, RetroActionButton } from "@/components/RetroCard";
 import { ToolPageWrapper } from "@/components/ToolPageWrapper";
 import { Unlock, KeyRound } from "lucide-react";
+import { unlockPdf } from "@/lib/pdf-unlocker";
 
 export default function UnlockPdfClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -32,21 +33,7 @@ export default function UnlockPdfClient() {
         setError(null);
 
         try {
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("password", password || "");
-
-            const response = await fetch("/api/unlock-pdf", {
-                method: "POST",
-                body: formData,
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => null);
-                throw new Error(errorData?.error || "Failed to unlock PDF");
-            }
-
-            const blob = await response.blob();
+            const blob = await unlockPdf(file, password);
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
             link.href = url;
