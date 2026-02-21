@@ -10,10 +10,7 @@ const nextConfig: NextConfig = {
   // Disable transpilation for now to see if it fixes the worker error
   // transpilePackages: ['pdfjs-dist'],
 
-  // @ts-ignore
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
 
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons', 'date-fns', 'lodash'],

@@ -30,8 +30,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return (
         <section className="text-center space-y-10 relative z-10">
             <div className="relative">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display tracking-tight relative w-full mx-auto leading-none mb-6">
-                    Free AI PDF Tools: Merge, Split, Convert & Edit
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-display tracking-tight relative w-full mx-auto leading-none mb-6">
+                    Free AI PDF Tools: Merge, Split, Convert &amp; Edit
                 </h1>
                 <p className="text-lg md:text-xl text-gray-600 font-sans leading-relaxed max-w-2xl mx-auto">
                     Process files locally with our 100% free, private PDF tools.

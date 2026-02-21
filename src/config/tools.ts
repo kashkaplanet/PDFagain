@@ -445,7 +445,6 @@ export const popularTools = sections.flatMap(section =>
 // Feature badges for hero section
 export const features = [
     { icon: Sparkles, text: "100% Free", color: "bg-[#A3E635]" },
-    { icon: Shield, text: "Privacy First", color: "bg-[#22D3EE]" },
     { icon: Zap, text: "Lightning Fast", color: "bg-[#FB923C]" },
     { icon: MessageSquare, text: "Chat with PDF", color: "bg-[#22D3EE]" },
 ];

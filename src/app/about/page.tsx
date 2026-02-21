@@ -4,13 +4,12 @@ import { Users, Heart, Zap, Shield, Globe, ArrowLeft, Github, ChevronRight } fro
 
 export const metadata: Metadata = {
     title: "About Us | PDFagain",
-    description: "Learn about the mission and values behind PDFagain - the privacy-first, client-side PDF tool suite.",
+    description: "Learn about the mission and values behind PDFagain - the client-side PDF tool suite.",
 };
 
 const sections = [
     { id: "mission", title: "Our Mission", icon: Heart },
     { id: "why", title: "Why PDFagain?", icon: Zap },
-    { id: "privacy-first", title: "Privacy First", icon: Shield },
     { id: "team", title: "The Team", icon: Users },
 ];
 
@@ -113,26 +112,10 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* 3. Privacy First */}
-                <section id="privacy-first" className="scroll-mt-24">
-                    <div className="flex items-center gap-3 mb-6">
-                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">3</span>
-                        <h2 className="text-2xl md:text-3xl font-display font-black">Privacy First</h2>
-                    </div>
-                    <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
-                        <p className="leading-relaxed">
-                            We don&apos;t just say we care about privacy; we built our entire architecture around it. By leveraging modern browser capabilities like WebAssembly and Service Workers, we&apos;ve eliminated the need for server-side processing.
-                        </p>
-                        <p className="leading-relaxed">
-                            For a deep dive into how we protect your data, check out our <Link href="/security" className="font-bold hover:text-[#A78BFA] underline">Security Page</Link>.
-                        </p>
-                    </div>
-                </section>
-
-                {/* 5. The Team -> 4. The Team */}
+                {/* 4. The Team -> 3. The Team */}
                 <section id="team" className="scroll-mt-24">
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">4</span>
+                        <span className="flex items-center justify-center w-10 h-10 bg-[#A78BFA] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-black">3</span>
                         <h2 className="text-2xl md:text-3xl font-display font-black">The Team</h2>
                     </div>
                     <div className="bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] p-6 space-y-4">
