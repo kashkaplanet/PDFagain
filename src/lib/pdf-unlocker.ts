@@ -1,4 +1,4 @@
-import { PDFDocument, PDFName, PDFHexString, PDFString } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFHexString, PDFString, PDFRef } from 'pdf-lib';
 import { md5, RC4, hexToBytes } from '@pdfsmaller/pdf-encrypt-lite';
 
 // Standard PDF padding string (from PDF specification)
@@ -212,7 +212,7 @@ export async function unlockPdf(file: File, password?: string): Promise<Blob> {
     let fileId: Uint8Array = new Uint8Array(16);
     let idArray = (trailer as any).ID;
 
-    if (idArray && idArray.constructor && idArray.constructor.name === 'PDFRef') {
+    if (idArray instanceof PDFRef) {
         idArray = context.lookup(idArray);
     }
 
@@ -220,11 +220,11 @@ export async function unlockPdf(file: File, password?: string): Promise<Blob> {
         const firstIdRef = idArray.get(0);
         const firstId = context.lookup(firstIdRef);
         if (firstId) {
-            if (firstId.constructor && firstId.constructor.name === 'PDFHexString') {
-                const asHexStr = (firstId as any).asString();
+            if (firstId instanceof PDFHexString) {
+                const asHexStr = firstId.asString();
                 fileId = hexToBytes(asHexStr.replace(/^<|>$/g, ''));
-            } else if (firstId.constructor && firstId.constructor.name === 'PDFString') {
-                fileId = (firstId as any).asBytes();
+            } else if (firstId instanceof PDFString) {
+                fileId = firstId.asBytes();
             }
         }
     } else if (idArray && Array.isArray(idArray)) {
