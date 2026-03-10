@@ -5,12 +5,13 @@ import { useGlobalFileDrop } from "@/hooks/useGlobalFileDrop";
 import { RetroFileUploader } from "@/components/RetroFileUploader";
 import { RetroCard, RetroActionButton } from "@/components/RetroCard";
 import { ToolPageWrapper } from "@/components/ToolPageWrapper";
-import { Unlock, KeyRound } from "lucide-react";
+import { Unlock, KeyRound, Eye, EyeOff } from "lucide-react";
 import { unlockPdf } from "@/lib/pdf-unlocker";
 
 export default function UnlockPdfClient() {
     const [file, setFile] = useState<File | null>(null);
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -98,13 +99,22 @@ export default function UnlockPdfClient() {
                             <KeyRound className="w-4 h-4 inline mr-2" />
                             PDF Password (if any)
                         </label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Enter password to unlock"
-                            className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#34D399] outline-none font-sans"
-                        />
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Enter password to unlock"
+                                className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#34D399] outline-none font-sans pr-12"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black transition-colors"
+                            >
+                                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                            </button>
+                        </div>
                         <p className="text-xs text-gray-600 mt-2 font-sans">
                             Leave empty if the PDF only has restrictions (no open password).
                         </p>

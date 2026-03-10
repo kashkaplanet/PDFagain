@@ -37,8 +37,36 @@ export function RetroButton({ label, icon: Icon, variant = 'default', className,
     const colorStyles = getVariantClasses(variant);
 
     if (href) {
+        const isAnchor = href.startsWith('#');
+
+        if (isAnchor) {
+            return (
+                <a
+                    href={href}
+                    className={cn(baseStylesNoShadow, shadowStyles, colorStyles, className)}
+                    aria-label={label}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        const id = href.substring(1);
+                        const element = document.getElementById(id);
+                        if (element) {
+                            const y = element.getBoundingClientRect().top + window.scrollY - 140;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                            window.history.pushState(null, '', href);
+                        }
+                        if (props.onClick) props.onClick();
+                    }}
+                    {...(props as any)}
+                >
+                    {Icon && <Icon className="w-5 h-5 relative z-20" aria-hidden="true" />}
+                    <span className="relative z-20">{label}</span>
+                    {shimmer && <ShimmerOverlay />}
+                </a>
+            );
+        }
+
         return (
-            <Link href={href} className={cn(baseStylesNoShadow, shadowStyles, colorStyles, className)} aria-label={label}>
+            <Link href={href} className={cn(baseStylesNoShadow, shadowStyles, colorStyles, className)} aria-label={label} {...(props as any)}>
                 {Icon && <Icon className="w-5 h-5 relative z-20" aria-hidden="true" />}
                 <span className="relative z-20">{label}</span>
                 {shimmer && <ShimmerOverlay />}

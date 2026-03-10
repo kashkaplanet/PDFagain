@@ -113,15 +113,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <nav aria-label="Tool categories" className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
                         {sections.map((section) => {
                             const activeCount = section.tools.filter(t => !t.disabled).length;
+                            const id = section.title.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-");
+                            const href = `#${id}`;
+
                             return (
-                                <Link key={section.title} href={`#${section.title.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
+                                <a key={section.title} href={href}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const element = document.getElementById(id);
+                                        if (element) {
+                                            const y = element.getBoundingClientRect().top + window.scrollY - 140;
+                                            window.scrollTo({ top: y, behavior: 'smooth' });
+                                            window.history.pushState(null, '', href);
+                                        }
+                                    }}
                                     className="px-4 py-2 bg-white border-2 border-black font-display text-sm tracking-wide 
                                                shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]
                                                hover:-translate-y-1 transition-all cursor-pointer flex items-center gap-2 duration-200">
                                     <section.icon className="w-4 h-4" />
                                     {section.title}
                                     <span className="text-xs bg-gray-100 border border-black px-1.5 py-0.5 font-mono">{activeCount}</span>
-                                </Link>
+                                </a>
                             );
                         })}
                     </nav>

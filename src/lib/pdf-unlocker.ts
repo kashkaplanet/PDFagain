@@ -10,7 +10,10 @@ const PADDING = new Uint8Array([
 ]);
 
 function padPassword(password: string): Uint8Array {
-    const pwdBytes = new TextEncoder().encode(password);
+    const pwdBytes = new Uint8Array(password.length);
+    for (let i = 0; i < password.length; i++) {
+        pwdBytes[i] = password.charCodeAt(i) & 0xFF;
+    }
     const padded = new Uint8Array(32);
     if (pwdBytes.length >= 32) {
         padded.set(pwdBytes.slice(0, 32));
@@ -183,8 +186,8 @@ export async function unlockPdf(file: File, password?: string): Promise<Blob> {
     // Extract encryption parameters
     const revision = encryptDict.get(PDFName.of('R'))?.asNumber?.() ?? 3;
     const version = encryptDict.get(PDFName.of('V'))?.asNumber?.() ?? 2;
-    const lengthBits = encryptDict.get(PDFName.of('Length'))?.asNumber?.() ?? 128;
-    const keyLength = Math.min(lengthBits / 8, 16);
+    const lengthBits = encryptDict.get(PDFName.of('Length'))?.asNumber?.() ?? (revision === 2 ? 40 : 128);
+    const keyLength = Math.min(lengthBits / 8, 32);
     const permissions = encryptDict.get(PDFName.of('P'))?.asNumber?.() ?? 0;
 
     if (revision > 4) {
@@ -205,24 +208,29 @@ export async function unlockPdf(file: File, password?: string): Promise<Blob> {
         ? hexToBytes(uEntry.asString())
         : uEntry.asBytes();
 
-    // Get file ID
-    let fileId: Uint8Array;
-    const idArray = (trailer as any).ID;
-    if (idArray && idArray.size?.() > 0) {
-        const firstId = idArray.lookup(0, PDFHexString) ?? idArray.lookup(0, PDFString);
-        if (firstId instanceof PDFHexString) {
-            fileId = hexToBytes(firstId.asString());
-        } else if (firstId) {
-            fileId = firstId.asBytes();
-        } else {
-            fileId = new Uint8Array(16);
+    // Get file ID safely
+    let fileId: Uint8Array = new Uint8Array(16);
+    let idArray = (trailer as any).ID;
+
+    if (idArray && idArray.constructor && idArray.constructor.name === 'PDFRef') {
+        idArray = context.lookup(idArray);
+    }
+
+    if (idArray && typeof idArray.size === 'function' && idArray.size() > 0) {
+        const firstIdRef = idArray.get(0);
+        const firstId = context.lookup(firstIdRef);
+        if (firstId) {
+            if (firstId.constructor && firstId.constructor.name === 'PDFHexString') {
+                const asHexStr = (firstId as any).asString();
+                fileId = hexToBytes(asHexStr.replace(/^<|>$/g, ''));
+            } else if (firstId.constructor && firstId.constructor.name === 'PDFString') {
+                fileId = (firstId as any).asBytes();
+            }
         }
     } else if (idArray && Array.isArray(idArray)) {
         const idString = idArray[0].toString();
         const hexStr = idString.replace(/^<|>$/g, '');
         fileId = hexToBytes(hexStr);
-    } else {
-        fileId = new Uint8Array(16);
     }
 
     // Verify password
