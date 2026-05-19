@@ -8,12 +8,12 @@ nixPkgs = ["...", "python3", "python311Packages.pip"]
 [phases.install]
 cmds = [
     "npm install",
-    "python -m venv /opt/venv",
-    ". /opt/venv/bin/activate && pip install -r requirements.txt"
+    "python -m venv .venv",
+    ". .venv/bin/activate && pip install -r requirements.txt"
 ]
 
 [phases.build]
 cmds = ["npm run build"]
 
 [start]
-cmd = ". /opt/venv/bin/activate && npm start"
+cmd = ". .venv/bin/activate && npm start"
