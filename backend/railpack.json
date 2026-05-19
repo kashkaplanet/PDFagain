@@ -5,9 +5,9 @@
     "node": "20",
     "python": "3.11"
   },
-  "installCommand": "npm install && python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt",
+  "installCommand": "npm install && python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
   "buildCommand": "npm run build",
   "deploy": {
-    "startCommand": ". /opt/venv/bin/activate && npm start"
+    "startCommand": ". .venv/bin/activate && npm start"
   }
 }
