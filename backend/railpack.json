@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "provider": "node",
+  "packages": {
+    "node": "20",
+    "python": "3.11"
+  },
+  "steps": {
+    "install": {
+      "commands": [
+        "npm install",
+        "python -m venv /opt/venv",
+        ". /opt/venv/bin/activate && pip install -r requirements.txt"
+      ]
+    },
+    "build": {
+      "inputs": [{ "step": "install" }],
+      "commands": [
+        "npm run build"
+      ]
+    }
+  },
+  "deploy": {
+    "startCommand": ". /opt/venv/bin/activate && npm start"
+  }
+}
