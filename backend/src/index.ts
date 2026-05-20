@@ -1,5 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import compression from 'compression';
+import morgan from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
@@ -15,7 +18,19 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
+// Trust proxy if deployed behind a reverse proxy (e.g. Railway, Nginx)
+app.set('trust proxy', 1);
+
 // Middleware
+// Security headers
+app.use(helmet());
+
+// Compress responses
+app.use(compression());
+
+// Request logging
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+
 app.use(cors({
     origin: function(origin, callback) {
         // Allow all origins for now to avoid Railway CORS issues

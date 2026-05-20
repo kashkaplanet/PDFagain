@@ -4,6 +4,8 @@ export function errorHandler(err: any, req: Request, res: Response, next: NextFu
     console.error("Unhandled Error:", err);
     res.status(500).json({
         error: "Internal server error",
-        details: err instanceof Error ? err.message : String(err)
+        ...(process.env.NODE_ENV !== 'production' && {
+            details: err instanceof Error ? err.message : String(err)
+        })
     });
 }
