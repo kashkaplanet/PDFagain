@@ -1,9 +1,4 @@
 {
-    "functions": {
-        "app/api/**/*": {
-            "maxDuration": 60
-        }
-    },
     "buildCommand": "npm run build",
     "headers": [
         {
