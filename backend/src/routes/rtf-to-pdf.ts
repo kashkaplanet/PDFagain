@@ -12,14 +12,14 @@ export const postHandler = async (req: Request, res: Response) => {
     let tempDir: string | null = null;
 
     try {
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
             return handleBadRequest(res, "RTF file is required");
         }
 
-        const buffer = Buffer.from(file.buffer);
+        const buffer = Buffer.from(await fs.promises.readFile(file.path));
 
         // Create unique temp directory
         const requestId = `${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;

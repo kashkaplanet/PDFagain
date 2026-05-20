@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -7,14 +8,14 @@ import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
 export const postHandler = async (req: Request, res: Response) => {
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
             return handleBadRequest(res, "PDF file is required");
         }
 
-        const arrayBuffer = file.buffer;
+        const arrayBuffer = await fs.promises.readFile(file.path);
         const pdfDoc = await PDFDocument.load(arrayBuffer);
         const form = pdfDoc.getForm();
 
@@ -24,7 +25,7 @@ export const postHandler = async (req: Request, res: Response) => {
 
                 res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'attachment; filename=flattened.pdf');
-        res.setHeader('Content-Length', 'pdfBytes.length.toString()');
+        res.setHeader('Content-Length', pdfBytes.length.toString());
         return res.send(Buffer.from(pdfBytes));
 
     } catch (error) {

@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -12,7 +13,7 @@ export const postHandler = async (req: Request, res: Response) => {
     let worker: any = null;
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
         const lang = (req.body?.lang as string) || 'eng';
 
@@ -20,7 +21,7 @@ export const postHandler = async (req: Request, res: Response) => {
             return handleBadRequest(res, "PDF file is required");
         }
 
-        const arrayBuffer = file.buffer;
+        const arrayBuffer = await fs.promises.readFile(file.path);
 
         // Dynamic import for pdfjs-dist (server-side: use local worker file URL)
         const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');

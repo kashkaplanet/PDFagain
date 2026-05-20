@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -6,14 +7,14 @@ import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
 export const postHandler = async (req: Request, res: Response) => {
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
             return handleBadRequest(res, "Binary text file is required");
         }
 
-        const textContent = file.buffer.toString('utf-8');
+        const textContent = (await fs.promises.readFile(file.path)).toString('utf-8');
         const base64String = textContent.trim();
 
         // Validate Base64 string

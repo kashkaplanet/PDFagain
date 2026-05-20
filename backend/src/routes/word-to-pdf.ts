@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 import { Request, Response } from 'express';
 import mammoth from 'mammoth';
@@ -8,14 +9,14 @@ export const postHandler = async (req: Request, res: Response) => {
     let page = null;
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
             return handleBadRequest(res, "Word file is required");
         }
 
-        const buffer = Buffer.from(file.buffer);
+        const buffer = Buffer.from(await fs.promises.readFile(file.path));
 
         // Convert DOCX to HTML using mammoth
         const { value: html, messages } = await mammoth.convertToHtml({ buffer });

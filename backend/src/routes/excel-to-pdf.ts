@@ -12,14 +12,14 @@ export const postHandler = async (req: Request, res: Response) => {
 
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
             return handleBadRequest(res, "Excel file is required");
         }
 
-        const arrayBuffer = file.buffer;
+        const arrayBuffer = await fs.readFile(file.path);
         const buffer = Buffer.from(arrayBuffer);
 
         // Save to temp file

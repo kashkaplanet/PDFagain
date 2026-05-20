@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -7,7 +8,7 @@ import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
 export const postHandler = async (req: Request, res: Response) => {
     try {
         // Multer handles formData
-        const files = (req as any).files as any[];
+        const files = (req as any).files as Express.Multer.File[] as Express.Multer.File[];
 
         if (!files || files.length < 2) {
             return handleBadRequest(res, "At least two PDF files are required");
@@ -30,7 +31,7 @@ export const postHandler = async (req: Request, res: Response) => {
                 return handleBadRequest(res, `File ${file.originalname} is not a PDF`);
             }
 
-            const arrayBuffer = file.buffer;
+            const arrayBuffer = await fs.promises.readFile(file.path);
             const pdf = await PDFDocument.load(arrayBuffer);
             const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
 
@@ -42,7 +43,7 @@ export const postHandler = async (req: Request, res: Response) => {
         // Return as response
                 res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'attachment; filename=merged.pdf');
-        res.setHeader('Content-Length', 'savedPdfBytes.length.toString()');
+        res.setHeader('Content-Length', savedPdfBytes.length.toString());
         return res.send(Buffer.from(savedPdfBytes));
 
     } catch (error) {

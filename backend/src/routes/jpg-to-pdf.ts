@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -7,7 +8,7 @@ import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
 export const postHandler = async (req: Request, res: Response) => {
     try {
         // Multer handles formData
-        const files = (req as any).files as any[];
+        const files = (req as any).files as Express.Multer.File[] as Express.Multer.File[];
 
         if (!files || files.length === 0) {
             return handleBadRequest(res, "Image files are required");
@@ -16,7 +17,7 @@ export const postHandler = async (req: Request, res: Response) => {
         const pdfDoc = await PDFDocument.create();
 
         for (const file of files) {
-            const buffer = file.buffer;
+            const buffer = await fs.promises.readFile(file.path);
             let image;
 
             const name = file.originalname.toLowerCase();
@@ -41,7 +42,7 @@ export const postHandler = async (req: Request, res: Response) => {
 
                 res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'attachment; filename=images.pdf');
-        res.setHeader('Content-Length', 'pdfBytes.length.toString()');
+        res.setHeader('Content-Length', pdfBytes.length.toString());
         return res.send(Buffer.from(pdfBytes));
 
     } catch (error) {

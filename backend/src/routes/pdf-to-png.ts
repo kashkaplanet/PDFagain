@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { Request, Response } from 'express';
 import { createCanvas } from 'canvas';
 import JSZip from 'jszip';
@@ -8,14 +9,14 @@ import { pathToFileURL } from 'url';
 export const postHandler = async (req: Request, res: Response) => {
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
             return handleBadRequest(res, "PDF file is required");
         }
 
-        const arrayBuffer = file.buffer;
+        const arrayBuffer = await fs.promises.readFile(file.path);
         const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');
         const workerPath = path.join(process.cwd(), 'node_modules', 'pdfjs-dist', 'legacy', 'build', 'pdf.worker.mjs');
         pdfjsLib.GlobalWorkerOptions.workerSrc = pathToFileURL(workerPath).href;

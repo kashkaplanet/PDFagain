@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -8,7 +9,7 @@ export const postHandler = async (req: Request, res: Response) => {
     let page = null;
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
         const url = (req.body || {}).url as string | null;
 
@@ -17,7 +18,7 @@ export const postHandler = async (req: Request, res: Response) => {
         if (url) {
             // URL to PDF
         } else if (file) {
-            content = file.buffer.toString('utf-8'); // Assumes HTML file is text
+            content = (await fs.promises.readFile(file.path)).toString('utf-8'); // Assumes HTML file is text
         } else {
             return handleBadRequest(res, "HTML file or URL is required");
         }

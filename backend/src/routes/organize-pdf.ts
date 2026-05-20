@@ -1,3 +1,4 @@
+import fs from 'fs';
 
 
 import { Request, Response } from 'express';
@@ -7,7 +8,7 @@ import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
 export const postHandler = async (req: Request, res: Response) => {
     try {
         // Multer handles formData
-        const files = (req as any).files;
+        const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
         const pageOrderStr = (req.body || {}).pageOrder as string | null;
 
@@ -22,7 +23,7 @@ export const postHandler = async (req: Request, res: Response) => {
             return handleBadRequest(res, "Invalid page order format");
         }
 
-        const arrayBuffer = file.buffer;
+        const arrayBuffer = await fs.promises.readFile(file.path);
         const srcPdf = await PDFDocument.load(arrayBuffer);
 
         const newPdf = await PDFDocument.create();
@@ -34,7 +35,7 @@ export const postHandler = async (req: Request, res: Response) => {
 
                 res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'attachment; filename=organized.pdf');
-        res.setHeader('Content-Length', 'pdfBytes.length.toString()');
+        res.setHeader('Content-Length', pdfBytes.length.toString());
         return res.send(Buffer.from(pdfBytes));
 
     } catch (error) {
