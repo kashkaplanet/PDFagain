@@ -9,15 +9,24 @@ class BrowserPool {
     private isLaunching = false;
     private launchPromise: Promise<Browser> | null = null;
 
-    private readonly launchOptions = {
-        headless: true as const,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-gpu',
-        ],
-    };
+    private getLaunchOptions() {
+        const options: Record<string, any> = {
+            headless: true as const,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--single-process',
+                '--no-zygote',
+            ],
+        };
+        // Use system Chromium on Railway/production
+        if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+            options.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+        }
+        return options;
+    }
 
     /**
      * Get the browser instance, launching if necessary
@@ -35,7 +44,7 @@ class BrowserPool {
 
         // Launch new browser
         this.isLaunching = true;
-        this.launchPromise = puppeteer.launch(this.launchOptions);
+        this.launchPromise = puppeteer.launch(this.getLaunchOptions());
 
         try {
             this.browser = await this.launchPromise;
