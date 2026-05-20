@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  python-backend:
+    build:
+      context: ./python-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    volumes:
+      - ./python-backend/tmp:/app/tmp
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/health')\" || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PYTHON_BACKEND_URL=http://python-backend:8000
+      - NODE_ENV=production
+      - PORT=4000
+    env_file:
+      - ./backend/.env
+    depends_on:
+      python-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - ./backend/temp:/app/temp

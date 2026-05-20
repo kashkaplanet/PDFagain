@@ -1,7 +1,3 @@
-import { spawn } from "child_process";
-import { writeFile, readFile, unlink, mkdir } from "fs/promises";
-import { join } from "path";
-import { existsSync } from "fs";
 import { randomUUID } from "crypto";
 
 export interface PythonRunnerOptions {
@@ -19,19 +15,13 @@ export interface PythonResult {
     error?: string;
 }
 
-const TEMP_DIR = join(process.cwd(), "tmp");
-const SCRIPTS_DIR = join(process.cwd(), "scripts");
-
 export const getPythonCommand = () => {
-    const localPath = 'C:\\Users\\kashk\\AppData\\Local\\Programs\\Python\\Python311\\python.exe';
-    if (process.platform === 'win32' && existsSync(localPath)) {
-        return localPath;
-    }
+    // Kept for backwards compatibility if anything still uses it directly
     return 'python';
 };
 
 /**
- * Run a Python script with input/output file handling
+ * Run a Python script by calling the separate Python backend API
  */
 export async function runPythonScript(options: PythonRunnerOptions): Promise<PythonResult> {
     const {
@@ -39,104 +29,73 @@ export async function runPythonScript(options: PythonRunnerOptions): Promise<Pyt
         inputBuffer,
         inputExt,
         outputExt,
-        timeout = 60000,
+        timeout = 120000,
         args = []
     } = options;
 
-    // Ensure temp directory exists
-    if (!existsSync(TEMP_DIR)) {
-        await mkdir(TEMP_DIR, { recursive: true });
-    }
-
-    const uuid = randomUUID();
-    const inputPath = join(TEMP_DIR, `${uuid}${inputExt}`);
-    const outputPath = join(TEMP_DIR, `${uuid}${outputExt}`);
-    const scriptPath = join(SCRIPTS_DIR, script);
+    const pythonBackendUrl = process.env.PYTHON_BACKEND_URL || 'http://127.0.0.1:8000';
+    const endpoint = `${pythonBackendUrl}/api/run-script`;
 
     try {
-        // Write input file
-        await writeFile(inputPath, inputBuffer);
+        const formData = new FormData();
+        // Node's native FormData takes Blobs for files
+        const blob = new Blob([inputBuffer as any]);
+        formData.append('file', blob, `input${inputExt}`);
+        formData.append('script', script);
+        formData.append('inputExt', inputExt);
+        formData.append('outputExt', outputExt);
+        formData.append('args', JSON.stringify(args));
 
-        // Build command arguments
-        const cmdArgs = [scriptPath, inputPath, outputPath, ...args];
+        const abortController = new AbortController();
+        const timeoutId = setTimeout(() => abortController.abort(), timeout);
 
-        // Run Python script
-        const result = await new Promise<PythonResult>((resolve) => {
-            const pythonProcess = spawn(getPythonCommand(), cmdArgs, {
-                cwd: process.cwd(),
-                timeout: timeout,
-            });
-
-            let stdout = "";
-            let stderr = "";
-
-            pythonProcess.stdout.on("data", (data) => {
-                stdout += data.toString();
-            });
-
-            pythonProcess.stderr.on("data", (data) => {
-                stderr += data.toString();
-            });
-
-            pythonProcess.on("close", async (code) => {
-                if (code === 0 && existsSync(outputPath)) {
-                    try {
-                        const outputBuffer = await readFile(outputPath);
-                        resolve({ success: true, outputBuffer });
-                    } catch (readError) {
-                        resolve({
-                            success: false,
-                            error: `Failed to read output: ${readError}`
-                        });
-                    }
-                } else {
-                    resolve({
-                        success: false,
-                        error: stderr || stdout || `Python script exited with code ${code}`
-                    });
-                }
-            });
-
-            pythonProcess.on("error", (err) => {
-                resolve({
-                    success: false,
-                    error: `Failed to spawn Python: ${err.message}`
-                });
-            });
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            body: formData,
+            signal: abortController.signal
         });
 
-        return result;
+        clearTimeout(timeoutId);
 
-    } finally {
-        // Cleanup temp files
-        await cleanupFile(inputPath);
-        await cleanupFile(outputPath);
-    }
-}
-
-async function cleanupFile(filePath: string): Promise<void> {
-    try {
-        if (existsSync(filePath)) {
-            await unlink(filePath);
+        if (!response.ok) {
+            let errorDetail = response.statusText;
+            try {
+                const errorJson = await response.json();
+                errorDetail = errorJson.detail || errorDetail;
+            } catch (e) {
+                // Ignore json parse error
+            }
+            return {
+                success: false,
+                error: `Python backend error: ${response.status} ${errorDetail}`
+            };
         }
-    } catch {
-        // Ignore cleanup errors
+
+        const arrayBuffer = await response.arrayBuffer();
+        const outputBuffer = Buffer.from(arrayBuffer);
+
+        return {
+            success: true,
+            outputBuffer
+        };
+
+    } catch (error: any) {
+        return {
+            success: false,
+            error: `Failed to call Python backend: ${error.message}`
+        };
     }
 }
 
 /**
- * Check if Python is available in PATH
+ * Check if Python backend is reachable
  */
 export async function isPythonAvailable(): Promise<boolean> {
-    return new Promise((resolve) => {
-        const pythonProcess = spawn(getPythonCommand(), ["--version"]);
-
-        pythonProcess.on("close", (code) => {
-            resolve(code === 0);
-        });
-
-        pythonProcess.on("error", () => {
-            resolve(false);
-        });
-    });
+    const pythonBackendUrl = process.env.PYTHON_BACKEND_URL || 'http://127.0.0.1:8000';
+    try {
+        const res = await fetch(`${pythonBackendUrl}/health`);
+        return res.ok;
+    } catch {
+        return false;
+    }
 }

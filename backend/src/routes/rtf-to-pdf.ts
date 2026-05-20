@@ -1,73 +1,40 @@
 import { Request, Response } from 'express';
-import path from 'path';
-import fs from 'fs';
-import os from 'os';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
-
-const execAsync = promisify(exec);
+import fs from "fs";
+import { runPythonScript } from '../lib/python-runner.js';
 
 export const postHandler = async (req: Request, res: Response) => {
-    let tempDir: string | null = null;
-
     try {
         const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
 
         if (!file) {
-            return handleBadRequest(res, "RTF file is required");
+            return handleBadRequest(res, "File is required");
         }
 
         const buffer = Buffer.from(await fs.promises.readFile(file.path));
-
-        // Create unique temp directory
-        const requestId = `${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
-        tempDir = path.join(os.tmpdir(), 'pdf-tools', requestId);
-        fs.mkdirSync(tempDir, { recursive: true });
-
         const originalName = file.originalname || 'document.rtf';
-        const inputPath = path.join(tempDir, originalName);
-        const outputFilename = originalName.replace(/\.[^/.]+$/, '') + '.pdf';
-        const outputPath = path.join(tempDir, outputFilename);
+        const outputFilename = originalName.replace(/\.[^/.]+$/, "") + ".pdf";
 
-        fs.writeFileSync(inputPath, buffer);
+        const result = await runPythonScript({
+            script: 'convert_rtf.py',
+            inputBuffer: buffer,
+            inputExt: '.rtf',
+            outputExt: '.pdf',
+            timeout: 120000
+        });
 
-        // Call Python script
-        const scriptPath = path.join(process.cwd(), 'scripts', 'convert_rtf.py');
-
-        if (!fs.existsSync(scriptPath)) {
-            console.error('Script not found:', scriptPath);
-            return handleBadRequest(res, "Conversion script not found on server");
+        if (!result.success || !result.outputBuffer) {
+            throw new Error(result.error || "Conversion failed");
         }
-
-        const command = `python "${scriptPath}" "${inputPath}" "${outputPath}"`;
-        console.log('Executing RTF conversion:', command);
-
-        const { stdout, stderr } = await execAsync(command, { timeout: 60000 });
-        console.log('Stdout:', stdout);
-        if (stderr) console.warn('Stderr:', stderr);
-
-        if (!fs.existsSync(outputPath)) {
-            throw new Error('Conversion failed to produce output file');
-        }
-
-        const pdfBuffer = fs.readFileSync(outputPath);
-
-        // Cleanup temp files
-        fs.rmSync(tempDir, { recursive: true, force: true });
-        tempDir = null;
 
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', `attachment; filename="${outputFilename}"`);
-        res.setHeader('Content-Length', pdfBuffer.length.toString());
-        return res.send(pdfBuffer);
+        res.setHeader('Content-Length', result.outputBuffer.length.toString());
+        return res.send(result.outputBuffer);
 
     } catch (error) {
-        // Cleanup on error
-        if (tempDir && fs.existsSync(tempDir)) {
-            fs.rmSync(tempDir, { recursive: true, force: true });
-        }
-        return handleApiError(res, error, "Internal server error during RTF to PDF conversion");
+        console.error("Conversion Error:", error);
+        return handleApiError(res, error, "Internal server error during conversion");
     }
-};
+}

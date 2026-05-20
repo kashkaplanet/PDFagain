@@ -1,17 +1,9 @@
 import { Request, Response } from 'express';
 import { handleApiError, handleBadRequest } from '../lib/api-utils.js';
-import { writeFile, readFile, mkdir, rm } from "fs/promises";
-import { join } from "path";
-import { exec } from "child_process";
-import { promisify } from "util";
-import os from "os";
 import fs from "fs";
-
-const execAsync = promisify(exec);
+import { runPythonScript } from '../lib/python-runner.js';
 
 export const postHandler = async (req: Request, res: Response) => {
-    let tempDir: string | null = null;
-
     try {
         const files = (req as any).files as Express.Multer.File[];
         const file = (req as any).file || (files && files.length > 0 ? files[0] : null);
@@ -21,49 +13,28 @@ export const postHandler = async (req: Request, res: Response) => {
         }
 
         const buffer = Buffer.from(await fs.promises.readFile(file.path));
-        const requestId = crypto.randomUUID();
-        tempDir = join(os.tmpdir(), "pdf-tools", requestId);
-        await mkdir(tempDir, { recursive: true });
-
         const originalName = file.originalname || 'document.csv';
-        const inputPath = join(tempDir, originalName);
-        await writeFile(inputPath, buffer);
-
         const outputFilename = originalName.replace(/\.[^/.]+$/, "") + ".xlsx";
-        const outputPath = join(tempDir, outputFilename);
-        const scriptPath = join(process.cwd(), "scripts", "convert_csv_to_excel.py");
 
-        if (!fs.existsSync(scriptPath)) {
-            console.error('Script not found:', scriptPath);
-            return handleBadRequest(res, "Conversion script not found on server");
+        const result = await runPythonScript({
+            script: 'convert_csv_to_excel.py',
+            inputBuffer: buffer,
+            inputExt: '.csv',
+            outputExt: '.xlsx',
+            timeout: 120000
+        });
+
+        if (!result.success || !result.outputBuffer) {
+            throw new Error(result.error || "Failed to convert CSV to Excel");
         }
-
-        const command = `python "${scriptPath}" "${inputPath}" "${outputPath}"`;
-
-        console.log("Executing:", command);
-        const { stdout, stderr } = await execAsync(command, { timeout: 120000 });
-        console.log("Stdout:", stdout);
-        if (stderr) console.warn("Stderr:", stderr);
-
-        if (!fs.existsSync(outputPath)) {
-            throw new Error(`Conversion failed to produce output file: ${stdout}`);
-        }
-
-        const outputBuffer = await readFile(outputPath);
-
-        await rm(tempDir, { recursive: true, force: true }).catch(() => { });
-        tempDir = null;
 
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         res.setHeader('Content-Disposition', `attachment; filename="${outputFilename}"`);
-        res.setHeader('Content-Length', outputBuffer.length.toString());
-        return res.send(outputBuffer);
+        res.setHeader('Content-Length', result.outputBuffer.length.toString());
+        return res.send(result.outputBuffer);
 
     } catch (error) {
         console.error("Excel Conversion Error:", error);
-        if (tempDir && fs.existsSync(tempDir)) {
-            fs.rmSync(tempDir, { recursive: true, force: true });
-        }
         return handleApiError(res, error, "Internal server error during Excel conversion");
     }
 }
