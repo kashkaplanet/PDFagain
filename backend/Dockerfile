@@ -1,10 +1,11 @@
-FROM node:20-bookworm-slim
+FROM node:22-bookworm-slim
 
 WORKDIR /app
 
 # Install system dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
     ca-certificates \
+    git \
     fonts-liberation \
     libasound2 \
     libatk-bridge2.0-0 \
