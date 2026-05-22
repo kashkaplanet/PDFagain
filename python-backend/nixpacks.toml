@@ -5,7 +5,10 @@ python = true
 nixPkgs = [
     "python311",
     "fontconfig",
-    "liberation_ttf"
+    "liberation_ttf",
+    "gcc",
+    "pkg-config",
+    "cairo"
 ]
 
 [start]
