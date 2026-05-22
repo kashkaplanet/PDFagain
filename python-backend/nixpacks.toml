@@ -8,7 +8,13 @@ nixPkgs = [
     "liberation_ttf",
     "gcc",
     "pkg-config",
-    "cairo"
+    "cairo",
+    "meson"
+]
+aptPkgs = [
+    "build-essential",
+    "pkg-config",
+    "libcairo2-dev"
 ]
 
 [start]
