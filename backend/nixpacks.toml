@@ -3,6 +3,7 @@ node = true
 
 [phases.setup]
 nixPkgs = [
+    "git",
     "chromium",
     "nss",
     "freetype",

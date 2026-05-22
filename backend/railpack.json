@@ -2,9 +2,10 @@
   "$schema": "https://schema.railpack.com",
   "provider": "node",
   "packages": {
-    "node": "20"
+    "node": "22"
   },
   "aptPackages": [
+    "git",
     "chromium",
     "libnss3",
     "libfreetype6",
