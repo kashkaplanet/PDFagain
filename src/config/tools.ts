@@ -242,7 +242,7 @@ export const sections: Section[] = [
                 href: "/ocr-pdf",
                 icon: FileSearch,
                 description: "Make scanned PDFs searchable and selectable.",
-                disabled: true
+                disabled: false
             },
             {
                 name: "Repair PDF",
@@ -307,7 +307,7 @@ export const sections: Section[] = [
         icon: FileType,
         description: "Transform any document into PDF format",
         tools: [
-            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format.", disabled: true },
+            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format.", disabled: false },
             {
                 name: "HTML to PDF",
                 href: "/html-to-pdf",
@@ -345,7 +345,7 @@ export const sections: Section[] = [
                 ]
             },
             { name: "PPT to PDF", href: "/ppt-to-pdf", icon: Presentation, description: "Convert PowerPoint presentations to PDF.", disabled: true },
-            { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF.", disabled: true },
+            { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF.", disabled: false },
             {
                 name: "TXT to PDF",
                 href: "/txt-to-pdf",
@@ -368,7 +368,7 @@ export const sections: Section[] = [
                     { title: "Download", description: "Save the result." }
                 ]
             },
-            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF.", popular: true, disabled: true },
+            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF.", popular: true },
         ]
     },
     {
@@ -377,15 +377,15 @@ export const sections: Section[] = [
         icon: ArrowDownUp,
         description: "Convert PDFs to other formats",
         tools: [
-            { name: "PDF to Excel", href: "/pdf-to-excel", icon: Table, description: "Convert PDF tables and data to Excel spreadsheets.", disabled: true },
+            { name: "PDF to Excel", href: "/pdf-to-excel", icon: Table, description: "Convert PDF tables and data to Excel spreadsheets.", disabled: false },
             { name: "PDF to JPG", href: "/pdf-to-jpg", icon: FileImage, description: "Convert PDF pages to high-quality images." },
-            { name: "PDF to ODT", href: "/pdf-to-odt", icon: FileText, description: "Convert PDF documents to OpenDocument Text format.", disabled: true },
+            { name: "PDF to ODT", href: "/pdf-to-odt", icon: FileText, description: "Convert PDF documents to OpenDocument Text format.", disabled: false },
             { name: "PDF to PNG", href: "/pdf-to-png", icon: FileImage, description: "Convert PDF pages to high-quality PNG images." },
-            { name: "PDF to PPT", href: "/pdf-to-ppt", icon: Presentation, description: "Convert PDF pages to PowerPoint slides (images).", disabled: true },
-            { name: "PDF to RTF", href: "/pdf-to-rtf", icon: FileText, description: "Convert PDF documents to Rich Text Format.", disabled: true },
+            { name: "PDF to PPT", href: "/pdf-to-ppt", icon: Presentation, description: "Convert PDF pages to PowerPoint slides (images).", disabled: false },
+            { name: "PDF to RTF", href: "/pdf-to-rtf", icon: FileText, description: "Convert PDF documents to Rich Text Format.", disabled: false },
             { name: "PDF to TXT", href: "/pdf-to-txt", icon: FileText, description: "Extract text content from PDF documents." },
-            { name: "PDF to WebP", href: "/pdf-to-webp", icon: FileImage, description: "Convert PDF pages to modern WebP images.", disabled: true },
-            { name: "PDF to Word", href: "/pdf-to-word", icon: FileText, description: "Convert PDF documents to editable Word files.", popular: true, disabled: true },
+            { name: "PDF to WebP", href: "/pdf-to-webp", icon: FileImage, description: "Convert PDF pages to modern WebP images.", disabled: false },
+            { name: "PDF to Word", href: "/pdf-to-word", icon: FileText, description: "Convert PDF documents to editable Word files.", popular: true },
         ]
     },
     {
@@ -394,11 +394,11 @@ export const sections: Section[] = [
         icon: Table,
         description: "Convert between spreadsheet, data, and financial formats",
         tools: [
-            { name: "CSV to Excel", href: "/csv-to-excel", icon: Table, description: "Convert CSV files to Excel spreadsheets.", disabled: true },
-            { name: "Excel to CSV", href: "/excel-to-csv", icon: Table, description: "Convert Excel spreadsheets to CSV format.", disabled: true },
-            { name: "Invoice Extractor", href: "/invoice-extractor", icon: Receipt, description: "Automatically extract data from invoices.", disabled: true },
-            { name: "Bank Statement Analyzer", href: "/bank-statement-analyzer", icon: Landmark, description: "AI-powered analysis of bank statement PDFs.", disabled: true },
-            { name: "Bank Statement Converter", href: "/bank-statement-converter", icon: Landmark, description: "Convert bank statements between PDF, CSV, and Excel formats.", disabled: true },
+            { name: "CSV to Excel", href: "/csv-to-excel", icon: Table, description: "Convert CSV files to Excel spreadsheets.", disabled: false },
+            { name: "Excel to CSV", href: "/excel-to-csv", icon: Table, description: "Convert Excel spreadsheets to CSV format.", disabled: false },
+            { name: "Invoice Extractor", href: "/invoice-extractor", icon: Receipt, description: "Automatically extract data from invoices.", disabled: false },
+            { name: "Bank Statement Analyzer", href: "/bank-statement-analyzer", icon: Landmark, description: "AI-powered analysis of bank statement PDFs.", disabled: false },
+            { name: "Bank Statement Converter", href: "/bank-statement-converter", icon: Landmark, description: "Convert bank statements between PDF, CSV, and Excel formats.", disabled: false },
         ]
     },
     {

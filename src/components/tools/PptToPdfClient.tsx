@@ -24,8 +24,7 @@ export default function PptToPdfClient() {
     useGlobalFileDrop({
         onFilesSelected: handleFilesSelected,
         accept: {
-            "application/vnd.openxmlformats-officedocument.presentationml.presentation": [".pptx"],
-            "application/vnd.ms-powerpoint": [".ppt"]
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation": [".pptx"]
         },
     });
 
@@ -45,7 +44,7 @@ export default function PptToPdfClient() {
         formData.append("file", file);
 
         try {
-            const response = await fetch("/api/convert/pptx", {
+            const response = await fetch("/api/ppt-to-pdf", {
                 method: "POST",
                 body: formData,
             });
@@ -79,7 +78,7 @@ export default function PptToPdfClient() {
     return (
         <ToolPageWrapper
             title="PPT to PDF"
-            description="Convert PowerPoint presentations (.ppt, .pptx) to PDF using native PowerPoint automation."
+            description="Convert PowerPoint presentations (.pptx) to PDF using a pure JavaScript serverless engine."
             icon={Presentation}
             color="cyan"
         >
@@ -89,12 +88,11 @@ export default function PptToPdfClient() {
                         <RetroFileUploader
                             onFilesSelected={handleFilesSelected}
                             accept={{
-                                "application/vnd.openxmlformats-officedocument.presentationml.presentation": [".pptx"],
-                                "application/vnd.ms-powerpoint": [".ppt"]
+                                "application/vnd.openxmlformats-officedocument.presentationml.presentation": [".pptx"]
                             }}
                             multiple={false}
                             title="Upload PowerPoint"
-                            description="Select a .ppt or .pptx file to convert"
+                            description="Select a .pptx file to convert"
                             variant="cyan"
                         />
                     ) : (

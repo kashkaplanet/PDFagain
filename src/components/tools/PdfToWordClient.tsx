@@ -40,10 +40,9 @@ export default function PdfToWordClient() {
 
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("format", "docx");
 
         try {
-            const response = await fetch("/api/convert/pdf", {
+            const response = await fetch("/api/pdf-to-word", {
                 method: "POST",
                 body: formData,
             });

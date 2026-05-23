@@ -42,7 +42,7 @@ export default function WordToPdfClient() {
         formData.append("file", file);
 
         try {
-            const response = await fetch("/api/convert/word", {
+            const response = await fetch("/api/word-to-pdf", {
                 method: "POST",
                 body: formData,
             });

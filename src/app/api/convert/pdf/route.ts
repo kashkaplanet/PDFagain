@@ -32,21 +32,7 @@ export async function POST(req: NextRequest) {
         let outputMimeType = "";
         let outputFilename = "";
 
-        if (format === "docx") {
-            // Serverless: Use internal library
-            outputFilename = file.name.replace(/\.[^/.]+$/, "") + ".docx";
-            outputPath = join(tempDir, outputFilename);
-
-            // Import dynamically or assume it's available. 
-            // Since we are in an async function in a route, we can use the library.
-            const { convertPdfToDocx } = await import("@/lib/pdf-to-docx");
-            const docxBuffer = await convertPdfToDocx(buffer);
-            await writeFile(outputPath, docxBuffer);
-
-            outputMimeType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            // No command to execute
-            command = "";
-        } else if (format === "txt") {
+        if (format === "txt") {
             outputFilename = file.name.replace(/\.[^/.]+$/, "") + ".txt";
             outputPath = join(tempDir, outputFilename);
             command = `python "${scriptPath}" "${inputPath}" "${outputPath}"`;
