@@ -1,23 +1,14 @@
 export const dynamic = 'force-dynamic';
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { google } from '@ai-sdk/google';
 import { generateText } from 'ai';
 import { handleApiError } from '@/lib/api-utils';
 
-// Configure OpenRouter
-const openrouter = createOpenRouter({
-    apiKey: process.env.OPENROUTER_API_KEY,
-    headers: {
-        "HTTP-Referer": "http://localhost:3000",
-        "X-Title": "PDF Chat",
-    }
-});
-
 export async function POST(req: NextRequest) {
     try {
-        if (!process.env.OPENROUTER_API_KEY) {
-            return NextResponse.json({ error: "OpenRouter API Key not configured" }, { status: 500 });
+        if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+            return NextResponse.json({ error: "Google Gemini API Key not configured" }, { status: 500 });
         }
 
         const body = await req.json();
@@ -59,47 +50,56 @@ Base your **factual answers about the document** strictly on the content provide
 
         let text: string;
         try {
-            // Attempt 1: Standard Auto Mode
+            // Primary: Gemini 2.0 Flash (fast, capable, generous free tier)
             const result = await generateText({
-                model: openrouter('openrouter/auto'),
+                model: google('gemini-2.0-flash'),
                 messages: messages.map((m: any) => ({
                     role: m.role,
                     content: m.content,
                 })),
                 system: systemPrompt,
-                // @ts-ignore
-                maxTokens: 4000,
+                maxOutputTokens: 4000,
             });
             text = result.text;
         } catch (error: any) {
-            console.warn("Standard chat failed, executing fallback:", error.message);
+            console.warn("Gemini 2.0 Flash failed, trying fallback:", error.message);
 
-            // Attempt 2: Free Model with Truncated Context
+            // Fallback: Gemini 2.0 Flash Lite (lighter, even more generous limits)
             const truncatedSystemPrompt = systemPrompt.length > 20000
-                ? systemPrompt.substring(0, 5000) + "\n...(Context truncated for budget mode)..."
+                ? systemPrompt.substring(0, 5000) + "\n...(Context truncated for fallback mode)..."
                 : systemPrompt;
 
             try {
                 const result = await generateText({
-                    model: openrouter('arcee-ai/trinity-large-preview:free'),
+                    model: google('gemini-2.0-flash-lite'),
                     messages: messages.map((m: any) => ({
                         role: m.role,
                         content: m.content,
                     })),
                     system: truncatedSystemPrompt,
-                    // @ts-ignore
-                    maxTokens: 500,
+                    maxOutputTokens: 2000,
                 });
                 text = result.text;
             } catch (fallbackError: any) {
-                console.error("Chat fallback failed:", fallbackError);
+                console.error("Gemini fallback also failed:", fallbackError);
                 throw error;
             }
         }
 
         return NextResponse.json({ role: 'assistant', content: text });
 
-    } catch (error) {
+    } catch (error: any) {
+        console.error("Chat API error:", error);
+
+        // Handle rate limit / quota errors with a friendly message
+        if (error?.statusCode === 429 || error?.lastError?.statusCode === 429 ||
+            error?.message?.includes('RESOURCE_EXHAUSTED') || error?.message?.includes('quota')) {
+            return NextResponse.json(
+                { error: "AI service is temporarily busy. Please try again in a moment. ⏳" },
+                { status: 429 }
+            );
+        }
+
         return handleApiError(error, "Internal server error during chat");
     }
 }

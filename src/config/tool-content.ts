@@ -856,6 +856,176 @@ export const toolContent: Record<string, ToolContent> = {
         faq: [
             { question: "Does this scale the text?", answer: "Yes, the entire page content is scaled to fit the new dimensions." }
         ]
+    },
+    "extract-images": {
+        slug: "extract-images",
+        title: "Extract Images from PDF",
+        description: "Pull all embedded pictures out of a PDF document into a single ZIP file.",
+        howTo: {
+            title: "How to Extract Images",
+            steps: [
+                { title: "Upload PDF", description: "Select the PDF file containing images." },
+                { title: "Extract", description: "The tool scans and extracts all image streams." },
+                { title: "Download", description: "Download a ZIP archive with all your images." }
+            ]
+        },
+        features: [
+            { title: "Batch Extraction", description: "Gets all images at once.", icon: "Layers" },
+            { title: "Original Quality", description: "Extracts images in their original format.", icon: "Image" },
+            { title: "Secure", description: "Processing stays on your device.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Will it reduce image quality?", answer: "No, images are extracted exactly as they are embedded in the PDF." }
+        ]
+    },
+    "markdown-to-pdf": {
+        slug: "markdown-to-pdf",
+        title: "Markdown to PDF",
+        description: "Write or paste Markdown text and instantly export it as a beautifully styled PDF.",
+        howTo: {
+            title: "How to Convert Markdown to PDF",
+            steps: [
+                { title: "Write or Paste", description: "Type or paste your Markdown content." },
+                { title: "Preview", description: "See a live preview of how the document will look." },
+                { title: "Download", description: "Export the rendered content as a PDF file." }
+            ]
+        },
+        features: [
+            { title: "Live Preview", description: "See changes as you type.", icon: "Eye" },
+            { title: "Syntax Highlighting", description: "Supports code block formatting.", icon: "FileCode" },
+            { title: "Local Conversion", description: "No server uploads needed.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Are GitHub Flavored Markdown features supported?", answer: "Yes, tables, task lists, and strikethroughs are supported." }
+        ]
+    },
+    "sanitize-pdf": {
+        slug: "sanitize-pdf",
+        title: "Sanitize PDF",
+        description: "Remove hidden metadata, author information, and creation dates for total privacy.",
+        howTo: {
+            title: "How to Sanitize a PDF",
+            steps: [
+                { title: "Upload PDF", description: "Choose the PDF file you want to sanitize." },
+                { title: "Sanitize", description: "Our tool permanently strips all hidden metadata." },
+                { title: "Download", description: "Download the sanitized, untraceable PDF." }
+            ]
+        },
+        features: [
+            { title: "Total Privacy", description: "Removes all tracking data.", icon: "ShieldAlert" },
+            { title: "Fast", description: "Instant local sanitization.", icon: "Zap" },
+            { title: "Secure", description: "Files never leave your device.", icon: "Lock" }
+        ],
+        faq: [
+            { question: "Does this change the visible text?", answer: "No, it only removes hidden metadata like author, creation date, and software used." }
+        ]
+    },
+    "add-margins": {
+        slug: "add-margins",
+        title: "Add Margins to PDF",
+        description: "Add white space or padding around the edges of your PDF pages.",
+        howTo: {
+            title: "How to Add Margins",
+            steps: [
+                { title: "Upload PDF", description: "Select the PDF you want to add margins to." },
+                { title: "Set Margins", description: "Define the top, bottom, left, and right margins." },
+                { title: "Apply", description: "Click to add margins and adjust the page size." },
+                { title: "Download", description: "Download the adjusted PDF document." }
+            ]
+        },
+        features: [
+            { title: "Custom Margins", description: "Set exact padding values.", icon: "Maximize" },
+            { title: "Binding Ready", description: "Create space for hole punching or binding.", icon: "BookOpen" },
+            { title: "Local", description: "No server uploads.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Does it scale the content?", answer: "The content stays the same size; the page dimensions are increased to add the margin." }
+        ]
+    },
+    "remove-empty-pages": {
+        slug: "remove-empty-pages",
+        title: "Remove Empty Pages from PDF",
+        description: "Automatically detect and delete blank pages from your PDF documents.",
+        howTo: {
+            title: "How to Remove Empty Pages",
+            steps: [
+                { title: "Upload PDF", description: "Select the PDF file with blank pages." },
+                { title: "Scan", description: "The tool scans for completely blank pages." },
+                { title: "Download", description: "Download the cleaned PDF without empty pages." }
+            ]
+        },
+        features: [
+            { title: "Auto Detect", description: "Finds pages with no text or graphics.", icon: "Search" },
+            { title: "Fast", description: "Cleans large PDFs instantly.", icon: "Zap" },
+            { title: "Secure", description: "Everything happens in your browser.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Will this remove pages with just page numbers?", answer: "No, only completely blank pages with no drawing or text operators are removed." }
+        ]
+    },
+    "crop-pdf": {
+        slug: "crop-pdf",
+        title: "Crop PDF Pages",
+        description: "Trim the visible area or margins of your PDF pages.",
+        howTo: {
+            title: "How to Crop PDF",
+            steps: [
+                { title: "Upload PDF", description: "Select the PDF you want to crop." },
+                { title: "Set Margins", description: "Define the crop margins (Top, Bottom, Left, Right)." },
+                { title: "Crop", description: "Click to apply the crop bounds to all pages." },
+                { title: "Download", description: "Save the cropped PDF document." }
+            ]
+        },
+        features: [
+            { title: "Custom Crop", description: "Enter precise crop values in inches.", icon: "Crop" },
+            { title: "Batch Process", description: "Crops all pages in the document simultaneously.", icon: "Layers" },
+            { title: "Local", description: "Processing stays on your device.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Can I crop individual pages differently?", answer: "Currently, the crop margins are applied uniformly to all pages in the document." }
+        ]
+    },
+    "json-to-pdf": {
+        slug: "json-to-pdf",
+        title: "JSON to PDF Converter",
+        description: "Format raw JSON data into a clean, readable, and beautifully highlighted PDF document.",
+        howTo: {
+            title: "How to Convert JSON to PDF",
+            steps: [
+                { title: "Paste JSON", description: "Paste your raw JSON data." },
+                { title: "Preview", description: "The tool formats and highlights your data." },
+                { title: "Download", description: "Export the formatted data as a PDF." }
+            ]
+        },
+        features: [
+            { title: "Syntax Highlighting", description: "Color-codes keys and values.", icon: "Braces" },
+            { title: "Pretty Print", description: "Automatically indents and formats raw data.", icon: "AlignLeft" },
+            { title: "Secure", description: "Your data never leaves your browser.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Does it validate my JSON?", answer: "Yes, the tool will try to parse your JSON and will show an error if it's invalid." }
+        ]
+    },
+    "svg-to-pdf": {
+        slug: "svg-to-pdf",
+        title: "SVG to PDF Converter",
+        description: "Convert scalable vector graphics into high-quality PDF documents.",
+        howTo: {
+            title: "How to Convert SVG to PDF",
+            steps: [
+                { title: "Upload SVG", description: "Select your SVG image file." },
+                { title: "Convert", description: "The tool perfectly renders the vector into a PDF." },
+                { title: "Download", description: "Save the resulting PDF document." }
+            ]
+        },
+        features: [
+            { title: "Vector Quality", description: "Maintains high resolution.", icon: "Maximize" },
+            { title: "Fast Conversion", description: "Converts instantly without servers.", icon: "Zap" },
+            { title: "Secure", description: "100% local processing.", icon: "Shield" }
+        ],
+        faq: [
+            { question: "Can I convert multiple SVGs at once?", answer: "Currently, this tool converts one SVG file at a time into a single-page PDF." }
+        ]
     }
 };
 

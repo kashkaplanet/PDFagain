@@ -5,7 +5,7 @@ import {
     GitCompare, Eye, FileType, Combine, Maximize2,
     EyeOff, Info, ArrowDownUp, Receipt, Scale, Table,
     Sparkles, Zap, Shield, MessageSquare, Presentation, Landmark,
-    Binary
+    Binary, Image, FileCode, ShieldAlert, Maximize, FileX, Crop, Braces
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
@@ -54,6 +54,17 @@ export const sections: Section[] = [
                 ]
             },
             {
+                name: "Extract Images",
+                href: "/extract-images",
+                icon: Image,
+                description: "Extract all embedded images from a PDF into a ZIP file.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF file containing images." },
+                    { title: "Extract", description: "The tool scans and extracts all image streams." },
+                    { title: "Download", description: "Download a ZIP archive with all your images." }
+                ]
+            },
+            {
                 name: "Merge PDF",
                 href: "/merge-pdf",
                 icon: Combine,
@@ -91,6 +102,17 @@ export const sections: Section[] = [
                 ]
             },
             {
+                name: "Remove Empty Pages",
+                href: "/remove-empty-pages",
+                icon: FileX,
+                description: "Automatically detect and delete blank pages.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF file with blank pages." },
+                    { title: "Scan", description: "The tool scans for completely blank pages." },
+                    { title: "Download", description: "Download the cleaned PDF without empty pages." }
+                ]
+            },
+            {
                 name: "Reverse PDF",
                 href: "/reverse-pdf",
                 icon: ArrowDownUp,
@@ -122,6 +144,30 @@ export const sections: Section[] = [
         icon: PenTool,
         description: "Modify, annotate, and customize your PDFs",
         tools: [
+            {
+                name: "Add Margins",
+                href: "/add-margins",
+                icon: Maximize,
+                description: "Add padding and margins to your PDF pages.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF you want to add margins to." },
+                    { title: "Set Margins", description: "Define the top, bottom, left, and right margins." },
+                    { title: "Apply", description: "Click to add margins and adjust the page size." },
+                    { title: "Download", description: "Download the adjusted PDF document." }
+                ]
+            },
+            {
+                name: "Crop PDF",
+                href: "/crop-pdf",
+                icon: Crop,
+                description: "Trim the visible area or margins of your PDF pages.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Select the PDF you want to crop." },
+                    { title: "Set Margins", description: "Define the crop margins (Top, Bottom, Left, Right)." },
+                    { title: "Crop", description: "Click to apply the crop bounds to all pages." },
+                    { title: "Download", description: "Save the cropped PDF document." }
+                ]
+            },
             {
                 name: "Flatten PDF",
                 href: "/flatten-pdf",
@@ -276,6 +322,17 @@ export const sections: Section[] = [
                 ]
             },
             {
+                name: "Sanitize PDF",
+                href: "/sanitize-pdf",
+                icon: ShieldAlert,
+                description: "Remove hidden metadata and author information for total privacy.",
+                tutorialSteps: [
+                    { title: "Upload PDF", description: "Choose the PDF file you want to sanitize." },
+                    { title: "Sanitize", description: "Our tool permanently strips all hidden metadata." },
+                    { title: "Download", description: "Download the sanitized, untraceable PDF." }
+                ]
+            },
+            {
                 name: "Sign PDF",
                 href: "/sign-pdf",
                 icon: PenTool,
@@ -307,7 +364,7 @@ export const sections: Section[] = [
         icon: FileType,
         description: "Transform any document into PDF format",
         tools: [
-            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format.", disabled: false },
+            { name: "Excel to PDF", href: "/excel-to-pdf", icon: Table, description: "Convert Excel spreadsheets to PDF format.", disabled: true },
             {
                 name: "HTML to PDF",
                 href: "/html-to-pdf",
@@ -317,6 +374,17 @@ export const sections: Section[] = [
                     { title: "Enter URL", description: "Paste the web address (URL) of the page you want to convert." },
                     { title: "Convert", description: "Click 'Convert' to capture the webpage." },
                     { title: "Download", description: "Save the webpage as a PDF document." }
+                ]
+            },
+            {
+                name: "JSON to PDF",
+                href: "/json-to-pdf",
+                icon: Braces,
+                description: "Format raw JSON data into a clean, readable PDF document.",
+                tutorialSteps: [
+                    { title: "Paste JSON", description: "Paste your raw JSON data." },
+                    { title: "Preview", description: "The tool formats and highlights your data." },
+                    { title: "Download", description: "Export the formatted data as a PDF." }
                 ]
             },
             {
@@ -333,6 +401,17 @@ export const sections: Section[] = [
                 ]
             },
             {
+                name: "Markdown to PDF",
+                href: "/markdown-to-pdf",
+                icon: FileCode,
+                description: "Convert Markdown text into a beautifully styled PDF.",
+                tutorialSteps: [
+                    { title: "Write or Paste", description: "Type or paste your Markdown content." },
+                    { title: "Preview", description: "See a live preview of how the document will look." },
+                    { title: "Download", description: "Export the rendered content as a PDF file." }
+                ]
+            },
+            {
                 name: "PNG to PDF",
                 href: "/png-to-pdf",
                 icon: FileImage,
@@ -345,7 +424,18 @@ export const sections: Section[] = [
                 ]
             },
             { name: "PPT to PDF", href: "/ppt-to-pdf", icon: Presentation, description: "Convert PowerPoint presentations to PDF.", disabled: true },
-            { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF.", disabled: false },
+            { name: "RTF to PDF", href: "/rtf-to-pdf", icon: FileText, description: "Convert Rich Text Format files to PDF.", disabled: true },
+            {
+                name: "SVG to PDF",
+                href: "/svg-to-pdf",
+                icon: PenTool,
+                description: "Convert scalable vector graphics into high-quality PDFs.",
+                tutorialSteps: [
+                    { title: "Upload SVG", description: "Select your SVG image file." },
+                    { title: "Convert", description: "The tool perfectly renders the vector into a PDF." },
+                    { title: "Download", description: "Save the resulting PDF document." }
+                ]
+            },
             {
                 name: "TXT to PDF",
                 href: "/txt-to-pdf",
@@ -368,7 +458,7 @@ export const sections: Section[] = [
                     { title: "Download", description: "Save the result." }
                 ]
             },
-            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF.", popular: true },
+            { name: "Word to PDF", href: "/word-to-pdf", icon: FileText, description: "Convert Microsoft Word documents to PDF.", popular: true, disabled: true },
         ]
     },
     {
@@ -377,15 +467,15 @@ export const sections: Section[] = [
         icon: ArrowDownUp,
         description: "Convert PDFs to other formats",
         tools: [
-            { name: "PDF to Excel", href: "/pdf-to-excel", icon: Table, description: "Convert PDF tables and data to Excel spreadsheets.", disabled: false },
+            { name: "PDF to Excel", href: "/pdf-to-excel", icon: Table, description: "Convert PDF tables and data to Excel spreadsheets.", disabled: true },
             { name: "PDF to JPG", href: "/pdf-to-jpg", icon: FileImage, description: "Convert PDF pages to high-quality images." },
-            { name: "PDF to ODT", href: "/pdf-to-odt", icon: FileText, description: "Convert PDF documents to OpenDocument Text format.", disabled: false },
+            { name: "PDF to ODT", href: "/pdf-to-odt", icon: FileText, description: "Convert PDF documents to OpenDocument Text format.", disabled: true },
             { name: "PDF to PNG", href: "/pdf-to-png", icon: FileImage, description: "Convert PDF pages to high-quality PNG images." },
-            { name: "PDF to PPT", href: "/pdf-to-ppt", icon: Presentation, description: "Convert PDF pages to PowerPoint slides (images).", disabled: false },
-            { name: "PDF to RTF", href: "/pdf-to-rtf", icon: FileText, description: "Convert PDF documents to Rich Text Format.", disabled: false },
+            { name: "PDF to PPT", href: "/pdf-to-ppt", icon: Presentation, description: "Convert PDF pages to PowerPoint slides (images).", disabled: true },
+            { name: "PDF to RTF", href: "/pdf-to-rtf", icon: FileText, description: "Convert PDF documents to Rich Text Format.", disabled: true },
             { name: "PDF to TXT", href: "/pdf-to-txt", icon: FileText, description: "Extract text content from PDF documents." },
             { name: "PDF to WebP", href: "/pdf-to-webp", icon: FileImage, description: "Convert PDF pages to modern WebP images.", disabled: false },
-            { name: "PDF to Word", href: "/pdf-to-word", icon: FileText, description: "Convert PDF documents to editable Word files.", popular: true },
+            { name: "PDF to Word", href: "/pdf-to-word", icon: FileText, description: "Convert PDF documents to editable Word files.", popular: true, disabled: true },
         ]
     },
     {
