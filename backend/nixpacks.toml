@@ -1,0 +1,44 @@
+[providers]
+node = true
+
+[phases.setup]
+nixPkgs = [
+    "git",
+    "chromium",
+    "nss",
+    "freetype",
+    "harfbuzz",
+    "fontconfig",
+    "cairo",
+    "pango",
+    "glib",
+    "dbus",
+    "atk",
+    "cups",
+    "libdrm",
+    "mesa",
+    "expat",
+    "nspr",
+    "xorg.libX11",
+    "xorg.libXcomposite",
+    "xorg.libXdamage",
+    "xorg.libXext",
+    "xorg.libXfixes",
+    "xorg.libXrandr",
+    "xorg.libxcb",
+    "alsa-lib",
+    "at-spi2-atk",
+    "gtk3",
+    "libuuid",
+]
+
+[phases.install]
+cmds = [
+    "npm install"
+]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"
