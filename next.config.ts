@@ -12,10 +12,6 @@ const nextConfig: NextConfig = {
 
 
 
-  experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons', 'date-fns', 'lodash'],
-  },
-
   webpack: (config, { isServer }) => {
     // Handle node: protocol imports used by pptxgenjs and other packages
     if (!isServer) {
@@ -89,7 +85,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
-  disable: process.env.NODE_ENV === "development" || process.env.DISABLE_PWA === "true",
+  disable: process.env.DISABLE_PWA === "true",
   register: true,
   skipWaiting: true,
 });

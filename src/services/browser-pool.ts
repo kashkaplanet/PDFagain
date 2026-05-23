@@ -1,4 +1,4 @@
-import puppeteer, { Browser, Page } from "puppeteer";
+import type { Browser, Page } from "puppeteer";
 
 /**
  * Singleton browser pool for efficient Puppeteer usage.
@@ -33,8 +33,9 @@ class BrowserPool {
             return this.launchPromise;
         }
 
-        // Launch new browser
+        // Launch new browser — dynamic import since puppeteer is a devDependency
         this.isLaunching = true;
+        const puppeteer = (await import('puppeteer')).default;
         this.launchPromise = puppeteer.launch(this.launchOptions);
 
         try {
